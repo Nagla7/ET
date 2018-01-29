@@ -1,0 +1,6 @@
+framework module Pods_ETTests {
+  umbrella header "Pods-ETTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
