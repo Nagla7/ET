@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aiS-NY-KjC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vpo-Xh-bXE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,6 +26,58 @@
             </objects>
             <point key="canvasLocation" x="-697" y="237"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="f3h-sI-bAv">
+            <objects>
+                <viewController id="Vpo-Xh-bXE" customClass="LoginViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tho-26-HDa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f12-JL-3fI">
+                                <rect key="frame" x="16" y="204" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBa-Xa-cHU">
+                                <rect key="frame" x="16" y="290" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQ0-Qa-Uhq">
+                                <rect key="frame" x="170" y="370" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="login"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jx-pT-Mzj">
+                                <rect key="frame" x="126" y="491" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Forgot Password?"/>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jyM-yp-jq1">
+                                <rect key="frame" x="0.0" y="168" width="375" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Customer"/>
+                                    <segment title="Service Provider"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SelectUserTybe:" destination="Vpo-Xh-bXE" eventType="valueChanged" id="r4F-U7-1NP"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cMM-PD-30q"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcy-zS-8F3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="30.134932533733135"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="7J3-0y-pVo">
             <objects>
@@ -35,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dnc-GD-nDS">
-                                <rect key="frame" x="0.0" y="144" width="700" height="523"/>
+                                <rect key="frame" x="0.0" y="157" width="700" height="523"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNa-MD-2J4">
                                         <rect key="frame" x="68" y="12" width="123" height="30"/>
@@ -249,25 +301,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aPG-bk-r8b">
-                                <rect key="frame" x="11" y="88" width="678" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="14A-xc-9wP">
+                                <rect key="frame" x="0.0" y="106" width="700" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Customer"/>
                                     <segment title="Service Provider"/>
                                 </segments>
-                                <color key="tintColor" red="0.25143247839999999" green="0.62027686829999995" blue="0.71156579259999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="SelectUserTybe:" destination="tVm-YJ-opA" eventType="valueChanged" id="Cug-Na-xvq"/>
-                                    <action selector="SelectUserTybe:" destination="aiS-NY-KjC" eventType="valueChanged" id="FIh-vf-R9k"/>
+                                    <action selector="SelectUserTybe:" destination="aiS-NY-KjC" eventType="valueChanged" id="kMV-S1-AyO"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.88101202249526978" green="0.97509044408798218" blue="0.99613672494888306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aPG-bk-r8b" firstAttribute="centerX" secondItem="Dnc-GD-nDS" secondAttribute="centerX" id="1xo-Gw-zVo"/>
-                            <constraint firstItem="aPG-bk-r8b" firstAttribute="top" secondItem="KHX-1U-99k" secondAttribute="top" constant="99" id="2J4-Xo-26u"/>
                             <constraint firstItem="Dnc-GD-nDS" firstAttribute="top" secondItem="zzo-xm-1G5" secondAttribute="top" constant="146" id="5gQ-of-YhO"/>
-                            <constraint firstItem="aPG-bk-r8b" firstAttribute="leading" secondItem="KHX-1U-99k" secondAttribute="leading" constant="11" id="R1v-CB-cJC"/>
                             <constraint firstItem="Dnc-GD-nDS" firstAttribute="bottom" secondItem="KHX-1U-99k" secondAttribute="bottom" id="dmq-BG-hAH"/>
                             <constraint firstAttribute="trailing" secondItem="Dnc-GD-nDS" secondAttribute="trailing" id="pws-i4-Kn6"/>
                             <constraint firstItem="Dnc-GD-nDS" firstAttribute="leading" secondItem="zzo-xm-1G5" secondAttribute="leading" id="wDU-XF-e6N"/>
@@ -317,82 +365,5 @@
             </objects>
             <point key="canvasLocation" x="-1651" y="-96"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="f4A-7G-T9B">
-            <objects>
-                <viewController id="tVm-YJ-opA" customClass="LoginViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Weh-5y-YSv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-CC-d0u">
-                                <rect key="frame" x="7" y="262" width="352" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ma-7x-oQQ">
-                                <rect key="frame" x="7" y="356" width="352" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quQ-ew-6MT">
-                                <rect key="frame" x="102" y="493" width="177" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Forgot password?">
-                                    <color key="titleColor" red="0.17156893009999999" green="0.74780416490000001" blue="0.7549826503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-gG-aqI">
-                                <rect key="frame" x="57" y="424" width="266" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.62223362920000003" green="0.86942124369999996" blue="0.89576482769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tc1-zh-ekT">
-                                <rect key="frame" x="16" y="189" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Customer"/>
-                                    <segment title="Service Provider"/>
-                                </segments>
-                                <color key="tintColor" red="0.25143247839999999" green="0.62027686829999995" blue="0.71156579259999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="SelectUserTybe:" destination="tVm-YJ-opA" eventType="valueChanged" id="tzJ-lv-z2J"/>
-                                </connections>
-                            </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="مشع" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-Qt-dMc">
-                                <rect key="frame" x="-31" y="-61" width="437" height="249"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.90133096010000002" green="0.97486532439999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.78184528340000004" green="0.91699714470000004" blue="0.90840582280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="ywX-r6-Zic"/>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="P4J-k7-Oir"/>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="LoginSeg" destination="Tc1-zh-ekT" id="TwA-xQ-Zhw"/>
-                        <outlet property="Password" destination="8Ma-7x-oQQ" id="ARE-Ne-W99"/>
-                        <outlet property="UserName" destination="SGb-CC-d0u" id="3WQ-PV-ElA"/>
-                        <outlet property="UserSegment" destination="Tc1-zh-ekT" id="uy6-5R-7A5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xu3-PS-vKk" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="68" y="45"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="مشع" width="2600" height="1800"/>
-    </resources>
 </document>
