@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F10E89120225E7C00404A6A /* CustomControl.swift */; };
 		0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F893F49202168F900B76FA9 /* LoginViewController.swift */; };
 		0F893F4C2021703A00B76FA9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F893F4B2021703A00B76FA9 /* RegisterViewController.swift */; };
 		2AD04E1574DAAC2BBAA72FD6 /* Pods_ET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ET.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F10E89120225E7C00404A6A /* CustomControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControl.swift; sourceTree = "<group>"; };
 		0F893F49202168F900B76FA9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0F893F4B2021703A00B76FA9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		138E96B7278E08458988D2F4 /* Pods-ET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ET.release.xcconfig"; path = "Pods/Target Support Files/Pods-ET/Pods-ET.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				6112EA73201F361F008B4066 /* AppDelegate.swift */,
 				6112EA75201F361F008B4066 /* ViewController.swift */,
 				6112EA77201F361F008B4066 /* Main.storyboard */,
+				0F10E89120225E7C00404A6A /* CustomControl.swift */,
 				0F893F4B2021703A00B76FA9 /* RegisterViewController.swift */,
 				0F893F49202168F900B76FA9 /* LoginViewController.swift */,
 				6112EA7D201F361F008B4066 /* Assets.xcassets */,
@@ -483,6 +486,7 @@
 				0F893F4C2021703A00B76FA9 /* RegisterViewController.swift in Sources */,
 				6112EA76201F361F008B4066 /* ViewController.swift in Sources */,
 				6112EA74201F361F008B4066 /* AppDelegate.swift in Sources */,
+				0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */,
 				6112EA7C201F361F008B4066 /* ET.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
