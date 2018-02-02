@@ -83,10 +83,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96083921189999999" green="0.98821479079999996" blue="0.98430615659999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="0.24917059075342465" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.62887949486301364" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="cMM-PD-30q"/>
                     </view>
                 </viewController>
@@ -314,18 +314,6 @@
                                     <constraint firstItem="1D0-Lq-2jy" firstAttribute="top" secondItem="LH0-ta-oK7" secondAttribute="bottom" constant="37" id="zgF-8g-PwY"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lrg-BQ-VYL" customClass="CustomControl" customModule="ET" customModuleProvider="target">
-                                <rect key="frame" x="20" y="28" width="476" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="14A-xc-9wP">
                                 <rect key="frame" x="0.0" y="106" width="700" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -338,7 +326,7 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.88101202249526978" green="0.97509044408798218" blue="0.99613672494888306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Dnc-GD-nDS" firstAttribute="top" secondItem="zzo-xm-1G5" secondAttribute="top" constant="146" id="5gQ-of-YhO"/>
                             <constraint firstItem="Dnc-GD-nDS" firstAttribute="bottom" secondItem="KHX-1U-99k" secondAttribute="bottom" id="dmq-BG-hAH"/>
@@ -365,7 +353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VbS-rK-cTD" customClass="CustomControl" customModule="ET" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="286" width="375" height="82"/>
+                                <rect key="frame" x="0.0" y="292" width="375" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -388,7 +376,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="F4u-6B-pFC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="AOn-39-DN8"/>
