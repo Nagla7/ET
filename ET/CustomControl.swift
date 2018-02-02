@@ -82,7 +82,7 @@ class CustomControl: UIControl {
         for buttonTitle in buttonTitles {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
-            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 30 , bottom: 0, right: 0)
+            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0 , bottom: 0, right:30)
             button.setTitleColor(textColor, for: .normal)
             button.addTarget(self, action: #selector(SelectUserTybe(button:)), for: .touchUpInside)
             buttons.append(button)
