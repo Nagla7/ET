@@ -9,10 +9,13 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    @IBOutlet weak var LoginView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+LoginView.center=view.center
+LoginView.layer.masksToBounds=true
+LoginView.layer.cornerRadius=8
         // Do any additional setup after loading the view.
     }
 
@@ -32,14 +35,9 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated:true, completion:nil)
     }
-    */
+    
 
 }
