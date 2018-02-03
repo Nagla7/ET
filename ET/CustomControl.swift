@@ -44,6 +44,16 @@ class CustomControl: UIControl {
         }
     }
     
+    @IBInspectable var leftPadding: CGFloat = 0{
+        didSet{
+            updateView()
+        }
+    }
+    @IBInspectable var rigthPadding: CGFloat = 0{
+        didSet{
+            updateView()
+        }
+    }
     @IBInspectable
     var SelectorTextColor : UIColor = .white{
         didSet{
@@ -82,7 +92,7 @@ class CustomControl: UIControl {
         for buttonTitle in buttonTitles {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
-            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0 , bottom: 0, right:30)
+            button.contentEdgeInsets = UIEdgeInsets(top: 0, left: leftPadding , bottom: 0, right: rigthPadding)
             button.setTitleColor(textColor, for: .normal)
             button.addTarget(self, action: #selector(SelectUserTybe(button:)), for: .touchUpInside)
             buttons.append(button)
