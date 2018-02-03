@@ -13,7 +13,15 @@ class Popup: UIViewController {
         super.viewDidLoad()
     }
     
+   //dismiss button for log in
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    //close button for register
+    
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
+
