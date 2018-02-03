@@ -16,11 +16,14 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var CommercialRecord: HoshiTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        SignUpbtn.frame.origin.y=462
         RegisterView.frame.origin.y=100
-        RegisterView.frame.origin.x=16; RegisterView.frame.size=CGSize.init(width:347, height:512)
+        RegisterView.frame.origin.x=16;
         RegisterView.layer.masksToBounds=true
         RegisterView.layer.cornerRadius=8
+        RegisterView.frame.size=CGSize.init(width:347, height:512)
+        SignUpbtn.frame.origin.y=462
+        
+
         
 
     }
@@ -32,9 +35,9 @@ class RegisterViewController: UIViewController {
     
     //close button for register
     
-    @IBAction func close(_ sender: Any) {
+    /*@IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
+    }*/
     @IBAction func SelectUser(_ sender: CustomControl) {
         switch sender.selectedSegmentIndex {
         case 0:
