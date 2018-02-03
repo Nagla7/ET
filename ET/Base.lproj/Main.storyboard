@@ -123,7 +123,7 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xg-2t-XXv" customClass="CustomControl" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="10" y="0.0" width="326" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.93059724569320679" green="0.27452105283737183" blue="0.18561512231826782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -145,6 +145,9 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="SelectUser:" destination="wJe-q9-DLR" eventType="valueChanged" id="CX7-U2-i85"/>
+                                        </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENU-Lh-qCK">
                                         <rect key="frame" x="8" y="37" width="47" height="30"/>
@@ -305,9 +308,9 @@
                                         </state>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u8f-lA-6IU" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="98" width="145" height="30"/>
+                                        <rect key="frame" x="18" y="63" width="145" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054178237915" green="0.82805105943093804" blue="0.84780286018276008" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -323,9 +326,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lxq-XN-L8p" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="169" width="307" height="30"/>
+                                        <rect key="frame" x="17" y="122" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -341,9 +344,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A75-wu-Z36" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="245" width="307" height="30"/>
+                                        <rect key="frame" x="19" y="193" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -359,9 +362,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Commercial Record" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lPZ-Ho-Jdk" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="320" width="307" height="30"/>
+                                        <rect key="frame" x="17" y="269" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -377,9 +380,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="IoX-ev-bfV" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="396" width="307" height="30"/>
+                                        <rect key="frame" x="17" y="340" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -395,9 +398,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ymh-zx-okI" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="472" width="307" height="30"/>
+                                        <rect key="frame" x="17" y="414" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -413,9 +416,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ihp-XX-7Zy" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="19" y="512" width="307" height="30"/>
+                                        <rect key="frame" x="17" y="492" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -433,7 +436,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Enter Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l47-qJ-DPJ" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="18" y="555" width="307" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -449,9 +452,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="m1T-Fj-8Rp" customClass="DesignableTextField" customModule="ET" customModuleProvider="target">
-                                        <rect key="frame" x="180" y="98" width="145" height="30"/>
+                                        <rect key="frame" x="180" y="64" width="145" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85815054180000006" green="0.82805105940000001" blue="0.84780286019999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -467,9 +470,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-CU-cR9">
-                                        <rect key="frame" x="17" y="595" width="308" height="30"/>
+                                        <rect key="frame" x="18" y="595" width="308" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.85490196943283081" green="0.82742065191268921" blue="0.85097646713256836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="Sign up"/>
                                     </button>
@@ -481,6 +484,28 @@
                         <color key="backgroundColor" white="1" alpha="0.25275577910958902" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gqC-je-oPM"/>
                     </view>
+                    <connections>
+                        <outlet property="CustomerEmail" destination="N04-LD-GVo" id="2JD-ur-EKz"/>
+                        <outlet property="CustomerFirstName" destination="4ZL-Ws-cdw" id="SSi-Nz-CrU"/>
+                        <outlet property="CustomerLastName" destination="BPL-GV-j37" id="AZZ-TS-9Mv"/>
+                        <outlet property="CustomerPassword" destination="bYW-Vc-9WA" id="ryS-Wj-Uf3"/>
+                        <outlet property="CustomerPhone" destination="3ll-yb-3Yi" id="qSH-h2-y9g"/>
+                        <outlet property="CustomerRePassword" destination="Vo2-6H-FpG" id="X0F-j0-ln3"/>
+                        <outlet property="CustomerSignUp" destination="ucH-ha-E21" id="yIb-yv-CMG"/>
+                        <outlet property="CustometUserName" destination="F2v-Qp-egv" id="bRg-Rg-40y"/>
+                        <outlet property="Female" destination="gXm-4i-izg" id="EDP-t4-Oa5"/>
+                        <outlet property="Male" destination="Rsz-KT-ed6" id="8a5-xQ-vZI"/>
+                        <outlet property="ServiceCommercial" destination="lPZ-Ho-Jdk" id="pKX-8s-isK"/>
+                        <outlet property="ServiceCompany" destination="A75-wu-Z36" id="1Kp-wN-KJU"/>
+                        <outlet property="ServiceEmail" destination="lxq-XN-L8p" id="7pg-Ry-u89"/>
+                        <outlet property="ServiceFirstname" destination="u8f-lA-6IU" id="fjR-a1-F5e"/>
+                        <outlet property="ServiceLastName" destination="m1T-Fj-8Rp" id="rNj-e2-Itr"/>
+                        <outlet property="ServicePassword" destination="ihp-XX-7Zy" id="Eyx-4a-l0N"/>
+                        <outlet property="ServicePhone" destination="IoX-ev-bfV" id="6nN-MN-Uu4"/>
+                        <outlet property="ServiceRePassword" destination="l47-qJ-DPJ" id="Joh-GU-vka"/>
+                        <outlet property="ServiceSignUp" destination="yqd-CU-cR9" id="u6U-tN-PP7"/>
+                        <outlet property="ServiceUserName" destination="Ymh-zx-okI" id="QL2-xQ-CnG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9R-3H-ndq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -652,7 +677,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upK-Am-sSY">
-                                        <rect key="frame" x="601" y="0.0" width="91" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="91" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.27321928739547729" green="0.79881805181503296" blue="0.81450849771499634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="register pop"/>
@@ -716,17 +741,6 @@
                                     <constraint firstItem="1D0-Lq-2jy" firstAttribute="top" secondItem="LH0-ta-oK7" secondAttribute="bottom" constant="37" id="zgF-8g-PwY"/>
                                 </constraints>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="14A-xc-9wP">
-                                <rect key="frame" x="0.0" y="106" width="700" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Customer"/>
-                                    <segment title="Service Provider"/>
-                                </segments>
-                                <connections>
-                                    <action selector="SelectUserTybe:" destination="aiS-NY-KjC" eventType="valueChanged" id="kMV-S1-AyO"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

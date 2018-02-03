@@ -17,16 +17,7 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func SelectUserTybe(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            Scroll.setContentOffset(CGPoint(x:0 , y:0), animated: true)
-        case 1:
-            Scroll.setContentOffset(CGPoint(x:375 , y:0), animated: true)
-        default:
-        print("none")
-        }
-    }
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
