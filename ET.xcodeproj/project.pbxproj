@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F10E89120225E7C00404A6A /* CustomControl.swift */; };
-		0F2AE6A32025363A0071D301 /* DesginableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AE6A22025363A0071D301 /* DesginableTextField.swift */; };
 		0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F893F49202168F900B76FA9 /* LoginViewController.swift */; };
 		1DF725432023D1E900900254 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF725422023D1E900900254 /* RegisterViewController.swift */; };
 		2AD04E1574DAAC2BBAA72FD6 /* Pods_ET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */; };
@@ -62,7 +61,6 @@
 /* Begin PBXFileReference section */
 		06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ET.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F10E89120225E7C00404A6A /* CustomControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControl.swift; sourceTree = "<group>"; };
-		0F2AE6A22025363A0071D301 /* DesginableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesginableTextField.swift; sourceTree = "<group>"; };
 		0F893F49202168F900B76FA9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		138E96B7278E08458988D2F4 /* Pods-ET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ET.release.xcconfig"; path = "Pods/Target Support Files/Pods-ET/Pods-ET.release.xcconfig"; sourceTree = "<group>"; };
 		1DF725422023D1E900900254 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				E376315E2025A32A00CFE07B /* TextField */,
 				6112EA73201F361F008B4066 /* AppDelegate.swift */,
 				6112EA75201F361F008B4066 /* ViewController.swift */,
-				0F2AE6A22025363A0071D301 /* DesginableTextField.swift */,
 				6112EA7D201F361F008B4066 /* Assets.xcassets */,
 				6112EA82201F361F008B4066 /* Info.plist */,
 				6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */,
@@ -576,7 +573,6 @@
 				E37631752025A35500CFE07B /* AkiraTextField.swift in Sources */,
 				E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */,
 				E376316F2025A35500CFE07B /* YokoTextField.swift in Sources */,
-				0F2AE6A32025363A0071D301 /* DesginableTextField.swift in Sources */,
 				E37631702025A35500CFE07B /* KaedeTextField.swift in Sources */,
 				6112EA76201F361F008B4066 /* ViewController.swift in Sources */,
 				E37631802026027F00CFE07B /* EventCell.swift in Sources */,

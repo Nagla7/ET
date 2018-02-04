@@ -69,18 +69,18 @@ import UIKit
         }
     }
     
-    @IBInspectable var leftImage : UIImage? {
+   @IBInspectable var leftImage2 : UIImage? {
         didSet{
             updateView()
         }
         
     }
-    @IBInspectable var leftPadding: CGFloat = 0{
+    @IBInspectable var leftPadding2: CGFloat = 0{
         didSet{
             updateView()
         }
     }
-    var borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.75)
+    var borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.70)
     private let placeholderInsets = CGPoint(x: 0, y: 6)
     private let textFieldInsets = CGPoint(x: 0, y: 12)
     private let inactiveBorderLayer = CALayer()
@@ -197,15 +197,15 @@ import UIKit
         return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
     func updateView(){
-        if let image = leftImage {
+        if let image = leftImage2 {
             leftViewMode = .always
             
-            let imageView = UIImageView(frame: CGRect(x: leftPadding, y:0, width: 20, height: 20))
+            let imageView = UIImageView(frame: CGRect(x: leftPadding2, y:0, width: 20, height: 20))
             
             imageView.image = image
             imageView.tintColor = tintColor
             
-            var width = leftPadding + 20
+            var width = leftPadding2 + 20
             
             if borderStyle == UITextBorderStyle.none || borderStyle == UITextBorderStyle.line{
                 width = width + 5
@@ -216,7 +216,8 @@ import UIKit
             view.addSubview(imageView)
             
             leftView = view
-        }else{
+        }
+        else{
             //image is null
             leftViewMode = .never
         }

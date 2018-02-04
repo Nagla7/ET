@@ -159,8 +159,12 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         }
         
         
+        
     }
     
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated:true, completion: nil)
+    }
     
     
     

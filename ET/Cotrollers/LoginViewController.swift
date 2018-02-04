@@ -77,7 +77,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
             var page = "CustomerHome" // or "ServiceProviderHome"
             
             // search database for the username ---> get the corresponding email
-            ref.child(tree).queryOrdered(byChild: "username").queryEqual(toValue: self.usernameTextField.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
+            ref.child(tree).queryOrdered(byChild: "username").queryEqual(toValue: self.username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
                 if snapshot.exists() {
                     
                     //getting the email to login
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
                     }
                     
                     // login with email and password from firebase
-                    Auth.auth().signIn(withEmail: email, password: self.passwordTextField.text!) { (user, error) in
+                    Auth.auth().signIn(withEmail: email, password: self.password.text!) { (user, error) in
                         if error == nil {
                             
                             //Go to the HomeViewController if the login is sucessful
