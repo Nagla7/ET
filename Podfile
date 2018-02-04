@@ -9,6 +9,7 @@ target 'ET' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
   target 'ETTests' do
     inherit! :search_paths
