@@ -17,6 +17,10 @@ class MainPageController: UIViewController,UITableViewDelegate,UITableViewDataSo
 EventTable.delegate=self
 EventTable.dataSource=self
         // Do any additional setup after loading the view.
+        
+        //////////////////////search////////////////////////
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
