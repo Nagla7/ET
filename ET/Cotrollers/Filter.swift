@@ -9,24 +9,37 @@
 import UIKit
 
     
-class Filter: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+class Filter: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource {
     
-  /*
      
-     UICollectionViewDelegate,UICollectionViewDataSource
+    
      
-    @IBOutlet weak var collection: UICollectionView!
-    
-    
+    @IBOutlet var collection: UICollectionView!
+    @IBOutlet var category: UICollectionView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 2
+        if collectionView==collection{
+            return 4}
+        else{
+            return 10
+        }
     }
     
- /   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                let  cell:CollectionViewCell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell:CollectionViewCell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+    
+   if collectionView==collection{
+        cell.image.image = UIImage(named: String(format: "image%i",indexPath.row))
+        cell.image.highlightedImage = UIImage(named: String(format: "image%i-",indexPath.row))
         return cell
     }
-    */
+    else{
+        cell.image.image = UIImage(named: String(format: "image_%i",indexPath.row))
+        cell.image.highlightedImage = UIImage(named: String(format: "image_%i-",indexPath.row))
+        return cell
+    }
+    
+    }
+    
         ///////////////////////Shadow//////////////////////
         @IBOutlet weak var one: UIView!
         @IBOutlet weak var second: UIView!
@@ -70,6 +83,8 @@ class Filter: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
             dropShadow()
+            collection.allowsMultipleSelection=true
+            category.allowsMultipleSelection=true
             }
     
     override func didReceiveMemoryWarning() {
