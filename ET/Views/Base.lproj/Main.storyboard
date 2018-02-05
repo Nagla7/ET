@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQ0-Qa-Uhq">
-                                                    <rect key="frame" x="32" y="249" width="285" height="30"/>
+                                                    <rect key="frame" x="32" y="241" width="285" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.85490196943283081" green="0.82742065191268921" blue="0.85097646713256836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -45,7 +45,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jx-pT-Mzj">
-                                                    <rect key="frame" x="113" y="287" width="123" height="30"/>
+                                                    <rect key="frame" x="113" y="273" width="123" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Forgot Password?">
                                                         <color key="titleColor" red="0.0003553267742972821" green="0.68381398916244507" blue="0.67361468076705933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -98,16 +98,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh3-Dc-i8P">
-                                                    <rect key="frame" x="116" y="311" width="116" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Sign Up">
-                                                        <color key="titleColor" red="0.00035532677429999998" green="0.68381398920000003" blue="0.67361468079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="5Bp-WV-BN3" kind="presentation" id="uKm-UE-ndO"/>
-                                                    </connections>
-                                                </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjL-m9-N6y" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                                     <rect key="frame" x="14" y="123" width="309" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -196,6 +186,16 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh3-Dc-i8P">
+                                                    <rect key="frame" x="116" y="304" width="116" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Sign Up">
+                                                        <color key="titleColor" red="0.00035532677429999998" green="0.68381398920000003" blue="0.67361468079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="5Bp-WV-BN3" kind="presentation" id="uKm-UE-ndO"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="0.96537885273972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
