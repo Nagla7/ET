@@ -1,4 +1,5 @@
 PODS:
+  - DLRadioButton (1.4.11)
   - Firebase/Auth (4.8.2):
     - Firebase/Core
     - FirebaseAuth (= 4.4.2)
@@ -44,11 +45,13 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - DLRadioButton (~> 1.4)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
 
 SPEC CHECKSUMS:
+  DLRadioButton: 0d04b8259e7bfd886571a1e9173c73fee7118f50
   Firebase: 7d3b8cd837ad9fcd391657734c0d56dab8e9a5a3
   FirebaseAnalytics: 388b630c15713f5dbf364071f5f3d6077fb52f4e
   FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
@@ -60,6 +63,6 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: d9c602f9666123a27b9273aff1a515576bdb6f19
+PODFILE CHECKSUM: b7c7bb21fff9c14a5c56b239b86998d32783c71c
 
 COCOAPODS: 1.4.0

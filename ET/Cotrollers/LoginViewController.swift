@@ -10,8 +10,16 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import DLRadioButton
 
 class LoginViewController: UIViewController , UITextFieldDelegate {
+
+    @IBOutlet var C: DLRadioButton!
+    
+    @IBAction func C(radioButton : DLRadioButton) {
+        if radioButton.tag == 1 {print("ccccccccccc")}
+        else {print("SSSSSS")}
+        }
     
     @IBOutlet weak var LoginView: UIView!
     @IBOutlet weak var username: HoshiTextField!
@@ -25,19 +33,13 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
         LoginView.center=view.center
         LoginView.layer.masksToBounds=true
         LoginView.layer.cornerRadius=8
+        
+        C.isSelected = true
+        C.isHighlighted = true
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func SelectUserTybe(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print("Customer")
-        case 1:
-            print("Service Provider")
-        default:
-            print("none")
-        }
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,6 +61,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
     
     @IBAction func loginAction(_ sender: Any) {
         
+       let selected = C.isSelected
+        var Selected=""
+        if(selected)
+        {Selected = "Customers"}
+        else
+        {Selected = "ServiceProviders"}
         let ref : DatabaseReference!
         ref = Database.database().reference()
 
@@ -73,8 +81,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
         } else {
             
             //check which user tree and redirect page
-            var tree = "Customers" // or "ServiceProviders"
-            var page = "CustomerHome" // or "ServiceProviderHome"
+            var tree = Selected // or "ServiceProviders"
+            var page = Selected+"Home" // or "ServiceProviderHome"
             
             // search database for the username ---> get the corresponding email
             ref.child(tree).queryOrdered(byChild: "username").queryEqual(toValue: self.username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in

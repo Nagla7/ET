@@ -7,6 +7,7 @@ target 'ET' do
 
   # Pods for ET
 
+pod 'DLRadioButton', '~> 1.4'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
