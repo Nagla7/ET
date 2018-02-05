@@ -16,6 +16,8 @@ class Filter: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UICol
      
     @IBOutlet var collection: UICollectionView!
     @IBOutlet var category: UICollectionView!
+    let audience=["M","F","Family","All"]
+    var slectedAudience=[String]()
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView==collection{
             return 4}
@@ -112,6 +114,11 @@ class Filter: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UICol
             let selested = cities[row]
             print("##################",selested)
         }
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if collectionView==collection{
+//print(self.audience[indexPath.row],"@£@£@£@")
+        }
+    }
         
         
 }
