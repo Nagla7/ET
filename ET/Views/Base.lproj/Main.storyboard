@@ -1239,7 +1239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yev-Ar-10Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3338.4000000000001" y="-2773.7631184407796"/>
+            <point key="canvasLocation" x="-2223" y="-1615"/>
         </scene>
         <!--ServiceProviderHome-->
         <scene sceneID="JO3-jU-wDG">
@@ -1263,7 +1263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mw0-02-dqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2463.1999999999998" y="-2356.3718140929536"/>
+            <point key="canvasLocation" x="-2967" y="-2372"/>
         </scene>
         <!--CustomersHome-->
         <scene sceneID="HSZ-fz-mSN">
@@ -1280,6 +1280,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dco-3B-riX">
+                                <rect key="frame" x="16" y="348" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Account"/>
+                                <connections>
+                                    <segue destination="Z2w-dB-p1o" kind="presentation" id="4oY-ln-y4J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OZS-NU-NLO"/>
@@ -1287,7 +1295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cec-6R-yWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1567" y="-2356"/>
+            <point key="canvasLocation" x="-2222" y="-2373"/>
         </scene>
         <!--Event Info Controller-->
         <scene sceneID="6tw-u9-OqD">
