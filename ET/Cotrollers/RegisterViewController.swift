@@ -24,8 +24,11 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var phone: HoshiTextField!
     @IBOutlet weak var username: HoshiTextField!
     @IBOutlet weak var password: HoshiTextField!
+    @IBOutlet weak var repassword: HoshiTextField!
     
     @IBOutlet weak var C_SP: CustomControl!
+    var ref : DatabaseReference!
+    var userTree = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         RegisterView.frame.size=CGSize.init(width:347, height:512)
         SignUpbtn.frame.origin.y=462
         
+        ref = Database.database().reference()
     }
     
     func textFieldShouldReturn(_ textfield:UITextField)->Bool{
@@ -94,13 +98,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
     
     @IBAction func createAccountAction(_ sender: Any) {
         
-        // variable to reference our database from firebase
-        let ref : DatabaseReference!
-        ref = Database.database().reference()
-        
-        
-        //check which user tree and redirect page
-        let page = "C_SP_Login"
+        //check which user tree
         let tree = (C_SP.selectedSegmentIndex == 0) ? "Customers":"ServiceProviders"
         var flag : Bool!
         
@@ -121,20 +119,14 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             present(alertController, animated: true, completion: nil)
             
         } else {
-            ref.child(tree).queryOrdered(byChild: "username").queryEqual(toValue: username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
-                if !snapshot.exists() {
-                    // Update database with a unique username.
-                    
                     Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
                         if error == nil {
                             print("You have successfully signed up")
-                            // add user to the users tree
-                            //and set value of email property to the value taken from textfield
-                            //later on we will add more properties... e.g. username.. profile pic.. bio..
-                            ref.child(tree).child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid]
+                            // add user info to database
+                            self.ref.child(tree).child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid]
                             )
                             // redirect to login page
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: page)
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
                             self.present(vc!, animated: true, completion: nil)
                         } else {
                             //error message: signup failed
@@ -144,30 +136,159 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
                             self.present(alertController, animated: true, completion: nil)
                         }
                     }
-                    
-                }
-                else {
-                    //error message: username already exists
-                    let alertController = UIAlertController(title: "Uh oh!", message: "\(self.username.text!) is not available. Try another username.", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-                
-            }) {error in print(error.localizedDescription)}
-            
         }
-        
-        
-        
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated:true, completion: nil)
     }
     
+    // ================== TEXTFIELD VALIDATION ======================
     
-    
-    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        
+        if (textField == fname || textField == lname)
+        {
+            let name_reg = "[A-Za-z]{1,30}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: fname.text) == false || name_test.evaluate(with: lname.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter your name in correct format. Name can contain letters only.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == username)
+        {
+            let name_reg = "[A-Za-z0-9]{5,20}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: username.text) == false
+            {
+                let alert = UIAlertController(title: "Information", message: "Enter the name in correct format. Username has to be at least 5 characters long and can contain letters and numbers.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            //  check username uniqueness
+            userTree = (C_SP.selectedSegmentIndex == 0) ? "Customers":"ServiceProviders"
+            ref.child(userTree).queryOrdered(byChild: "username").queryEqual(toValue: username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
+                if snapshot.exists() {
+                    //error message: username already exists
+                    let alertController = UIAlertController(title: "Uh oh!", message: "\(self.username.text!) is not available. Try another username.", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }})
+            
+        }
+        
+        if (textField == password)
+        {
+            let name_reg = "[A-Z0-9a-z._%@+-]{6,10}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: password.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter the password in correct format. Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == repassword)
+        {
+            let name_reg = "[A-Z0-9a-z._%@+-]{6,10}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: repassword.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter the password in correct format. Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            if (repassword.text != password.text){
+                let alert = UIAlertController(title: "Error", message: "Passwords don't match! Please re-enter matching passwords.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == email)
+        {
+            let name_reg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: email.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter the E-mail in correct format. e.g. example@domain.com ", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == phone)
+        {
+            let name_reg = "[0-9]{10}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: phone.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter your phone number in correct format. Phone number has to be 10 digits long.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == companyName)
+        {
+            let name_reg = "[A-Za-z0-9]{1,30}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: companyName.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter your company name in correct format. Company name can contain letters and numbers only.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == CommercialRecord)
+        {
+            let name_reg = "[0-9]{10}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: CommercialRecord.text) == false
+            {
+                let alert = UIAlertController(title: "Error", message: "Enter your commercial record in correct format. Commercial record has to be 10 digits long.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(ok)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
     
 }
