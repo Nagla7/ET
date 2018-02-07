@@ -148,17 +148,28 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         
-        if (textField == fname || textField == lname)
+        if (textField == fname)
         {
             let name_reg = "[A-Za-z]{1,30}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: fname.text) == false || name_test.evaluate(with: lname.text) == false
+            if name_test.evaluate(with: fname.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter your name in correct format. Name can contain letters only.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "First name can contain letters only.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        if (textField == lname)
+        {
+            let name_reg = "[A-Za-z]{1,30}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if name_test.evaluate(with: lname.text) == false
+            {
+                let alert = UIAlertController(title: "Format Error", message: "Last name can contain letters only.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -169,11 +180,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: username.text) == false
             {
-                let alert = UIAlertController(title: "Information", message: "Enter the name in correct format. Username has to be at least 5 characters long and can contain letters and numbers.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Username has to be at least 5 characters long and can contain letters and numbers.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
             
@@ -196,11 +205,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: password.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter the password in correct format. Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -211,20 +218,16 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: repassword.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter the password in correct format. Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
             
-            if (repassword.text != password.text){
-                let alert = UIAlertController(title: "Error", message: "Passwords don't match! Please re-enter matching passwords.", preferredStyle: .alert)
+            if !(repassword.text == password.text){
+                let alert = UIAlertController(title: "Uh oh!", message: "Passwords don't match! Please re-enter matching passwords.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -235,11 +238,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: email.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter the E-mail in correct format. e.g. example@domain.com ", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Enter the E-mail in correct format. e.g. example@domain.com ", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -250,11 +251,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: phone.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter your phone number in correct format. Phone number has to be 10 digits long.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Phone number has to be 10 digits long.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -265,11 +264,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: companyName.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter your company name in correct format. Company name can contain letters and numbers only.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Company name can contain letters and numbers only.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -280,11 +277,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if name_test.evaluate(with: CommercialRecord.text) == false
             {
-                let alert = UIAlertController(title: "Error", message: "Enter your commercial record in correct format. Commercial record has to be 10 digits long.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Format Error", message: "Commercial record has to be 10 digits long.", preferredStyle: .alert)
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alert.addAction(ok)
-                alert.addAction(cancel)
                 self.present(alert, animated: true, completion: nil)
             }
         }
