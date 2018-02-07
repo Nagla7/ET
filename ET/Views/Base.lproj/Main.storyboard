@@ -1180,10 +1180,10 @@
             </objects>
             <point key="canvasLocation" x="1329" y="-1462"/>
         </scene>
-        <!--View Controller-->
+        <!--Reset Passowrd Controller-->
         <scene sceneID="zUx-v4-jzo">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Kz5-Sg-xxm" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Kz5-Sg-xxm" customClass="ResetPassowrdController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wiz-Va-yxy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1210,13 +1210,16 @@
                                                             <integer key="value" value="0"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="submitAction:" destination="Kz5-Sg-xxm" eventType="touchUpInside" id="c8e-oH-mUA"/>
+                                                    </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1X7-hY-dRD" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                                     <rect key="frame" x="14" y="80" width="309" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                                             <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1276,6 +1279,9 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="V1f-cD-uey"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="1X7-hY-dRD" id="lDK-bj-udQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dar-mD-Jkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="srO-Vf-Rbl" userLabel="Exit" sceneMemberID="exit"/>

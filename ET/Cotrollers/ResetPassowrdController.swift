@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ResetPassowrdController: UIViewController {
-
+    
+    @IBOutlet weak var emailTextField: HoshiTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,12 +24,36 @@ class ResetPassowrdController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     func textFieldShouldReturn(_ textfield:UITextField)->Bool{
         textfield.resignFirstResponder()
         return true
     }
+
     
+    @IBAction func submitAction(_ sender: AnyObject) {
+        
+        Auth.auth().sendPasswordReset(withEmail: self.emailTextField.text!, completion: { (error) in
+
+            var title = ""
+            var message = ""
+            
+            if error != nil {
+                title = "Error!"
+                message = (error?.localizedDescription)!
+            } else {
+                title = "Success!"
+                message = "Password reset email sent."
+                print(message)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
+                self.present(vc!, animated: true, completion: nil)
+            }
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        })
+    }
 
     /*
     // MARK: - Navigation
