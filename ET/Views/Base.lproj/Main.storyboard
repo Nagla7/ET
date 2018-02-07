@@ -954,10 +954,10 @@
             </objects>
             <point key="canvasLocation" x="-559.20000000000005" y="-572.56371814092961"/>
         </scene>
-        <!--Account View Controller-->
+        <!--Customer Account View Controller-->
         <scene sceneID="LLS-O5-85c">
             <objects>
-                <viewController id="Z2w-dB-p1o" customClass="AccountViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z2w-dB-p1o" customClass="CustomerAccountViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z2v-NL-0V0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
