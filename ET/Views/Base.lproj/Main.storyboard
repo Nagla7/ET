@@ -729,7 +729,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEs-jS-Fj2">
+                                                <imageView userInteractionEnabled="NO" alpha="0.98999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEs-jS-Fj2">
                                                     <rect key="frame" x="0.0" y="0.0" width="360" height="250"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.78979631669441619" green="0.41006844721169355" blue="0.6582029114669764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
