@@ -25,6 +25,7 @@
 		6112EAA7201F3C7B008B4066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */; };
 		611CF22020283CED0079F81B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CF21F20283CED0079F81B /* Filter.swift */; };
 		611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FFD382028386C0089DD48 /* CollectionViewCell.swift */; };
+		61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */; };
 		908121B78C6B4D5CEDFF5C8B /* Pods_ETTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
 		E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37631602025A35400CFE07B /* MinoruTextField.swift */; };
@@ -86,6 +87,7 @@
 		6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		611CF21F20283CED0079F81B /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		611FFD382028386C0089DD48 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassowrdController.swift; sourceTree = "<group>"; };
 		82BF392546C7BABBA63BF4F0 /* Pods-ETTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D2F93D9D0230C7CAFCFD168 /* Pods-ETUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETUITests/Pods-ETUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A5ED2861E685F6180CCA3F4F /* Pods_ETUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +252,7 @@
 				0F10E89120225E7C00404A6A /* CustomControl.swift */,
 				611CF21F20283CED0079F81B /* Filter.swift */,
 				0F893F49202168F900B76FA9 /* LoginViewController.swift */,
+				61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */,
 				1DF725422023D1E900900254 /* RegisterViewController.swift */,
 			);
 			path = Cotrollers;
@@ -592,6 +595,7 @@
 				611CF22020283CED0079F81B /* Filter.swift in Sources */,
 				E37631812026027F00CFE07B /* MainPageController.swift in Sources */,
 				E37631722025A35500CFE07B /* JiroTextField.swift in Sources */,
+				61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */,
 				E37631742025A35500CFE07B /* IsaoTextField.swift in Sources */,
 				E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */,
 				611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */,

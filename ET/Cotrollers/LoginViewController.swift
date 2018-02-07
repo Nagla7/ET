@@ -14,13 +14,7 @@ import DLRadioButton
 
 class LoginViewController: UIViewController , UITextFieldDelegate {
 
-    @IBOutlet var C: DLRadioButton!
-    
-    @IBAction func C(radioButton : DLRadioButton) {
-        if radioButton.tag == 1 {print("ccccccccccc")}
-        else {print("SSSSSS")}
-        }
-    
+    @IBOutlet var C: DLRadioButton!  // customer button
     @IBOutlet weak var LoginView: UIView!
     @IBOutlet weak var username: HoshiTextField!
     @IBOutlet weak var password: HoshiTextField!
@@ -33,7 +27,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
         LoginView.center=view.center
         LoginView.layer.masksToBounds=true
         LoginView.layer.cornerRadius=8
-        
+
+        // selecting button
         C.isSelected = true
         C.isHighlighted = true
         // Do any additional setup after loading the view.
