@@ -26,6 +26,7 @@
 		611CF22020283CED0079F81B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CF21F20283CED0079F81B /* Filter.swift */; };
 		611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FFD382028386C0089DD48 /* CollectionViewCell.swift */; };
 		61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */; };
+		87271F7F202B3EA900D9F856 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87271F7E202B3EA900D9F856 /* AccountViewController.swift */; };
 		908121B78C6B4D5CEDFF5C8B /* Pods_ETTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
 		E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37631602025A35400CFE07B /* MinoruTextField.swift */; };
@@ -89,6 +90,7 @@
 		611FFD382028386C0089DD48 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassowrdController.swift; sourceTree = "<group>"; };
 		82BF392546C7BABBA63BF4F0 /* Pods-ETTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87271F7E202B3EA900D9F856 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		9D2F93D9D0230C7CAFCFD168 /* Pods-ETUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETUITests/Pods-ETUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A5ED2861E685F6180CCA3F4F /* Pods_ETUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				87271F7E202B3EA900D9F856 /* AccountViewController.swift */,
 				611FFD382028386C0089DD48 /* CollectionViewCell.swift */,
 				E376317B2026027F00CFE07B /* EventCell.swift */,
 				E376317A2026027E00CFE07B /* EventInfoController.swift */,
@@ -581,6 +584,7 @@
 			files = (
 				E37631712025A35500CFE07B /* YoshikoTextField.swift in Sources */,
 				E37631822026027F00CFE07B /* ReviewsViewController.swift in Sources */,
+				87271F7F202B3EA900D9F856 /* AccountViewController.swift in Sources */,
 				1DF725432023D1E900900254 /* RegisterViewController.swift in Sources */,
 				0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */,
 				E37631732025A35500CFE07B /* HoshiTextField.swift in Sources */,
