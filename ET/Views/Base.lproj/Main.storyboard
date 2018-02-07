@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="f3h-sI-bAv">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Vpo-Xh-bXE" customClass="LoginViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="C_SP_Login" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Vpo-Xh-bXE" customClass="LoginViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tho-26-HDa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,11 +130,36 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh3-Dc-i8P">
+                                                    <rect key="frame" x="116" y="311" width="116" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Sign Up">
+                                                        <color key="titleColor" red="0.00035532677429999998" green="0.68381398920000003" blue="0.67361468079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="5Bp-WV-BN3" kind="presentation" id="uKm-UE-ndO"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQ0-Qa-Uhq">
+                                                    <rect key="frame" x="32" y="241" width="285" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.85490196943283081" green="0.82742065191268921" blue="0.85097646713256836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <state key="normal" title="Login"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="loginAction:" destination="Vpo-Xh-bXE" eventType="touchUpInside" id="c9w-ne-n99"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtQ-K4-bRt" customClass="DLRadioButton">
-                                                    <rect key="frame" x="14" y="203" width="148" height="30"/>
+                                                    <rect key="frame" x="13" y="194" width="148" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.82745098039999998" green="0.42745098040000001" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Custmer">
+                                                    <state key="normal" title="Customer">
                                                         <color key="titleColor" red="0.00035532677429999998" green="0.68381398920000003" blue="0.67361468079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -154,10 +179,10 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ2-AE-odS" customClass="DLRadioButton">
-                                                    <rect key="frame" x="161" y="203" width="156" height="30"/>
+                                                    <rect key="frame" x="161" y="194" width="156" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.82745098039999998" green="0.42745098040000001" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Servise Provider">
+                                                    <state key="normal" title="Service Provider">
                                                         <color key="titleColor" red="0.00035532677429999998" green="0.68381398920000003" blue="0.67361468079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -171,31 +196,6 @@
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh3-Dc-i8P">
-                                                    <rect key="frame" x="116" y="311" width="116" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Sign Up">
-                                                        <color key="titleColor" red="0.00035532677429999998" green="0.68381398920000003" blue="0.67361468079999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="5Bp-WV-BN3" kind="presentation" id="uKm-UE-ndO"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQ0-Qa-Uhq">
-                                                    <rect key="frame" x="32" y="241" width="285" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.85490196943283081" green="0.82742065191268921" blue="0.85097646713256836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <state key="normal" title="login"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="loginAction:" destination="Vpo-Xh-bXE" eventType="touchUpInside" id="c9w-ne-n99"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="0.96537885273972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -718,7 +718,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="obd-V8-Tje">
-                                <rect key="frame" x="6" y="70" width="353" height="548"/>
+                                <rect key="frame" x="11" y="83" width="353" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -795,9 +795,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ItK-Mi-wEf">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="604"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94872847616203837" green="0.95812182741116747" blue="0.95812182741116747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mao-fK-M3d">
                                 <rect key="frame" x="128" y="601" width="47" height="46"/>
@@ -813,7 +813,7 @@
                                 <state key="normal" image="icons8-ok-filled-500"/>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kN6-vp-t77">
-                                <rect key="frame" x="16" y="429" width="343" height="140"/>
+                                <rect key="frame" x="16" y="446" width="343" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEB-co-SLE">
@@ -835,7 +835,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j9f-u4-3GU">
-                                <rect key="frame" x="16" y="64" width="343" height="140"/>
+                                <rect key="frame" x="16" y="81" width="343" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Target Audience" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ty4-8L-v2R">
@@ -883,7 +883,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aug-J1-1IF">
-                                <rect key="frame" x="16" y="228" width="343" height="180"/>
+                                <rect key="frame" x="16" y="245" width="343" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ab-B2-hP3">
@@ -944,12 +944,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7r3-5y-yWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559.20000000000005" y="-778.56071964017997"/>
+            <point key="canvasLocation" x="-559.20000000000005" y="-572.56371814092961"/>
         </scene>
         <!--ServiceProviderHome-->
         <scene sceneID="JO3-jU-wDG">
             <objects>
-                <viewController storyboardIdentifier="ServiceProviderHome" title="ServiceProviderHome" id="IWr-Dc-GeT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ServiceProvidersHome" title="ServiceProviderHome" id="IWr-Dc-GeT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Li-OI-66E" customClass="ServiceProviderHome">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1180,7 +1180,7 @@
         <image name="icons8-company-100" width="100" height="100"/>
         <image name="icons8-debit-card-100" width="100" height="100"/>
         <image name="icons8-email-100 (1)" width="100" height="100"/>
-        <image name="icons8-filter-100" width="24" height="24"/>
+        <image name="icons8-filter-100" width="23" height="23"/>
         <image name="icons8-identification-documents-120" width="120" height="120"/>
         <image name="icons8-key-2-100" width="100" height="100"/>
         <image name="icons8-ok-filled-500" width="500" height="500"/>

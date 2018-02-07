@@ -24,7 +24,7 @@ EventTable.dataSource=self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,6 +33,7 @@ EventTable.dataSource=self
         cell.E_image.layer.borderWidth = 2.0
         cell.E_image.layer.borderColor = UIColor.white.cgColor
         cell.E_image.layer.cornerRadius = 7
+        
         return cell
     }
 
