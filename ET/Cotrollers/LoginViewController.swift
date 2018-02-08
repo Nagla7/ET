@@ -41,13 +41,10 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
     }
     
 
-    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated:true, completion:nil)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view != LoginView{self.dismiss(animated:true, completion:nil)}
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
     
     func textFieldShouldReturn(_ textfield:UITextField)->Bool{
         textfield.resignFirstResponder()

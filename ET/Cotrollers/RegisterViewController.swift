@@ -57,13 +57,10 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         return true}
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        if touches.first?.view != RegisterView{self.dismiss(animated:true, completion:nil)}
     }
     
-   //dismiss button for log in
-    @IBAction func dismiss(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     //close button for register
     

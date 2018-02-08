@@ -26,6 +26,7 @@
 		611CF22020283CED0079F81B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CF21F20283CED0079F81B /* Filter.swift */; };
 		611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FFD382028386C0089DD48 /* CollectionViewCell.swift */; };
 		61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */; };
+		61DEAC37202C184E008616C8 /* ServiceProviderHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */; };
 		8701B57A202B4BB500DBFF44 /* CustomerAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701B579202B4BB500DBFF44 /* CustomerAccountViewController.swift */; };
 		908121B78C6B4D5CEDFF5C8B /* Pods_ETTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
@@ -89,6 +90,7 @@
 		611CF21F20283CED0079F81B /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		611FFD382028386C0089DD48 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassowrdController.swift; sourceTree = "<group>"; };
+		61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProviderHomeController.swift; sourceTree = "<group>"; };
 		82BF392546C7BABBA63BF4F0 /* Pods-ETTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8701B579202B4BB500DBFF44 /* CustomerAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAccountViewController.swift; sourceTree = "<group>"; };
 		9D2F93D9D0230C7CAFCFD168 /* Pods-ETUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETUITests/Pods-ETUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */,
 				8701B579202B4BB500DBFF44 /* CustomerAccountViewController.swift */,
 				611FFD382028386C0089DD48 /* CollectionViewCell.swift */,
 				E376317B2026027F00CFE07B /* EventCell.swift */,
@@ -582,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61DEAC37202C184E008616C8 /* ServiceProviderHomeController.swift in Sources */,
 				E37631712025A35500CFE07B /* YoshikoTextField.swift in Sources */,
 				E37631822026027F00CFE07B /* ReviewsViewController.swift in Sources */,
 				1DF725432023D1E900900254 /* RegisterViewController.swift in Sources */,

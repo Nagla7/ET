@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class ResetPassowrdController: UIViewController {
     
+    @IBOutlet weak var resetView: UIView!
     @IBOutlet weak var emailTextField: HoshiTextField!
     
     override func viewDidLoad() {
@@ -22,6 +23,10 @@ class ResetPassowrdController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view != resetView{self.dismiss(animated:true, completion:nil)}
     }
     
     func textFieldShouldReturn(_ textfield:UITextField)->Bool{
