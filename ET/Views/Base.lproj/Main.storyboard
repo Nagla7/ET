@@ -734,7 +734,7 @@
         <scene sceneID="TAp-yI-cld">
             <objects>
                 <tabBarController id="etF-qI-vta" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ItB-O0-2bg">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ItB-O0-2bg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -794,9 +794,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rg-LG-xIm">
-                                                            <rect key="frame" x="17" y="8" width="109" height="21"/>
+                                                            <rect key="frame" x="17" y="8" width="296" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -808,7 +808,8 @@
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="E_image" destination="BEs-jS-Fj2" id="fcP-LA-X4D"/>
-                                            <segue destination="4MV-sZ-lQO" kind="presentation" id="dNG-TO-Q2b"/>
+                                            <outlet property="title" destination="0rg-LG-xIm" id="sa2-a7-CMB"/>
+                                            <segue destination="4MV-sZ-lQO" kind="presentation" identifier="" id="dNG-TO-Q2b"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -824,7 +825,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lFk-Yq-S3M"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="y8q-BL-Sdm"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" selectedImage="certificate filled" id="y8q-BL-Sdm"/>
                     <navigationItem key="navigationItem" id="UBR-LN-R3d">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-filter-100" id="PoV-pO-7V3">
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-11"/>
@@ -841,18 +842,17 @@
                                     <color key="titleColor" red="0.10804475099999999" green="0.60514116289999997" blue="0.59876430030000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Vpo-Xh-bXE" kind="popoverPresentation" popoverAnchorView="Dms-7v-hPo" id="9jk-oh-FFm">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="Vpo-Xh-bXE" kind="presentation" id="WlS-vx-ePZ"/>
                                 </connections>
                             </button>
                             <color key="tintColor" red="0.10804475098848343" green="0.60514116287231445" blue="0.59876430034637451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="EventTable" destination="obd-V8-Tje" id="Up1-bZ-cnN"/>
                         <outlet property="NoEventLabel" destination="1fH-aO-oDd" id="dEe-jw-OTO"/>
-                        <outlet property="loginbtn" destination="hKe-kD-jIv" id="j88-w6-2Kv"/>
+                        <outlet property="loginbtn" destination="Dms-7v-hPo" id="I2W-RX-pxc"/>
+                        <outlet property="tableView" destination="obd-V8-Tje" id="B0p-w8-e2Z"/>
+                        <segue destination="4MV-sZ-lQO" kind="presentation" identifier="goInfo" id="YJS-rR-OFy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IxF-Cj-HGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1041,7 +1041,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HtF-xn-WRt" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="27" y="105" width="141" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -1088,7 +1088,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-ze-Fea" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="192" y="105" width="141" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -1135,7 +1135,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HqL-t6-a5i" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="27" y="270" width="308" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -1182,7 +1182,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWG-eQ-NXN" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="27" y="215" width="308" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -1229,7 +1229,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3dL-LG-J4V" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="27" y="160" width="308" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
@@ -1279,15 +1279,12 @@
                                         <color key="backgroundColor" red="0.062418304379999998" green="0.64072883130000002" blue="0.62210971120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Save"/>
+                                        <state key="normal" title="Submit"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="SaveAction:" destination="Z2w-dB-p1o" eventType="touchUpInside" id="W22-yl-Nun"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1344,7 +1341,7 @@
         <!--Event Info Controller-->
         <scene sceneID="6tw-u9-OqD">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="4MV-sZ-lQO" customClass="EventInfoController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="info" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="4MV-sZ-lQO" customClass="EventInfoController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ugA-fu-5ye">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1847,4 +1844,7 @@
         <image name="user" width="128" height="128"/>
         <image name="user (1)" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YJS-rR-OFy"/>
+    </inferredMetricsTieBreakers>
 </document>

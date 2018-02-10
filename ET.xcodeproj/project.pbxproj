@@ -44,6 +44,7 @@
 		E37631802026027F00CFE07B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317B2026027F00CFE07B /* EventCell.swift */; };
 		E37631812026027F00CFE07B /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317C2026027F00CFE07B /* MainPageController.swift */; };
 		E37631822026027F00CFE07B /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317D2026027F00CFE07B /* ReviewsViewController.swift */; };
+		E3A877B2202F26E300C746FC /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A877B1202F26E300C746FC /* Event.swift */; };
 		F0A9DACC61F75EB2F6F4CBF2 /* Pods_ETUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ED2861E685F6180CCA3F4F /* Pods_ETUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		E376317B2026027F00CFE07B /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		E376317C2026027F00CFE07B /* MainPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		E376317D2026027F00CFE07B /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
+		E3A877B1202F26E300C746FC /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = ../../../Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 		E37631772026018F00CFE07B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3A877B1202F26E300C746FC /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				E376316F2025A35500CFE07B /* YokoTextField.swift in Sources */,
 				E37631702025A35500CFE07B /* KaedeTextField.swift in Sources */,
 				6112EA76201F361F008B4066 /* ViewController.swift in Sources */,
+				E3A877B2202F26E300C746FC /* Event.swift in Sources */,
 				E37631802026027F00CFE07B /* EventCell.swift in Sources */,
 				6112EA74201F361F008B4066 /* AppDelegate.swift in Sources */,
 				611CF22020283CED0079F81B /* Filter.swift in Sources */,
