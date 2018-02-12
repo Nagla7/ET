@@ -15,7 +15,7 @@ class ReviewsViewController: UIViewController {
         super.viewDidLoad()
         subView.layer.masksToBounds=true
         subView.layer.cornerRadius=8
-        subView.center=view.center
+        subView.center.y=350
     }
 
     @IBAction func backButtoPressed(_ sender: UIButton) {

@@ -20,16 +20,20 @@ class EventInfoController: UIViewController {
         super.viewDidLoad()
         Eview.layer.masksToBounds=true
         Eview.layer.cornerRadius=8
-        Eview.center.y = 370
+        Eview.center.y = 350
         
        // Eview.center=view.center
         self.information.text=self.Event["Description"] as! String
         self.location.text=self.Event["City"] as! String
         self.Time_date.text=self.Event["Date"] as! String
+        self.Time_date.text?.append(" \(self.Event["Time"]!)")
         
     }
-    @IBAction func Tab(_ sender: UITapGestureRecognizer) {
+  /*  @IBAction func Tab(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated:true,
                                 completion:nil)
+    }*/
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first?.view != Eview {self.dismiss(animated:true, completion:nil)}
     }
 }

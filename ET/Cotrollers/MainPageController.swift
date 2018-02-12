@@ -102,6 +102,7 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
         cell.E_image.layer.borderWidth = 2.0
         cell.E_image.layer.borderColor = UIColor.white.cgColor
         cell.E_image.layer.cornerRadius = 7
+        cell.index=indexPath.row
         return(cell)
     }
 
@@ -122,17 +123,18 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
         }
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if searchController.isActive && searchController.searchBar.text != ""{
-        self.selectedEvent=self.filtredEvents[indexPath.row]
-    }else{
-        self.selectedEvent=self.fullEvents[indexPath.row]}
     performSegue(withIdentifier:"goInfo", sender: AnyClass.self)
 }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _=sender as? EventCell{
-        var destination=segue.destination as! EventInfoController
-            destination.Event=self.fullEvents[0]!
+            var cell=sender as! EventCell
+            var destination=segue.destination as! EventInfoController
+            if searchController.isActive && searchController.searchBar.text != ""{
+                destination.Event=self.filtredEvents[cell.index]!
+            }else{
+                destination.Event=self.fullEvents[cell.index]!}
+        
         }
     }
 

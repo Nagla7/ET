@@ -11,4 +11,5 @@ import UIKit
 class EventCell: UITableViewCell {
     @IBOutlet weak var E_image: UIImageView!
     @IBOutlet weak var title: UILabel!
+    var index=Int()
 }
