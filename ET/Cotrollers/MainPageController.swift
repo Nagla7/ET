@@ -11,11 +11,6 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating,UISearchBarDelegate,EventDelegate {
-    func recieveEvents(data: [String : NSDictionary]) {
-        
-    }
-    
-    
     
     @IBOutlet weak var NoEventLabel: UILabel!
     @IBOutlet weak var loginbtn: UIButton!
@@ -27,7 +22,7 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
     var fullEvents = [NSDictionary?]()
     let searchController = UISearchController(searchResultsController: nil)
     var EventObj=Event()
-    
+    var selectedEvent:NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = searchController
@@ -65,7 +60,12 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
             self.NoEventLabel.isHidden=true
         }*/
     }
-    
+    func recieveEvents(data: [String : NSDictionary]) {
+        for (_,value) in data{
+            self.fullEvents.append(value)
+        }
+        DispatchQueue.main.async { self.tableView.reloadData()}
+    }
  
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,9 +87,17 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
         else
         {
             event = self.fullEvents[indexPath.row]
+            switch event!["Category"]as! String{
+            case "Male":
+                break
+            case "Female":break
+            case "Family":break
+            default: break
+            
+            }
         }
 
-        cell.title.text = event!["Category"] as? String
+        cell.title.text = event!["title"] as? String
         cell.E_image.clipsToBounds = true
         cell.E_image.layer.borderWidth = 2.0
         cell.E_image.layer.borderColor = UIColor.white.cgColor
@@ -112,18 +120,21 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
                 }
                 self.tableView.reloadData()}
         }
-  /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier:"goInfo", sender: AnyClass.self)
+
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if searchController.isActive && searchController.searchBar.text != ""{
+        self.selectedEvent=self.filtredEvents[indexPath.row]
+    }else{
+        self.selectedEvent=self.fullEvents[indexPath.row]}
+    performSegue(withIdentifier:"goInfo", sender: AnyClass.self)
 }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            let controller = segue.destination as! EventInfoController
-    }
-    func recieveEvents(data: [String : NSDictionary]) {
-        for (_,value) in data{
-            self.fullEvents.append(value)
+        if let _=sender as? EventCell{
+        var destination=segue.destination as! EventInfoController
+            destination.Event=self.fullEvents[0]!
         }
-        DispatchQueue.main.async { self.tableView.reloadData()}
     }
-*/
+
+
 }
