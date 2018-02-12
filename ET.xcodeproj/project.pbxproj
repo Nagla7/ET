@@ -11,6 +11,7 @@
 		0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F893F49202168F900B76FA9 /* LoginViewController.swift */; };
 		1DF725432023D1E900900254 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF725422023D1E900900254 /* RegisterViewController.swift */; };
 		2AD04E1574DAAC2BBAA72FD6 /* Pods_ET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */; };
+		610B91AC2031F15400CD45AE /* LicenseRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610B91AB2031F15400CD45AE /* LicenseRequestController.swift */; };
 		610EB5B120288A9C003F86F2 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610EB5B220288A9C003F86F2 /* DLRadioButton.framework */; };
 		6112EA74201F361F008B4066 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6112EA73201F361F008B4066 /* AppDelegate.swift */; };
 		6112EA76201F361F008B4066 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6112EA75201F361F008B4066 /* ViewController.swift */; };
@@ -72,6 +73,7 @@
 		138E96B7278E08458988D2F4 /* Pods-ET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ET.release.xcconfig"; path = "Pods/Target Support Files/Pods-ET/Pods-ET.release.xcconfig"; sourceTree = "<group>"; };
 		1DF725422023D1E900900254 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2C75EB195EF1211A28CB0F8E /* Pods-ETUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETUITests/Pods-ETUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		610B91AB2031F15400CD45AE /* LicenseRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseRequestController.swift; sourceTree = "<group>"; };
 		610EB5B220288A9C003F86F2 /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6112EA70201F361F008B4066 /* ET.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ET.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6112EA73201F361F008B4066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				610B91AB2031F15400CD45AE /* LicenseRequestController.swift */,
 				61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */,
 				8701B579202B4BB500DBFF44 /* CustomerAccountViewController.swift */,
 				611FFD382028386C0089DD48 /* CollectionViewCell.swift */,
@@ -592,6 +595,7 @@
 				E37631712025A35500CFE07B /* YoshikoTextField.swift in Sources */,
 				E37631822026027F00CFE07B /* ReviewsViewController.swift in Sources */,
 				1DF725432023D1E900900254 /* RegisterViewController.swift in Sources */,
+				610B91AC2031F15400CD45AE /* LicenseRequestController.swift in Sources */,
 				0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */,
 				E37631732025A35500CFE07B /* HoshiTextField.swift in Sources */,
 				E376316E2025A35500CFE07B /* TextFieldEffects.swift in Sources */,

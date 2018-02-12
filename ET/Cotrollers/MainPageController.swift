@@ -11,6 +11,10 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating,UISearchBarDelegate,EventDelegate {
+    func recieveEvents(data: [String : NSDictionary]) {
+        
+    }
+    
     
     
     @IBOutlet weak var NoEventLabel: UILabel!
@@ -108,7 +112,7 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
                 }
                 self.tableView.reloadData()}
         }
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier:"goInfo", sender: AnyClass.self)
 }
     
@@ -121,5 +125,5 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
         }
         DispatchQueue.main.async { self.tableView.reloadData()}
     }
-
+*/
 }
