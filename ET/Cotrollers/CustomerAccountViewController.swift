@@ -17,15 +17,17 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var email: HoshiTextField!
     @IBOutlet weak var phone: HoshiTextField!
     @IBOutlet weak var username: HoshiTextField!
+    @IBOutlet weak var newpass: HoshiTextField!
+    @IBOutlet weak var newrepass: HoshiTextField!
+    private var currentTextField: UITextField?
     var loggedInUser:AnyObject?
     var databaseRef : DatabaseReference!
-    
     var firstname_ = ""
     var lastname_ = ""
     var email_ = ""
     var phonenumber_ = ""
     var username_ = ""
-    var valids = Array(repeating: true, count: 6)
+    var valids = Array(repeating: true, count: 9)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,8 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
         self.email.delegate = self
         self.phone.delegate = self
         self.username.delegate = self
+        self.newpass.delegate = self
+        self.newrepass.delegate = self
         
         self.databaseRef.child("Customers").child(self.loggedInUser!.uid).observe(.value, with: { (snapshot) in
             let snapshot = snapshot.value as! [String: AnyObject]
@@ -57,8 +61,12 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     
     @IBAction func SaveAction(_ sender: Any) {
         
+        if let currentTextField = currentTextField {
+            currentTextField.resignFirstResponder()
+        }
+        
         // check if all fields are valid
-        if(valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5]){
+        if(valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8]){
             
             // if fields changed then update database
             if !(self.fname.text == self.firstname_){
@@ -87,6 +95,16 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                 self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("username").setValue(self.username.text)
             }
             
+            if !(self.newpass.text == "" && self.newrepass.text == ""){
+                Auth.auth().currentUser?.updatePassword(to: self.newpass.text!) { error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        print("Password Updated")
+                    }
+                }
+            }
+            
         } else {
             let alert = UIAlertController(title: "Can't Save Changes!", message: "Make sure all fields are in correct format and not empty.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -97,7 +115,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.textColor = UIColor.black
-        // end = false
+        currentTextField = textField
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -110,7 +128,6 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         textField.textColor = UIColor.lightGray
-        // end = true
         if (textField == fname)
         {
             let name_reg = "[A-Za-z -]{1,30}"
@@ -127,8 +144,6 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 valids[0] = true
-                //fname.borderInactiveColor=UIColor.green
-                //fname.borderThickness=(active: 2, inactive: 2)
             }
         }
         
@@ -146,7 +161,6 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 valids[1] = true
-                //lname.borderInactiveColor=UIColor.green
             }
         }
         
@@ -164,7 +178,6 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 valids[2] = true
-                //username.borderInactiveColor=UIColor.green
             }
             
             //  check usernames excluding current user username!
@@ -179,7 +192,6 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                     self.present(alertController, animated: true, completion: nil)
                 } else {
                     self.valids[3] = true
-                    //  self.username.borderInactiveColor=UIColor.green
                 }
             })
         }
@@ -198,7 +210,6 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 valids[4] = true
-                // email.borderInactiveColor=UIColor.green
             }
         }
         
@@ -216,7 +227,51 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 valids[5] = true
-                //  phone.borderInactiveColor=UIColor.green
+            }
+        }
+        
+        if (textField == newpass)
+        {
+            let name_reg = "[A-Z0-9a-z._%@+-]{6,10}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if (name_test.evaluate(with: newpass.text) == false && (newpass.text != ""))
+            {
+                valids[6] = false
+                newpass.borderInactiveColor=UIColor.red
+                let alert = UIAlertController(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                valids[6] = true
+            }
+        }
+        
+        if (textField == newrepass)
+        {
+            let name_reg = "[A-Z0-9a-z._%@+-]{6,10}"
+            let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
+            if (name_test.evaluate(with: newrepass.text) == false && (newrepass.text != ""))
+            {
+                valids[7] = false
+                newrepass.borderInactiveColor=UIColor.red
+                let alert = UIAlertController(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                valids[7] = true
+            }
+            
+            if !(newrepass.text == newpass.text){
+                valids[8] = false
+                newrepass.borderInactiveColor=UIColor.red
+                let alert = UIAlertController(title: "Uh oh!", message: "Passwords don't match! Please re-enter matching passwords.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                valids[8] = true
             }
         }
         
