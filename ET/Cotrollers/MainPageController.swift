@@ -11,7 +11,6 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating,UISearchBarDelegate,EventDelegate {
-    
     @IBOutlet weak var NoEventLabel: UILabel!
     @IBOutlet weak var loginbtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
