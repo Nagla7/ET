@@ -50,11 +50,19 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             self.phonenumber_ = snapshot["phonenumber"] as! String
             self.username_ = snapshot["username"] as! String
             
+            self.fname.textColor = UIColor.lightGray
+            self.lname.textColor = UIColor.lightGray
+            self.email.textColor = UIColor.lightGray
+            self.phone.textColor = UIColor.lightGray
+            self.username.textColor = UIColor.lightGray
+            
             self.fname.text = self.firstname_
             self.lname.text = self.lastname_
             self.email.text = self.email_
             self.phone.text = self.phonenumber_
             self.username.text = self.username_
+            
+            
         })
     }
     
@@ -101,6 +109,8 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                         print(error)
                     } else {
                         print("Password Updated")
+                        self.newpass.text = ""
+                        self.newrepass.text = ""
                     }
                 }
             }
