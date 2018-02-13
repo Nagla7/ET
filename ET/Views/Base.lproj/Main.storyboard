@@ -733,7 +733,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TAp-yI-cld">
             <objects>
-                <tabBarController id="etF-qI-vta" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CustomersHome" id="etF-qI-vta" sceneMemberID="viewController">
                     <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ItB-O0-2bg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -801,7 +801,7 @@
         <!--Home-->
         <scene sceneID="m6f-O8-P2L">
             <objects>
-                <viewController storyboardIdentifier="CustomersHome" title="Home" id="hbu-ef-qBr" customClass="MainPageController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="hbu-ef-qBr" customClass="MainPageController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yTF-4q-3Sy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1463,13 +1463,6 @@
                                                         <segue destination="mxM-jS-0QQ" kind="presentation" id="UgL-gM-Egl"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWP-aa-CFg">
-                                                    <rect key="frame" x="14" y="17" width="303" height="132"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIF-KH-8Vd">
                                                     <rect key="frame" x="167" y="220" width="150" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1519,6 +1512,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-3K-I3l">
+                                                    <rect key="frame" x="10" y="25" width="305" height="143"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
@@ -1538,7 +1538,7 @@
                         <outlet property="Eview" destination="iPu-oH-jwh" id="Byv-q4-FVx"/>
                         <outlet property="RootView" destination="QYZ-8b-vdh" id="uQe-KU-tTK"/>
                         <outlet property="Time_date" destination="YqT-lN-0uo" id="aUE-wC-0R7"/>
-                        <outlet property="information" destination="FWP-aa-CFg" id="zKr-p4-fQy"/>
+                        <outlet property="information" destination="jBs-3K-I3l" id="cae-hf-WRg"/>
                         <outlet property="location" destination="nEM-3B-Wtq" id="Oh5-Zf-aQt"/>
                     </connections>
                 </viewController>
