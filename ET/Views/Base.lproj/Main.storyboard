@@ -742,7 +742,7 @@
                     <connections>
                         <segue destination="Kzf-iE-Q8M" kind="relationship" relationship="viewControllers" id="8U5-aK-nIA"/>
                         <segue destination="Nrm-Id-K5C" kind="relationship" relationship="viewControllers" id="Lnk-Bc-HM5"/>
-                        <segue destination="XXY-Ma-ceK" kind="relationship" relationship="viewControllers" id="lyf-Ea-atc"/>
+                        <segue destination="Z2w-dB-p1o" kind="relationship" relationship="viewControllers" id="9mq-VV-JkT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Da-Q8-Tbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -763,23 +763,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ev9-LU-1S5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1959" y="-623"/>
-        </scene>
-        <!--Edit Profile-->
-        <scene sceneID="tBT-rZ-CN8">
-            <objects>
-                <viewController id="XXY-Ma-ceK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0LL-HM-ke8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Vrg-ws-gND"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Edit Profile" image="icons8-edit-account-filled-25" id="Wv1-6f-upM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eIM-Fp-ohP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1218" y="-627"/>
+            <point key="canvasLocation" x="-1959" y="-660"/>
         </scene>
         <!--Home-->
         <scene sceneID="qgJ-V5-XAj">
@@ -1053,10 +1037,10 @@
             </objects>
             <point key="canvasLocation" x="-319" y="-727"/>
         </scene>
-        <!--Customer Account View Controller-->
+        <!--Edit Profile-->
         <scene sceneID="LLS-O5-85c">
             <objects>
-                <viewController id="Z2w-dB-p1o" customClass="CustomerAccountViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit Profile" id="Z2w-dB-p1o" customClass="CustomerAccountViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z2v-NL-0V0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1328,6 +1312,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="y7a-JR-y6k"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Edit Profile" image="icons8-edit-account-filled-25" id="SRn-XQ-5gt"/>
                     <connections>
                         <outlet property="email" destination="3dL-LG-J4V" id="TX0-cg-rsA"/>
                         <outlet property="fname" destination="HtF-xn-WRt" id="Xhe-h1-ig0"/>
@@ -1338,7 +1323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yev-Ar-10Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2820" y="-1724"/>
+            <point key="canvasLocation" x="-2999" y="-1462"/>
         </scene>
         <!--CustomersHome-->
         <scene sceneID="HSZ-fz-mSN">
@@ -1359,9 +1344,6 @@
                                 <rect key="frame" x="16" y="348" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Account"/>
-                                <connections>
-                                    <segue destination="Z2w-dB-p1o" kind="presentation" id="4oY-ln-y4J"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
