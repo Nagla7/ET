@@ -11,7 +11,7 @@ pod 'DLRadioButton', '~> 1.4'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
-pod "Texture"
+pod 'SDWebImage', '~> 4.0'
   target 'ETTests' do
     inherit! :search_paths
     # Pods for testing
