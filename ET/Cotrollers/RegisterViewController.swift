@@ -52,6 +52,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         SignUpbtn.frame.origin.y=462
         
         ref = Database.database().reference()
+        //SignUpbtn.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textfield:UITextField)->Bool{
@@ -66,12 +67,6 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         currentTextField = textField
     }
 
-    
-    //close button for register
-    
-    /*@IBAction func close(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }*/
     @IBAction func SelectUser(_ sender: CustomControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -96,7 +91,48 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
     }
 
 }
+    /*
+    // ================== SIGN UP BUTTON COLOR ======================
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        print("textField: \(String(describing: currentTextField?.text))")
+        //currentTextField?.resignFirstResponder()
+        var textFieldsEmpty = true
+        var textFieldsValid = true
+        
+        switch C_SP.selectedSegmentIndex {
+        case 0: //customer
+            textFieldsEmpty = self.fname.text == "" || self.lname.text! == "" || self.email.text! == "" || self.phone.text! == "" || self.username.text! == "" || self.password.text! == ""
+           textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8]
+        case 1:
+            textFieldsEmpty = self.fname.text == "" || self.lname.text! == "" || self.email.text! == "" || self.phone.text! == "" || self.username.text! == "" || self.password.text! == "" || self.companyName.text! == "" || self.CommercialRecord.text! == ""
+            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[9] && valids[10]
+        default:
+            print("none")
+        }
+        
+        //currentTextField?.becomeFirstResponder()
+        if (textFieldsValid && !textFieldsEmpty){
+            SignUpbtn.backgroundColor = UIColor(red:0.13, green:0.64, blue:0.62, alpha:1.0)
+            SignUpbtn.isEnabled = true
+        } else {
+            SignUpbtn.backgroundColor = UIColor(red:0.77, green:0.91, blue:0.91, alpha:1.0)
+            SignUpbtn.isEnabled = false
+        }
+    }*/
     
+    // ================== TEXT FIELD COLOR ======================
+    func erroneousTextField(){
+        (currentTextField as! HoshiTextField).borderThickness=(active: 2, inactive: 2)
+        (currentTextField as! HoshiTextField).borderInactiveColor=UIColor.red
+    }
+    
+    // ================== POP UP MESSAGE ======================
+    func popUpMessage(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func createAccountAction(_ sender: Any) {
         
@@ -120,11 +156,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         
         if flag {
             //error message: fields empty
-            let alertController = UIAlertController(title: "Error", message: "All fields are required. Please enter all your info.", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
-            
+            popUpMessage(title: "Error", message: "All fields are required. Please enter all your info.")
         } else {
             
             // check all fields are valid
@@ -148,17 +180,11 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
                             self.present(vc!, animated: true, completion: nil)
                         } else {
                             //error message: signup failed
-                            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                            alertController.addAction(defaultAction)
-                            self.present(alertController, animated: true, completion: nil)
+                            self.popUpMessage(title: "Error", message: (error?.localizedDescription)!)
                         }
                     }
             } else {
-                let alert = UIAlertController(title: "Error", message: "Cannot submit form with invalid info. Please make sure all fields are in correct format.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                popUpMessage(title: "Error", message: "Cannot submit form with invalid info. Please make sure all fields are in correct format.")
             }
         }
     }
@@ -179,11 +205,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: fname.text) == false
             {
                 valids[0] = false
-                fname.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "First name can contain letters only.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "First name can contain letters only.")
             } else {
                 valids[0] = true
             }
@@ -196,11 +219,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: lname.text) == false
             {
                 valids[1] = false
-                lname.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Last name can contain letters only.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Last name can contain letters only.")
             } else {
                 valids[1] = true
             }
@@ -215,10 +235,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             {
                 valids[2] = false
                 username.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Username has to be at least 5 characters long and can contain letters and numbers.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Username has to be at least 5 characters long and can contain letters and numbers.")
             } else {
                 valids[2] = true
             }
@@ -228,12 +246,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             ref.child(userTree).queryOrdered(byChild: "username").queryEqual(toValue: username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
                 if snapshot.exists() {
                     self.valids[3] = false
-                    self.username.borderInactiveColor=UIColor.red
-                    //error message: username already exists
-                    let alertController = UIAlertController(title: "Uh oh!", message: "\(self.username.text!) is not available. Try another username.", preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    self.present(alertController, animated: true, completion: nil)
+                    self.erroneousTextField()
+                    self.popUpMessage(title: "Uh oh!", message: "\(self.username.text!) is not available. Try another username.")
                 } else {
                     self.valids[3] = true
                 }
@@ -248,11 +262,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: password.text) == false
             {
                 valids[4] = false
-                password.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )")
             } else {
                 self.valids[4] = true
             }
@@ -265,11 +276,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: repassword.text) == false
             {
                 valids[5] = false
-                repassword.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Password has to be at least 6 characters long and can contain letters, numbers and special characters ( . _ % @ + - )")
             } else {
                 self.valids[5] = true
             }
@@ -277,11 +285,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             
             if !(repassword.text == password.text){
                 valids[6] = false
-                repassword.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Uh oh!", message: "Passwords don't match! Please re-enter matching passwords.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Uh oh!", message: "Passwords don't match! Please re-enter matching passwords.")
             } else {
                 self.valids[6] = true
             }
@@ -294,11 +299,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: email.text) == false
             {
                 valids[7] = false
-                email.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Enter the E-mail in correct format. e.g. example@domain.com ", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Enter the E-mail in correct format. e.g. example@domain.com")
             } else {
                 self.valids[7] = true
             }
@@ -312,11 +314,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: phone.text) == false
             {
                 valids[8] = false
-                phone.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Phone number has to be 10 digits long.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Phone number has to be 10 digits long.")
             } else {
                 self.valids[8] = true
             }
@@ -329,11 +328,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: companyName.text) == false
             {
                 valids[9] = false
-                companyName.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Company name can contain letters and numbers only.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Company name can contain letters and numbers only.")
             } else {
                 self.valids[9] = true
             }
@@ -346,11 +342,8 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             if name_test.evaluate(with: CommercialRecord.text) == false
             {
                 valids[10] = false
-                CommercialRecord.borderInactiveColor=UIColor.red
-                let alert = UIAlertController(title: "Format Error", message: "Commercial record has to be 10 digits long.", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                erroneousTextField()
+                popUpMessage(title: "Format Error", message: "Commercial record has to be 10 digits long.")
             } else {
                 self.valids[10] = true
             }
