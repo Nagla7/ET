@@ -1,8 +1,8 @@
 //
-//  CustomerAccountViewController.swift
+//  ServiceAccountViewController.swift
 //  ET
 //
-//  Created by Reem Al-Zahrani on 07/02/2018.
+//  Created by Reem Al-Zahrani on 15/02/2018.
 //  Copyright © 2018 com.GP.ET. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
+class ServiceAccountViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var fname: HoshiTextField!
@@ -20,6 +20,9 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var username: HoshiTextField!
     @IBOutlet weak var newpass: HoshiTextField!
     @IBOutlet weak var newrepass: HoshiTextField!
+    @IBOutlet weak var commercial: HoshiTextField!
+    @IBOutlet weak var company: HoshiTextField!
+    
     private var currentTextField: UITextField?
     var loggedInUser:AnyObject?
     var databaseRef : DatabaseReference!
@@ -28,6 +31,8 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     var email_ = ""
     var phonenumber_ = ""
     var username_ = ""
+    var companyname_ = ""
+    var commercialrecordnumber_ = ""
     var valids = Array(repeating: true, count: 9)
     
     override func viewDidLoad() {
@@ -41,15 +46,19 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
         self.username.delegate = self
         self.newpass.delegate = self
         self.newrepass.delegate = self
+        self.commercial.delegate = self
+        self.company.delegate = self
+        self.saveButton.isEnabled = false
         
-        self.databaseRef.child("Customers").child(self.loggedInUser!.uid).observe(.value, with: { (snapshot) in
+        self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).observe(.value, with: { (snapshot) in
             let snapshot = snapshot.value as! [String: AnyObject]
-            
             self.firstname_ = snapshot["firstname"] as! String
             self.lastname_ = snapshot["lastname"] as! String
             self.email_ = snapshot["email"] as! String
             self.phonenumber_ = snapshot["phonenumber"] as! String
             self.username_ = snapshot["username"] as! String
+            self.companyname_ = snapshot["companyname"] as! String
+            self.commercialrecordnumber_ = snapshot["commercialrecordnumber"] as! String
             
             self.fname.textColor = UIColor.lightGray
             self.lname.textColor = UIColor.lightGray
@@ -62,8 +71,8 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             self.email.text = self.email_
             self.phone.text = self.phonenumber_
             self.username.text = self.username_
-            
-            self.saveButton.isEnabled = false
+            self.company.text = self.companyname_
+            self.commercial.text = self.commercialrecordnumber_
         })
     }
     
@@ -79,11 +88,11 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             
             // if fields changed then update database
             if !(self.fname.text == self.firstname_){
-                self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("firstname").setValue(self.fname.text)
+                self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("firstname").setValue(self.fname.text)
             }
             
             if !(self.lname.text == self.lastname_){
-                self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("lastname").setValue(self.lname.text)
+                self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("lastname").setValue(self.lname.text)
             }
             
             if !(self.email.text == self.email_){
@@ -91,17 +100,17 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                     if let error = error {
                         print(error)
                     } else {
-                        self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("email").setValue(self.email.text)
+                        self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("email").setValue(self.email.text)
                     }
                 }
             }
             
             if !(self.phone.text == self.phonenumber_){
-                self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("phonenumber").setValue(self.phone.text)
+                self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("phonenumber").setValue(self.phone.text)
             }
             
             if !(self.username.text == self.username_){
-                self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("username").setValue(self.username.text)
+                self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("username").setValue(self.username.text)
             }
             
             if !(self.newpass.text == "" && self.newrepass.text == ""){
@@ -171,7 +180,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
         textField.textColor = UIColor.lightGray
         if (textField == fname)
         {
-            let name_reg = "[A-Za-z ]{1,30}"
+            let name_reg = "[A-Za-z -]{1,30}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if (name_test.evaluate(with: fname.text) == false) || (fname.text == "")
             {
@@ -185,7 +194,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
         
         if (textField == lname)
         {
-            let name_reg = "[A-Za-z ]{1,30}"
+            let name_reg = "[A-Za-z -]{1,30}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
             if (name_test.evaluate(with: lname.text) == false)  || (lname.text == "")
             {
@@ -211,7 +220,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             }
             
             //  check usernames excluding current user username!
-            databaseRef.child("Customers").queryOrdered(byChild: "username").queryEqual(toValue: username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
+            databaseRef.child("ServiceProviders").queryOrdered(byChild: "username").queryEqual(toValue: username.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
                 if (snapshot.exists() && !(self.username.text!.lowercased() == self.username_)){
                     self.valids[3] = false
                     self.erroneousTextField()
@@ -287,5 +296,5 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
         }
         
     }
-}
 
+}

@@ -140,53 +140,39 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             currentTextField.resignFirstResponder()
         }
         
-        //check which user tree
-        let tree = (C_SP.selectedSegmentIndex == 0) ? "Customers":"ServiceProviders"
-        var flag : Bool!
-        var flag2 : Bool!
+        var textFieldsValid : Bool!
         
         switch C_SP.selectedSegmentIndex {
         case 0: //customer
-            flag = self.fname.text == "" || self.lname.text! == "" || self.email.text! == "" || self.phone.text! == "" || self.username.text! == "" || self.password.text! == ""
+            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8]
         case 1:
-            flag = self.fname.text == "" || self.lname.text! == "" || self.email.text! == "" || self.phone.text! == "" || self.username.text! == "" || self.password.text! == "" || self.companyName.text! == "" || self.CommercialRecord.text! == ""
+            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[9] && valids[10]
         default:
             print("none")
         }
         
-        if flag {
-            //error message: fields empty
-            popUpMessage(title: "Error", message: "All fields are required. Please enter all your info.")
-        } else {
+        if(textFieldsValid){
             
-            // check all fields are valid
-            switch C_SP.selectedSegmentIndex {
-            case 0: //customer
-                flag2 = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8]
-            case 1:
-                flag2 = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[9] && valids[10]
-            default:
-                print("none")
-            }
-            if(flag2){
-                    Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
-                        if error == nil {
-                            print("You have successfully signed up")
-                            // add user info to database
-                            self.ref.child(tree).child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid]
-                            )
-                            // redirect to login page
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
-                            self.present(vc!, animated: true, completion: nil)
-                        } else {
-                            //error message: signup failed
-                            self.popUpMessage(title: "Error", message: (error?.localizedDescription)!)
-                        }
+            if (C_SP.selectedSegmentIndex == 1){ // service provider
+                self.ref.child("ApprovalRequests").childByAutoId().setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(), "companyname":self.companyName.text!, "commercialrecordnumber":self.CommercialRecord.text!])
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
+                self.present(vc!, animated: true, completion: nil)
+                self.popUpMessage(title: "Notice", message: "Your sign up request has been sent to the admin. Please wait for a conformation email.")
+            } else { // customer
+                Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
+                    if error == nil {
+                        self.ref.child("Customers").child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid])
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
+                        self.present(vc!, animated: true, completion: nil)
+                    } else {
+                        self.popUpMessage(title: "Error", message: (error?.localizedDescription)!)
                     }
-            } else {
-                popUpMessage(title: "Error", message: "Cannot submit form with invalid info. Please make sure all fields are in correct format.")
+                }
             }
+        } else {
+            popUpMessage(title: "Error", message: "All fields are required. Please enter all your info in correct format.")
         }
+        
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -200,9 +186,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         
         if (textField == fname)
         {
-            let name_reg = "[A-Za-z]{1,30}"
+            let name_reg = "[A-Za-z ]{1,30}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: fname.text) == false
+            if (name_test.evaluate(with: fname.text) == false) || (fname.text == "")
             {
                 valids[0] = false
                 erroneousTextField()
@@ -214,9 +200,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         
         if (textField == lname)
         {
-            let name_reg = "[A-Za-z]{1,30}"
+            let name_reg = "[A-Za-z ]{1,30}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: lname.text) == false
+            if (name_test.evaluate(with: lname.text) == false) || (lname.text == "")
             {
                 valids[1] = false
                 erroneousTextField()
@@ -231,7 +217,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         {
             let name_reg = "[A-Za-z0-9]{5,20}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: username.text) == false
+            if (name_test.evaluate(with: username.text) == false)  || (username.text == "")
             {
                 valids[2] = false
                 username.borderInactiveColor=UIColor.red
@@ -259,7 +245,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         {
             let name_reg = "[A-Z0-9a-z._%@+-]{6,10}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: password.text) == false
+            if (name_test.evaluate(with: password.text) == false) || (password.text == "")
             {
                 valids[4] = false
                 erroneousTextField()
@@ -273,7 +259,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         {
             let name_reg = "[A-Z0-9a-z._%@+-]{6,10}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: repassword.text) == false
+            if (name_test.evaluate(with: repassword.text) == false) || (repassword.text == "")
             {
                 valids[5] = false
                 erroneousTextField()
@@ -296,7 +282,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         {
             let name_reg = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: email.text) == false
+            if (name_test.evaluate(with: email.text) == false) || (email.text == "")
             {
                 valids[7] = false
                 erroneousTextField()
@@ -311,7 +297,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         {
             let name_reg = "[0-9]{10}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: phone.text) == false
+            if (name_test.evaluate(with: phone.text) == false) || (phone.text == "")
             {
                 valids[8] = false
                 erroneousTextField()
@@ -323,9 +309,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         
         if (textField == companyName)
         {
-            let name_reg = "[A-Za-z0-9]{1,50}"
+            let name_reg = "[A-Za-z0-9 ]{1,50}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: companyName.text) == false
+            if (name_test.evaluate(with: companyName.text) == false) || (self.companyName.text == "")
             {
                 valids[9] = false
                 erroneousTextField()
@@ -339,7 +325,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         {
             let name_reg = "[0-9]{10}"
             let name_test = NSPredicate(format: "SELF MATCHES %@", name_reg)
-            if name_test.evaluate(with: CommercialRecord.text) == false
+            if (name_test.evaluate(with: CommercialRecord.text) == false) || (self.CommercialRecord.text == "")
             {
                 valids[10] = false
                 erroneousTextField()

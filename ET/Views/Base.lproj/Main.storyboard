@@ -285,9 +285,6 @@
                                                 <real key="value" value="120"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="SDI-Zz-bEe"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHt-sY-vnP" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="183" y="88" width="141" height="47"/>
@@ -335,9 +332,6 @@
                                                 <real key="value" value="120"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="fT2-4x-rOa"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rc5-Wc-3jg" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="17" y="308" width="308" height="47"/>
@@ -385,9 +379,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="9Nd-tX-h9Z"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dY8-ep-rv8" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="17" y="253" width="308" height="47"/>
@@ -435,9 +426,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="uwT-xD-1sQ"/>
-                                        </connections>
                                     </textField>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHG-b1-vLP" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="17" y="414" width="308" height="47"/>
@@ -485,9 +473,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="zFl-P4-Ssl"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucH-ha-E21">
                                         <rect key="frame" x="17" y="540" width="308" height="35"/>
@@ -546,9 +531,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="Y9y-aZ-E6f"/>
-                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xg-2t-XXv" customClass="CustomControl" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="8" y="37" width="326" height="43"/>
@@ -625,9 +607,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="BUk-k5-QFT"/>
-                                        </connections>
                                     </textField>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Commercial Record Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7z-9w-rtm" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="17" y="469" width="308" height="47"/>
@@ -675,9 +654,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="5zq-57-Vzf"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q96-EP-ih8" userLabel="Repassword" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                         <rect key="frame" x="17" y="363" width="308" height="47"/>
@@ -725,9 +701,6 @@
                                                 <real key="value" value="289"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="textFieldDidChange:" destination="5Bp-WV-BN3" eventType="editingChanged" id="smh-DW-zoM"/>
-                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -769,12 +742,48 @@
                     <connections>
                         <segue destination="Kzf-iE-Q8M" kind="relationship" relationship="viewControllers" id="8U5-aK-nIA"/>
                         <segue destination="Nrm-Id-K5C" kind="relationship" relationship="viewControllers" id="Lnk-Bc-HM5"/>
-                        <segue destination="Z2w-dB-p1o" kind="relationship" relationship="viewControllers" id="9mq-VV-JkT"/>
+                        <segue destination="KJx-XU-jGh" kind="relationship" relationship="viewControllers" id="DQ5-MI-5JZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Da-Q8-Tbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1959" y="-1462"/>
+        </scene>
+        <!--Settings -->
+        <scene sceneID="wse-gw-A3e">
+            <objects>
+                <viewController id="KJx-XU-jGh" customClass="CustomersSettingsViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dhY-yO-60L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGh-EV-btr">
+                                <rect key="frame" x="117" y="213" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Log out !"/>
+                                <connections>
+                                    <action selector="signOutAction:" destination="KJx-XU-jGh" eventType="touchUpInside" id="HTS-yJ-o1G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rww-ak-Pzd">
+                                <rect key="frame" x="117" y="310" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="Z2w-dB-p1o" kind="presentation" id="tzY-Zm-HfW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="v6C-L6-AeK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings " image="icons8-settings-filled-25-2" selectedImage="icons8-edit-account-filled-25" id="fen-Us-HQl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGt-oY-VFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2999.1999999999998" y="-1462.2188905547227"/>
         </scene>
         <!--Tickets-->
         <scene sceneID="3so-LU-fFY">
@@ -1458,6 +1467,7 @@
                         <viewLayoutGuide key="safeArea" id="y7a-JR-y6k"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Edit Profile" image="icons8-edit-account-filled-25" id="SRn-XQ-5gt"/>
+                    <navigationItem key="navigationItem" id="6qZ-ip-xVc"/>
                     <connections>
                         <outlet property="email" destination="3dL-LG-J4V" id="TX0-cg-rsA"/>
                         <outlet property="fname" destination="HtF-xn-WRt" id="Xhe-h1-ig0"/>
@@ -1471,36 +1481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yev-Ar-10Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2999.1999999999998" y="-1462.2188905547227"/>
-        </scene>
-        <!--CustomersHome-->
-        <scene sceneID="HSZ-fz-mSN">
-            <objects>
-                <viewController title="CustomersHome" id="gbB-ds-SA4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ues-c5-yCk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customers Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3T-FM-erC">
-                                <rect key="frame" x="8" y="134" width="359" height="157"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dco-3B-riX">
-                                <rect key="frame" x="16" y="348" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Account"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="OZS-NU-NLO"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cec-6R-yWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2820" y="-2501"/>
+            <point key="canvasLocation" x="-2999" y="-661"/>
         </scene>
         <!--Event Info Controller-->
         <scene sceneID="6tw-u9-OqD">
@@ -1944,17 +1925,37 @@
             </objects>
             <point key="canvasLocation" x="-1152" y="-4448"/>
         </scene>
-        <!--Edit Profile-->
+        <!--Settings-->
         <scene sceneID="1h2-E7-kqs">
             <objects>
-                <viewController id="ip8-oN-HwJ" sceneMemberID="viewController">
+                <viewController id="ip8-oN-HwJ" customClass="ServiceSettingsViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pzD-DD-MdF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lm-2Q-vdZ">
+                                <rect key="frame" x="117" y="201" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Log out !"/>
+                                <connections>
+                                    <action selector="signOutAction:" destination="ip8-oN-HwJ" eventType="touchUpInside" id="AJA-gU-hUx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNR-u2-oQj">
+                                <rect key="frame" x="117" y="298" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <segue destination="ZeZ-jR-kyA" kind="presentation" id="0v1-LY-CJX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3Jd-HC-vs1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Edit Profile" image="icons8-edit-account-filled-25" id="TG9-tM-RTl"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings-filled-25-2" id="TG9-tM-RTl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1so-nG-zx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2067,6 +2068,512 @@
             </objects>
             <point key="canvasLocation" x="-319" y="-3633"/>
         </scene>
+        <!--Edit Profile-->
+        <scene sceneID="qvp-QY-DeS">
+            <objects>
+                <viewController title="Edit Profile" id="ZeZ-jR-kyA" customClass="ServiceAccountViewController" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H3u-mv-wUr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glC-G6-KDs">
+                                <rect key="frame" x="10" y="47" width="355" height="580"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Account Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v89-m1-zlA">
+                                        <rect key="frame" x="26" y="8" width="308" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TgW-rw-Okw" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="186" width="141" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-identification-documents-120"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="120"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-identification-documents-120"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="120"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="dxd-0R-j0f"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1y0-aU-Gp0" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="186" width="141" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-identification-documents-120"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="120"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-identification-documents-120"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="120"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="Zw8-hZ-S6f"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6DE-En-va4" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="351" width="308" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="287"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="user"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="user"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="xdh-cM-8jD"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ0-0E-s7m" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="296" width="308" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-phone-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="290"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-phone-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="DXf-4E-rjw"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-sT-VYT" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="241" width="308" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-phone-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="290"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-email-100 (1)"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="K2v-SE-PWb"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-vz-xLw" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="406" width="309" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-key-2-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-key-2-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="rQm-Xx-8Gf"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Klm-1f-hFb" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="461" width="309" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-key-2-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-key-2-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ZeZ-jR-kyA" eventType="editingChanged" id="DnL-wQ-asD"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7b-d2-tU6">
+                                        <rect key="frame" x="26" y="537" width="309" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.062418304379999998" green="0.64072883130000002" blue="0.62210971120000003" alpha="0.2499197346" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Save"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="SaveAction:" destination="ZeZ-jR-kyA" eventType="touchUpInside" id="n3b-5K-is0"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Commercial Record Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-Mr-J8n" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="26" y="131" width="308" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-debit-card-100"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-debit-card-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Myc-iP-pN9" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
+                                        <rect key="frame" x="27" y="76" width="308" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderSize">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeBorderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveBorderColor">
+                                                <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.34554553030000001" green="0.61375790829999999" blue="0.75148445370000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="icons8-company-100"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="leftImage2" value="icons8-company-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
+                                                <real key="value" value="289"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <viewLayoutGuide key="safeArea" id="VfO-h6-JSP"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YbF-Je-NIJ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Edit Profile" image="icons8-edit-account-filled-25" id="EGN-uX-7v0"/>
+                    <navigationItem key="navigationItem" id="ZM2-PB-2XZ"/>
+                    <connections>
+                        <outlet property="commercial" destination="dKI-Mr-J8n" id="GpY-qD-1nl"/>
+                        <outlet property="company" destination="Myc-iP-pN9" id="CiL-nA-OQR"/>
+                        <outlet property="email" destination="nDE-sT-VYT" id="LDa-Os-dwA"/>
+                        <outlet property="fname" destination="TgW-rw-Okw" id="QPJ-PW-yni"/>
+                        <outlet property="lname" destination="1y0-aU-Gp0" id="FI0-sd-LMs"/>
+                        <outlet property="newpass" destination="oa8-vz-xLw" id="2Mw-op-KTc"/>
+                        <outlet property="newrepass" destination="Klm-1f-hFb" id="fGN-GL-Uyb"/>
+                        <outlet property="phone" destination="TZ0-0E-s7m" id="kEa-fX-BkM"/>
+                        <outlet property="saveButton" destination="w7b-d2-tU6" id="bLn-GJ-nRu"/>
+                        <outlet property="username" destination="6DE-En-va4" id="S8C-Hn-mIC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DH4-cu-CEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="653.60000000000002" y="-4449.6251874062973"/>
+        </scene>
     </scenes>
     <resources>
         <image name="calendar (1)" width="512" height="512"/>
@@ -2086,6 +2593,7 @@
         <image name="icons8-ok-filled-500" width="500" height="500"/>
         <image name="icons8-phone-100" width="100" height="100"/>
         <image name="icons8-place-marker-96 (4)" width="96" height="96"/>
+        <image name="icons8-settings-filled-25-2" width="25" height="25"/>
         <image name="icons8-ticket-100 (1)" width="100" height="100"/>
         <image name="icons8-two-tickets-25" width="25" height="25"/>
         <image name="keyboard-left-arrow-button" width="512" height="512"/>
@@ -2093,7 +2601,7 @@
         <image name="user (1)" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Eh-SU-BTQ"/>
+        <segue reference="8U5-aK-nIA"/>
         <segue reference="dNG-TO-Q2b"/>
     </inferredMetricsTieBreakers>
 </document>
