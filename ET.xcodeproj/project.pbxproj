@@ -101,7 +101,7 @@
 		AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5866B852EE8F01A68AFB1A1 /* Pods-ET.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ET.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ET/Pods-ET.debug.xcconfig"; sourceTree = "<group>"; };
 		D53FE9472F91CC0C83C79968 /* Pods-ETTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.release.xcconfig"; sourceTree = "<group>"; };
-		E366A88A2034C67D00FD0130 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
+		E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
 		E376315F2025A35400CFE07B /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		E37631602025A35400CFE07B /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
 		E37631612025A35400CFE07B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -261,12 +261,12 @@
 				E376317A2026027E00CFE07B /* EventInfoController.swift */,
 				E376317C2026027F00CFE07B /* MainPageController.swift */,
 				E376317D2026027F00CFE07B /* ReviewsViewController.swift */,
-				E366A88A2034C67D00FD0130 /* ET-Bridging-Header.h */,
 				0F10E89120225E7C00404A6A /* CustomControl.swift */,
 				611CF21F20283CED0079F81B /* Filter.swift */,
 				0F893F49202168F900B76FA9 /* LoginViewController.swift */,
 				61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */,
 				1DF725422023D1E900900254 /* RegisterViewController.swift */,
+				E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */,
 			);
 			path = Cotrollers;
 			sourceTree = "<group>";
