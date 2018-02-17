@@ -23,8 +23,6 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
     let searchController = UISearchController(searchResultsController: nil)
     var EventObj=Event()
     var selectedEvent:NSDictionary!
-    var photos=["https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2F1.jpg?alt=media&token=2cc8309f-d753-461d-a8d1-4ff59968686f","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Ffantasyworld.jpg?alt=media&token=132d59ac-120a-4c55-8570-bd8ea8b1b528","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fhakayathumb.jpg?alt=media&token=59a5237b-ff9f-47f2-94a8-accd62da74de","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Flaser_thumb.jpg?alt=media&token=0c572457-bf26-4525-9f90-70cc3956b62b","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fsharekqudrathumbnail.jpg?alt=media&token=47333259-a7ae-446b-9e9f-82bc2b188d8f","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Ftaif_thumb.jpg?alt=media&token=d86e4507-0692-4ef9-a582-7aaaea055662","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fthumb.jpg?alt=media&token=823e0b4e-b518-4cf8-b896-0172e3261f04","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fwonderland2018.jpg?alt=media&token=ca48e200-3d09-48af-a54a-0c7a5cf96f51"]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,9 +99,10 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
         cell.E_image.layer.borderWidth = 2.0
         cell.E_image.layer.borderColor = UIColor.white.cgColor
         cell.E_image.layer.cornerRadius = 7
-        cell.index=indexPath.row
-        var url=URL(string:self.photos[indexPath.row])
-        cell.E_image.sd_setImage(with:url, completed:nil)
+        var pic: String
+        pic = event!["pic"] as! String
+            var url=URL(string:pic)
+            cell.E_image.sd_setImage(with:url, completed:nil)
         return(cell)
     }
 
