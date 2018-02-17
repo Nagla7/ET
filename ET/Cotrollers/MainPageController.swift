@@ -14,6 +14,7 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
     @IBOutlet weak var NoEventLabel: UILabel!
     @IBOutlet weak var loginbtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    var Cellid = Int()
     var ref : DatabaseReference!
     var dbHandle:DatabaseHandle?
     var Events=[String : NSDictionary]()
@@ -23,6 +24,8 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
     var EventObj=Event()
     var selectedEvent:NSDictionary!
     var photos=["https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2F1.jpg?alt=media&token=2cc8309f-d753-461d-a8d1-4ff59968686f","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Ffantasyworld.jpg?alt=media&token=132d59ac-120a-4c55-8570-bd8ea8b1b528","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fhakayathumb.jpg?alt=media&token=59a5237b-ff9f-47f2-94a8-accd62da74de","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Flaser_thumb.jpg?alt=media&token=0c572457-bf26-4525-9f90-70cc3956b62b","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fsharekqudrathumbnail.jpg?alt=media&token=47333259-a7ae-446b-9e9f-82bc2b188d8f","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Ftaif_thumb.jpg?alt=media&token=d86e4507-0692-4ef9-a582-7aaaea055662","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fthumb.jpg?alt=media&token=823e0b4e-b518-4cf8-b896-0172e3261f04","https://firebasestorage.googleapis.com/v0/b/gp-et-873cd.appspot.com/o/Events%20pics%2Fwonderland2018.jpg?alt=media&token=ca48e200-3d09-48af-a54a-0c7a5cf96f51"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = searchController
@@ -112,27 +115,34 @@ class MainPageController: UIViewController ,UITableViewDataSource,UITableViewDel
             }
             
             else {
+            filtredEvents=[NSDictionary]()
                 self.filtredEvents = self.fullEvents.filter{ event in
-                    let Title = fullEvents[i]!["Category"] as! String
+                    let Title = fullEvents[i]!["title"] as! String
                     i = 1+i
-                    return(Title.lowercased().contains(searchController.searchBar.text!.lowercased()))
+                return(Title.lowercased().contains(searchController.searchBar.text!.lowercased()))
                 }
                 self.tableView.reloadData()}
         }
 
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier:"goInfo", sender: AnyClass.self)
+    self.Cellid = indexPath.row
+    print(Cellid,"###############")
+    performSegue(withIdentifier:"goInfo", sender: EventCell())
 }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         if let _=sender as? EventCell{
-            var cell=sender as! EventCell
-            var destination=segue.destination as! EventInfoController
             if searchController.isActive && searchController.searchBar.text != ""{
-                destination.Event=self.filtredEvents[cell.index]!
+                searchController.isActive = false
+                let event = self.filtredEvents[self.Cellid]
+                let destination=segue.destination as! EventInfoController
+                destination.Event=event!
             }else{
-                destination.Event=self.fullEvents[cell.index]!}
-        
+                let event = self.fullEvents[self.Cellid]
+                let destination=segue.destination as! EventInfoController
+                destination.Event=event!
+        }
         }
     }
 

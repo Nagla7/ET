@@ -22,6 +22,7 @@ class EventInfoController: UIViewController {
         Eview.layer.cornerRadius=8
         Eview.center.y = 353
        // Eview.center=view.center
+        print(Event,"gggg%%%%%%%%%%%gggg")
         self.information.text=self.Event["Description"] as! String
         self.location.text=self.Event["City"] as! String
         self.Time_date.text=self.Event["Date"] as! String
