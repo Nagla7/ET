@@ -2806,7 +2806,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uc6-4W-ESz">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="59" width="375" height="608"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKO-0e-VKJ">
@@ -2829,6 +2829,7 @@
                     </view>
                     <connections>
                         <outlet property="map" destination="uc6-4W-ESz" id="D9q-lf-upQ"/>
+                        <outlet property="navigation" destination="wKO-0e-VKJ" id="K64-h0-nHc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDy-CD-eSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2914,6 +2915,6 @@
         <image name="user (1)" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YJS-rR-OFy"/>
+        <segue reference="iLt-tD-qdo"/>
     </inferredMetricsTieBreakers>
 </document>

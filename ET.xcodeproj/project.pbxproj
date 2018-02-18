@@ -27,6 +27,7 @@
 		611CF22020283CED0079F81B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CF21F20283CED0079F81B /* Filter.swift */; };
 		611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FFD382028386C0089DD48 /* CollectionViewCell.swift */; };
 		61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */; };
+		61AF5BCA2039667600C1806C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AF5BC92039667600C1806C /* Location.swift */; };
 		61DEAC37202C184E008616C8 /* ServiceProviderHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */; };
 		61F321272038B3620098B141 /* RegulationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F321252038B3620098B141 /* RegulationController.swift */; };
 		61F321282038B3620098B141 /* RegulationControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F321262038B3620098B141 /* RegulationControllerTableViewCell.swift */; };
@@ -100,6 +101,7 @@
 		611CF21F20283CED0079F81B /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		611FFD382028386C0089DD48 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassowrdController.swift; sourceTree = "<group>"; };
+		61AF5BC92039667600C1806C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProviderHomeController.swift; sourceTree = "<group>"; };
 		61F321252038B3620098B141 /* RegulationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegulationController.swift; sourceTree = "<group>"; };
 		61F321262038B3620098B141 /* RegulationControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegulationControllerTableViewCell.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				61AF5BC92039667600C1806C /* Location.swift */,
 				61F321292038B3930098B141 /* MapViewController.swift */,
 				61F321252038B3620098B141 /* RegulationController.swift */,
 				61F321262038B3620098B141 /* RegulationControllerTableViewCell.swift */,
@@ -644,6 +647,7 @@
 				875A0FF420359AFB0095B353 /* ServiceSettingsViewController.swift in Sources */,
 				E37631742025A35500CFE07B /* IsaoTextField.swift in Sources */,
 				E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */,
+				61AF5BCA2039667600C1806C /* Location.swift in Sources */,
 				611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */,
 				0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */,
 				61F321282038B3620098B141 /* RegulationControllerTableViewCell.swift in Sources */,
