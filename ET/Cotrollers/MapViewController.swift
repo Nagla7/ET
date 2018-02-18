@@ -18,8 +18,8 @@ class MapViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        let height: CGFloat = 80 //whatever height you want to add to the existing height
-        navigation.frame = CGRect(x: 0, y: 0, width:  view.frame.width, height: height)
+        // navigation hight
+        navigation.frame = CGRect(x: 0, y: 0, width:  view.frame.width, height: 50)
         
         let initialLocation = CLLocation(latitude: 24.774265, longitude: 46.738586)
         centerMapOnLocation(location: initialLocation)
