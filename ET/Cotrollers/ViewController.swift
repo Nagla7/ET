@@ -10,9 +10,9 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import SDWebImage
-class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating,UISearchBarDelegate {
+class ViewController: UIViewController,EventDelegate,RatingDelegate,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating,UISearchBarDelegate {
     
-    @IBOutlet weak var NoEventLabel: UILabel!
+
     @IBOutlet weak var loginbtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -20,7 +20,6 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     var dbHandle:DatabaseHandle?
     var Events=[String : NSDictionary]()
     var filtredEvents = [NSDictionary?]()
-    var SendfiltredEvents = [NSDictionary?]()
     var fullEvents = [NSDictionary?]()
     var Rating = [NSDictionary]()
     var RatigNo=[Int]()
@@ -34,47 +33,47 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        //self.tableView.register(UITableViewCell.self , forCellReuseIdentifier: "recell")
+        self.tableView.register(UITableViewCell.self , forCellReuseIdentifier: "recell")
         tableView.delegate=self
         tableView.dataSource=self
         EventObj.delegate=self
         EventObj.RateDelegate=self
         let uid = Auth.auth().currentUser?.uid
         var user : String!
-            user = uid
+        user = uid
         
         ref = Database.database().reference()
         ref.child("Customers").queryOrdered(byChild: "UID").queryEqual(toValue:user).observeSingleEvent(of: .value , with: { snapshot in
             if snapshot.exists() {
                 self.tabBarController?.tabBar.isHidden=false
-                    self.loginbtn.isHidden=true}
+                self.loginbtn.isHidden=true}
             else{
                 self.tabBarController?.tabBar.isHidden=true
                 self.loginbtn.isHidden=false
             }
-            })
+        })
         
         EventObj.getEvents()
         EventObj.getRatings()
     }
- 
+    
     
     func recieveEvents(data: [String : NSDictionary]) {
         if data.count != 0{
-            self.NoEventLabel.isHidden=true
+          //  self.NoEventLabel.isHidden=true
             self.tableView.isHidden=false
-        for (_,value) in data{
-            self.fullEvents.append(value)
-        }
+            for (_,value) in data{
+                self.fullEvents.append(value)
+            }
             DispatchQueue.main.async { self.tableView.reloadData()}}
-        else{self.NoEventLabel.isHidden=false
+        else{ //self.NoEventLabel.isHidden=false
             self.tableView.isHidden=true}
     }
-
+    
     func recieveRating(data:[String:NSDictionary]) {
         if data.count != 0{
-        for (_,value) in data{
-            self.Rating.append(value)
+            for (_,value) in data{
+                self.Rating.append(value)
             }
             for value in self.Rating{
                 var num:Int=0
@@ -97,7 +96,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:EventCell=tableView.dequeueReusableCell(withIdentifier:"cell") as! EventCell
         let event : NSDictionary?
-
+        
         if searchController.isActive && searchController.searchBar.text != ""{
             
             event = self.filtredEvents[indexPath.row]
@@ -111,7 +110,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
             case "Female":break
             case "Family":break
             default: break
-            
+                
             }
         }
         cell.title.text = event!["title"] as? String
@@ -125,7 +124,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         cell.E_image.sd_setImage(with:url, completed:nil)
         return(cell)
     }
-
+    
     func updateSearchResults(for searchController: UISearchController) {
         var i:Int=0
         if searchController.searchBar.text == "" {
@@ -140,12 +139,10 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                 i = 1+i
                 return(Title.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
-            self.tableView.reloadData()
-        }
+            self.tableView.reloadData()}
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SendfiltredEvents = filtredEvents
         self.Cellid = indexPath.row
         performSegue(withIdentifier:"goInfo", sender: EventCell())
     }
@@ -155,7 +152,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         if let _=sender as? EventCell{
             if searchController.isActive || searchController.searchBar.text != ""{
                 searchController.isActive = false
-                let event = self.SendfiltredEvents[self.Cellid]
+                let event = self.filtredEvents[self.Cellid]
                 let destination=segue.destination as! EventInfoController
                 destination.Event=event!
             }else{
@@ -165,6 +162,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
             }
         }
     }
-
-
+    
+    
 }
+
