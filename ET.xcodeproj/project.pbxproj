@@ -53,6 +53,7 @@
 		E37631802026027F00CFE07B /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317B2026027F00CFE07B /* EventCell.swift */; };
 		E37631812026027F00CFE07B /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317C2026027F00CFE07B /* MainPageController.swift */; };
 		E37631822026027F00CFE07B /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317D2026027F00CFE07B /* ReviewsViewController.swift */; };
+		E3F5790B203A9C950077A5A5 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5790A203A9C950077A5A5 /* VenueCell.swift */; };
 		E3F93B5B202F3BBB005F8972 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F93B5A202F3BBB005F8972 /* Model.swift */; };
 		F0A9DACC61F75EB2F6F4CBF2 /* Pods_ETUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ED2861E685F6180CCA3F4F /* Pods_ETUITests.framework */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		E376317B2026027F00CFE07B /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		E376317C2026027F00CFE07B /* MainPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		E376317D2026027F00CFE07B /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
+		E3F5790A203A9C950077A5A5 /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		E3F93B5A202F3BBB005F8972 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,6 +271,7 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				E3F5790A203A9C950077A5A5 /* VenueCell.swift */,
 				61AF5BC92039667600C1806C /* Location.swift */,
 				61F321292038B3930098B141 /* MapViewController.swift */,
 				61F321252038B3620098B141 /* RegulationController.swift */,
@@ -641,6 +644,7 @@
 				611CF22020283CED0079F81B /* Filter.swift in Sources */,
 				61F321272038B3620098B141 /* RegulationController.swift in Sources */,
 				E37631812026027F00CFE07B /* MainPageController.swift in Sources */,
+				E3F5790B203A9C950077A5A5 /* VenueCell.swift in Sources */,
 				E37631722025A35500CFE07B /* JiroTextField.swift in Sources */,
 				8701B57A202B4BB500DBFF44 /* CustomerAccountViewController.swift in Sources */,
 				61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */,

@@ -21,13 +21,9 @@ class EventInfoController: UIViewController {
     var Event=NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if  let uid = Auth.auth().currentUser?.uid{
-            purchase.isEnabled=true
+        if let uid=Auth.auth().currentUser?.uid as? String{
             for str in stars{str.isHidden=false}
-        }else{
-            purchase.isEnabled=false
-            for str in stars{str.isHidden=true}
-        }
+        }else{for str in stars{str.isHidden=true}}
         Eview.layer.masksToBounds=true
         Eview.layer.cornerRadius=8
         Eview.center.y = 353
@@ -64,7 +60,9 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
         for star in self.stars {
             if star.tag<=rate{
                 star .setTitle("★", for: UIControlState.normal )}
-            else{star .setTitle("☆", for: UIControlState.normal )}}
+            else{star .setTitle("☆", for: UIControlState.normal )}
+            
+        }
     }
 
     @IBAction func OpenMap(_ sender: Any) {

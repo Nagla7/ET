@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
+import SDWebImage
 
 class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITableViewDataSource,VenueDelegate {
 
@@ -50,11 +53,13 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         
         
         // the same cell well be used for events and venues
-        let cell:EventCell=tableView.dequeueReusableCell(withIdentifier:"cell") as! EventCell
-      /*  cell.E_image.clipsToBounds = true
-        cell.E_image.layer.borderWidth = 2.0
-        cell.E_image.layer.borderColor = UIColor.white.cgColor
-        cell.E_image.layer.cornerRadius = 7*/
+        let cell:VenueCell=tableView.dequeueReusableCell(withIdentifier:"cell") as! VenueCell
+        cell.Vimage.clipsToBounds = true
+        cell.Vimage.layer.borderWidth = 2.0
+        cell.Vimage.layer.borderColor = UIColor.white.cgColor
+        cell.Vimage.layer.cornerRadius = 7
+        cell.Vname.text=events?.value(forKey:"VenueName") as! String
+        cell.Vcapacity.text="Capacity: \(events?.value(forKey:"Capacity") as! String)"
         return cell
     }
     func recieveVenues(data: [String : NSDictionary]) {

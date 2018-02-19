@@ -29,7 +29,7 @@ class ServiceSettingsViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "C_SP_Login")
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomersHome")
                 present(vc, animated: true, completion: nil)
             } catch let error as NSError {
                 print(error.localizedDescription)
