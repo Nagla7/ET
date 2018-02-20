@@ -229,10 +229,15 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         if (collectionView==collection && cell.isSelected == false){
             selectedAudience.append(self.audience[indexPath.row])}
         else {
+            if (collectionView==collection && cell.isSelected == true && selectedAudience.contains(self.audience[indexPath.row])){
+                selectedAudience = selectedAudience.filter { $0 != self.audience[indexPath.row] }
+            }
+        }
+        print(selectedAudience,"!!!!!!!!!!!!")
             if (category==collectionView && cell.isSelected == false){
             selectedCategories.append(self.Categories[indexPath.row])}
             
-        }
+        
     }
     
     
