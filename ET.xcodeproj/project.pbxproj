@@ -24,7 +24,6 @@
 		6112EAA5201F3C7B008B4066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */; };
 		6112EAA6201F3C7B008B4066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */; };
 		6112EAA7201F3C7B008B4066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */; };
-		611CF22020283CED0079F81B /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CF21F20283CED0079F81B /* Filter.swift */; };
 		611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FFD382028386C0089DD48 /* CollectionViewCell.swift */; };
 		61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */; };
 		61AF5BCA2039667600C1806C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AF5BC92039667600C1806C /* Location.swift */; };
@@ -99,7 +98,6 @@
 		6112EA96201F361F008B4066 /* ETUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETUITests.swift; sourceTree = "<group>"; };
 		6112EA98201F361F008B4066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		611CF21F20283CED0079F81B /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		611FFD382028386C0089DD48 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassowrdController.swift; sourceTree = "<group>"; };
 		61AF5BC92039667600C1806C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -289,7 +287,6 @@
 				E376317C2026027F00CFE07B /* MainPageController.swift */,
 				E376317D2026027F00CFE07B /* ReviewsViewController.swift */,
 				0F10E89120225E7C00404A6A /* CustomControl.swift */,
-				611CF21F20283CED0079F81B /* Filter.swift */,
 				0F893F49202168F900B76FA9 /* LoginViewController.swift */,
 				61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */,
 				1DF725422023D1E900900254 /* RegisterViewController.swift */,
@@ -641,7 +638,6 @@
 				E3044A1420370E110099738D /* ReviewsCell.swift in Sources */,
 				E37631802026027F00CFE07B /* EventCell.swift in Sources */,
 				6112EA74201F361F008B4066 /* AppDelegate.swift in Sources */,
-				611CF22020283CED0079F81B /* Filter.swift in Sources */,
 				61F321272038B3620098B141 /* RegulationController.swift in Sources */,
 				E37631812026027F00CFE07B /* MainPageController.swift in Sources */,
 				E3F5790B203A9C950077A5A5 /* VenueCell.swift in Sources */,

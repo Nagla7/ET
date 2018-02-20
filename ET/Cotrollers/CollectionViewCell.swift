@@ -11,4 +11,6 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var image: UIImageView!
+    @IBOutlet weak var filterName: UILabel!
 }
+
