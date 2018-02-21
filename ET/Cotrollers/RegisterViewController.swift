@@ -26,7 +26,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var password: HoshiTextField!
     @IBOutlet weak var repassword: HoshiTextField!
     private var currentTextField: UITextField?
-    var valids = Array(repeating: true, count: 11)
+    var valids = Array(repeating: true, count: 12)
     
     @IBOutlet weak var C_SP: CustomControl!
     var ref : DatabaseReference!
@@ -144,9 +144,9 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         
         switch C_SP.selectedSegmentIndex {
         case 0: //customer
-            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8]
+            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[11]
         case 1:
-            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[9] && valids[10]
+            textFieldsValid = valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[9] && valids[10] && valids[11]
         default:
             print("none")
         }
@@ -154,14 +154,14 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
         if(textFieldsValid){
             
             if (C_SP.selectedSegmentIndex == 1){ // service provider
-                self.ref.child("ApprovalRequests").childByAutoId().setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(), "companyname":self.companyName.text!, "commercialrecordnumber":self.CommercialRecord.text!])
+                self.ref.child("ApprovalRequests").childByAutoId().setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!.lowercased(),"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(), "companyname":self.companyName.text!, "commercialrecordnumber":self.CommercialRecord.text!,"password":self.password.text!])
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
                 self.present(vc!, animated: true, completion: nil)
                 self.popUpMessage(title: "Notice", message: "Your sign up request has been sent to the admin. Please wait for a conformation email.")
             } else { // customer
                 Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
                     if error == nil {
-                        self.ref.child("Customers").child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!,"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid])
+                        self.ref.child("Customers").child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!.lowercased(),"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid])
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
                         self.present(vc!, animated: true, completion: nil)
                     } else {
@@ -290,7 +290,28 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             } else {
                 self.valids[7] = true
             }
-
+            
+            //  check email uniqueness gp-et-873cd
+            userTree = (C_SP.selectedSegmentIndex == 0) ? "Customers":"ServiceProviders"
+            ref.child(userTree).queryOrdered(byChild: "email").queryEqual(toValue: email.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
+                if snapshot.exists() {
+                    self.valids[11] = false
+                    self.erroneousTextField()
+                    self.popUpMessage(title: "Uh oh!", message: "\(self.email.text!.lowercased()) already exists. Try another email.")
+                } else {
+                    self.valids[11] = true
+                    
+                    // check email uniqueness in approval requests tree in case it's service provider sign up
+                    if (self.C_SP.selectedSegmentIndex == 1){ //service provider
+                        self.ref.child("ApprovalRequests").queryOrdered(byChild: "email").queryEqual(toValue: self.email.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
+                            if snapshot.exists() {
+                                self.valids[11] = false
+                                self.erroneousTextField()
+                                self.popUpMessage(title: "Uh oh!", message: "\(self.email.text!.lowercased()) already exists. Try another email.")
+                            } else {
+                                self.valids[11] = true }})}
+                }
+            })
         }
         
         if (textField == phone)
