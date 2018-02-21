@@ -110,7 +110,7 @@ class ServiceAccountViewController: UIViewController , UITextFieldDelegate {
             }
             
             if !(self.username.text == self.username_){
-                self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("username").setValue(self.username.text)
+                self.databaseRef.child("ServiceProviders").child(self.loggedInUser!.uid).child("username").setValue(self.username.text!.lowercased())
             }
             
             if !(self.newpass.text == "" && self.newrepass.text == ""){
