@@ -233,34 +233,56 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                 selectedAudience = selectedAudience.filter { $0 != self.audience[indexPath.row] }
             }
         }
-        print(selectedAudience,"!!!!!!!!!!!!")
             if (category==collectionView && cell.isSelected == false){
             selectedCategories.append(self.Categories[indexPath.row])}
-            
+            else {
+                if (collectionView==category && cell.isSelected == true && selectedCategories.contains(self.Categories[indexPath.row])){
+                    selectedCategories = selectedCategories.filter { $0 != self.Categories[indexPath.row] }
+                }
+        }
         
     }
     
     
     @IBAction func Filter(_ sender: Any) {
+        var emptyAudience = false
+        var emptyCategories = false
+        let fulleventsfilter = fullEvents
+        
         if (selectedAudience.count == 0)
-        {selectedAudience = audience}
+        {selectedAudience = audience
+            emptyAudience = true
+        }
+        
         if (selectedCategories.count == 0)
-        {selectedCategories = Categories}
+        {selectedCategories = Categories
+            emptyCategories = true
+        }
+        
             var i:Int=0
             filtredEvents=[NSDictionary]()
-                       // print("!!!!!!!!!!!!!!",selectedAudience)
             self.fullEvents = self.fullEvents.filter{ event in
                 let Cityelement = fullEvents[i]!["City"] as! String
                 let Categoryelemnt = fullEvents[i]!["Category"] as! String
                 let Audienceelemnt = fullEvents[i]!["Target Audience"] as! String
                 i = 1+i
+                print(Audienceelemnt,"!!!!!!!!!!!!!!!",selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt))
                         if (city != "All"){
                             return(Cityelement.lowercased().contains(city.lowercased()) && selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt) )}
                 
-         return(selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt) )}
-            self.tableView.reloadData()
+           return(selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt) )
+                
+        }
+        self.tableView.reloadData()
         
-                FilterView.removeFromSuperview()}
+        if (emptyAudience)
+        {selectedAudience = [String] ()}
+        
+        if (emptyCategories)
+        {selectedCategories = [String] ()}
+        FilterView.removeFromSuperview()
+        fullEvents = fulleventsfilter
+    }
     
     
 }
