@@ -291,7 +291,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
                 self.valids[7] = true
             }
             
-            //  check email uniqueness gp-et-873cd
+            //  check email uniqueness
             userTree = (C_SP.selectedSegmentIndex == 0) ? "Customers":"ServiceProviders"
             ref.child(userTree).queryOrdered(byChild: "email").queryEqual(toValue: email.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
                 if snapshot.exists() {

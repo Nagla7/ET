@@ -28,7 +28,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
     var email_ = ""
     var phonenumber_ = ""
     var username_ = ""
-    var valids = Array(repeating: true, count: 9)
+    var valids = Array(repeating: true, count: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
         }
         
         // check if all fields are valid
-        if(valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8]){
+        if(valids[0] && valids[1] && valids[2] && valids[3] && valids[4] && valids[5] && valids[6] && valids[7] && valids[8] && valids[9]){
             
             // if fields changed then update database
             if !(self.fname.text == self.firstname_){
@@ -91,7 +91,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                     if let error = error {
                         print(error)
                     } else {
-                        self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("email").setValue(self.email.text)
+                        self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("email").setValue(self.email.text!.lowercased())
                     }
                 }
             }
@@ -234,6 +234,17 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             } else {
                 valids[4] = true
             }
+            
+            //  check email uniqueness
+            databaseRef.child("Customers").queryOrdered(byChild: "email").queryEqual(toValue: email.text!.lowercased()).observeSingleEvent(of: .value , with: { snapshot in
+                if snapshot.exists() {
+                    self.valids[9] = false
+                    self.erroneousTextField()
+                    self.popUpMessage(title: "Uh oh!", message: "\(self.email.text!.lowercased()) already exists. Try another email.")
+                } else {
+                    self.valids[9] = true
+                }
+            })
         }
         
         if (textField == phone)
