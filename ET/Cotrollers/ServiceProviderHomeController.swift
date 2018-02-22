@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import SDWebImage
 
-class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITableViewDataSource,VenueDelegate {
+class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITableViewDataSource,VenueDelegate,UISearchResultsUpdating,UISearchBarDelegate {
 
     @IBOutlet weak var NoVenues: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -25,9 +25,7 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         tableView.dataSource=self
         Venuedelegation.Venuedelegate=self
         Venuedelegation.getVenues()
-        // Do any additional setup after loading the view.
         
-        //////////////////////search////////////////////////
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self as? UISearchResultsUpdating
         searchController.dimsBackgroundDuringPresentation = false
@@ -45,11 +43,11 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
          else{return self.fullVenues.count } }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-              let events : NSDictionary?
+              let venue : NSDictionary?
          
          if searchController.isActive && searchController.searchBar.text != ""{
-         events = self.filteredVenues[indexPath.row]}
-         else{events = self.fullVenues[indexPath.row]}
+         venue = self.filteredVenues[indexPath.row]}
+         else{venue = self.fullVenues[indexPath.row]}
         
         
         // the same cell well be used for events and venues
@@ -58,21 +56,23 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         cell.Vimage.layer.borderWidth = 2.0
         cell.Vimage.layer.borderColor = UIColor.white.cgColor
         cell.Vimage.layer.cornerRadius = 7
-        cell.Vname.text=events?.value(forKey:"VenueName") as! String
-        cell.Vcapacity.text="Capacity: \(events?.value(forKey:"Capacity") as! String)"
+        cell.Vname.text=venue?.value(forKey:"VenueName") as! String
+        cell.Vcapacity.text="Capacity: \(venue?.value(forKey:"Capacity") as! String)"
         return cell
     }
     func recieveVenues(data: [String : NSDictionary]) {
         if data.count != 0{
             self.tableView.isHidden=false
-            self.NoVenues.isHidden=true
+    //        self.NoVenues.isHidden=true
             for (_,value) in data{self.fullVenues.append(value)
                 self.tableView.reloadData()
             }
             
         }
         else{self.tableView.isHidden=true
-            self.NoVenues.isHidden=false}
+  //          self.NoVenues.isHidden=false
+            
+        }
     }
     func updateSearchResults(for searchController: UISearchController) {
         var i:Int=0
@@ -82,7 +82,8 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         }
             
         else {
-            self.filteredVenues = self.fullVenues.filter{ event in
+            filteredVenues=[NSDictionary]()
+            self.filteredVenues = self.fullVenues.filter{ venues in
                 let Title = fullVenues[i]["VenueName"] as! String
                 i = 1+i
                 return(Title.lowercased().contains(searchController.searchBar.text!.lowercased()))

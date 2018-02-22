@@ -101,7 +101,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             }
             
             if !(self.username.text == self.username_){
-                self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("username").setValue(self.username.text!.lowercased())
+                self.databaseRef.child("Customers").child(self.loggedInUser!.uid).child("username").setValue(self.username.text)
             }
             
             if !(self.newpass.text == "" && self.newrepass.text == ""){
