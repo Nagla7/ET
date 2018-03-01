@@ -14,7 +14,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     
     @IBOutlet var collection: UICollectionView!
     @IBOutlet var category: UICollectionView!
-    @IBOutlet weak var NoEventLabel: UILabel!
+   // @IBOutlet weak var NoEventLabel: UILabel!
     @IBOutlet weak var loginbtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
@@ -69,13 +69,13 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     
     func recieveEvents(data: [String : NSDictionary]) {
         if data.count != 0{
-            self.NoEventLabel.isHidden=true
+         //   self.NoEventLabel.isHidden=true
             self.tableView.isHidden=false
             for (_,value) in data{
                 self.fullEvents.append(value)
             }
             DispatchQueue.main.async { self.tableView.reloadData()}}
-        else{self.NoEventLabel.isHidden=false
+        else{//self.NoEventLabel.isHidden=false
             self.tableView.isHidden=true}
     }
     
