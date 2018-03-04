@@ -13,7 +13,7 @@ import SDWebImage
 
 class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITableViewDataSource,VenueDelegate,UISearchResultsUpdating,UISearchBarDelegate {
 
-    @IBOutlet weak var NoVenues: UILabel!
+   // @IBOutlet weak var NoVenues: UILabel!
     @IBOutlet weak var tableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
     var fullVenues = [NSDictionary]()
@@ -75,11 +75,11 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
     func recieveVenues(data: [String : NSDictionary]) {
         if data.count != 0{
             self.tableView.isHidden=false
-            self.NoVenues.isHidden=true
+         //   self.NoVenues.isHidden=true
             for (_,value) in data{self.fullVenues.append(value)}
                 self.tableView.reloadData()}
         else{self.tableView.isHidden=true
-            self.NoVenues.isHidden=false
+       //     self.NoVenues.isHidden=false
             
         }
     }

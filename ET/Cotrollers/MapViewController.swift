@@ -12,13 +12,11 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-    @IBOutlet weak var navigation: UINavigationBar!
         @IBOutlet weak var map: MKMapView!
         var Event=NSDictionary()
     
     
     override func viewDidLoad() {
-      //  navigation.frame = CGRect(x: 0, y: 0, width:  view.frame.width, height: 80)
         
         let initialLocation = CLLocation(latitude: 24.774265, longitude: 46.738586)
         centerMapOnLocation(location: initialLocation)
