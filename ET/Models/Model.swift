@@ -15,10 +15,7 @@ protocol VenueDelegate:class{
     func recieveVenues(data:[String:NSDictionary])
 }
 protocol ReviewsDelegate:class {
-    func recieveReviews(data:[String:NSDictionary])
-}
-protocol Userdelegate:class {
-    func recieveUser(data:[String:NSDictionary])
+    func recieveReviews(data:[String:NSDictionary],id:NSDictionary)
 }
 protocol RatingDelegate:class {
     func recieveRating(data:[String:NSDictionary])
@@ -29,7 +26,6 @@ class Model{
      var delegate: EventDelegate?
     var Venuedelegate:VenueDelegate?
     var review:ReviewsDelegate?
-    var userdelegate:Userdelegate?
     var RateDelegate:RatingDelegate?
     ////////Events connection /////////////
     func getEvents() {
@@ -51,23 +47,24 @@ class Model{
         })
     }
     ///////////Reviews Connection////////////////
-    func getReviews(id:String){
+    func getReviews(id:String,uid:String){
         ref=Database.database().reference()
+        var user=NSDictionary()
+        dbHandle = ref?.child("Customers/\(uid)").observe(.value, with: { (snapshot) in
+            if snapshot.exists(){
+                user=snapshot.value as! NSDictionary
+            }})
         dbHandle = ref?.child("Reviews/\(id)").observe(.value, with: { (snapshot) in
             if snapshot.exists(){
-            let v=snapshot.value as! [String:NSDictionary]
-                self.review?.recieveReviews(data:v)}
-            else{
-                self.review?.recieveReviews(data:[String:NSDictionary]())}
-        })}
-    ///////////user connection/////////////
-    func getUserInfo(id:String){
-        ref=Database.database().reference()
-        dbHandle = ref?.child("Users/\(id)").observe(.value, with: { (snapshot) in
-            if snapshot.exists(){
                 let v=snapshot.value as! [String:NSDictionary]
-                self.userdelegate?.recieveUser(data:v)
-            }})}
+                self.review?.recieveReviews(data:v, id:user)
+            }
+            else{self.review?.recieveReviews(data:[String:NSDictionary](), id:user)}
+        })}
+        
+    
+
+
     /////////////Rate connection///////////
     func getRatings(){
         ref=Database.database().reference()
@@ -78,5 +75,9 @@ class Model{
             else{
                 self.RateDelegate?.recieveRating(data:[String:NSDictionary]())}
         })
+    }
+    ///////////////////////connection for storing/////////////
+    func StoreReview(id:String,data:NSDictionary){
+       // ref.child("Reviews").setValue([])
     }
 }

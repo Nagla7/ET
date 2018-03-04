@@ -13,8 +13,8 @@ class ReviewsCell: UITableViewCell {
     
     @IBOutlet weak var Uname: UILabel!
     @IBOutlet weak var review: UITextView!
-    @IBAction func reported(_ sender: UIButton) {
-    }
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

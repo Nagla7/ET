@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseAuth
-class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ReviewsDelegate,Userdelegate {
+class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ReviewsDelegate {
 
     
 
@@ -21,23 +21,22 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var EventID:String?
     var reviews = Model()
     var Reviews=[NSDictionary]()
-    var user=[NSDictionary]()
+    var user=NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
-            reviews.userdelegate=self
         if let uid = Auth.auth().currentUser?.uid{
             self.addReview_btn.isHidden=false
             self.text2.isHidden=false
-            self.reviews.getUserInfo(id:uid)
+            self.reviews.getReviews(id:self.EventID!, uid:uid)
         }else{self.addReview_btn.isHidden=true
-            self.text2.isHidden=true}
+            self.text2.isHidden=true
+            self.reviews.getReviews(id:self.EventID!, uid:"")
+        }
         subView.layer.masksToBounds=true
         subView.layer.cornerRadius=8
         subView.center.y=350
         print(self.EventID!,"!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@!!!!!!!!!!!")
         reviews.review=self
-    
-        self.reviews.getReviews(id:self.EventID!)
     }
 
     @IBAction func backButtoPressed(_ sender: UIButton) {
@@ -63,7 +62,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return cell
     }
     
-    func recieveReviews(data: [String : NSDictionary]) {
+    func recieveReviews(data: [String : NSDictionary],id:NSDictionary) {
         if data.count != 0{
             self.Empty_Label.isHidden=true
             self.Reviewtable.isHidden=false
@@ -75,12 +74,9 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.Reviewtable.isHidden=true
             self.Empty_Label.isHidden=false
         }
+    self.user=id
     }
-    func recieveUser(data: [String : NSDictionary]) {
-        for (_,value) in data{
-            self.user.append(value)
-        }
-    }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.first?.view != self.subView{
@@ -89,12 +85,9 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     @IBAction func add_review(_ sender: Any) {
-       /* let uid=Auth.auth().currentUser?.uid as! String
-       // let userN=self.user.removeFirst()
-        let id=userN.value(forKey:"username") as! String*/
         if let v=text2.text{
-            let v2=NSDictionary.init(objects:[v,"id"], forKeys:["text" as NSCopying,"username" as NSCopying])
-        //print(v2.allKeys)
+            let v2=NSDictionary.init(objects:[v,self.user.value(forKey:"username")], forKeys:["text" as NSCopying,"username" as NSCopying])
+//store in the data base
         self.Reviews.insert(v2, at:0)
        self.Reviewtable.reloadData()
             

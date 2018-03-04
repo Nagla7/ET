@@ -43,7 +43,7 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
          else{return self.fullVenues.count } }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-              let venue : NSDictionary?
+        var venue=NSDictionary()
          
          if searchController.isActive && searchController.searchBar.text != ""{
          venue = self.filteredVenues[indexPath.row]}
@@ -56,21 +56,18 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         cell.Vimage.layer.borderWidth = 2.0
         cell.Vimage.layer.borderColor = UIColor.white.cgColor
         cell.Vimage.layer.cornerRadius = 7
-        cell.Vname.text=venue?.value(forKey:"VenueName") as! String
-        cell.Vcapacity.text="Capacity: \(venue?.value(forKey:"Capacity") as! String)"
+        cell.Vname.text=venue.value(forKey:"VenueName") as! String
+        cell.Vcapacity.text="Capacity: \(venue.value(forKey:"Capacity") as! String)"
         return cell
     }
     func recieveVenues(data: [String : NSDictionary]) {
         if data.count != 0{
             self.tableView.isHidden=false
-    //        self.NoVenues.isHidden=true
-            for (_,value) in data{self.fullVenues.append(value)
-                self.tableView.reloadData()
-            }
-            
-        }
+            self.NoVenues.isHidden=true
+            for (_,value) in data{self.fullVenues.append(value)}
+                self.tableView.reloadData()}
         else{self.tableView.isHidden=true
-  //          self.NoVenues.isHidden=false
+            self.NoVenues.isHidden=false
             
         }
     }
