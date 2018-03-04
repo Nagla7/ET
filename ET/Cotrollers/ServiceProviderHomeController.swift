@@ -19,6 +19,7 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
     var fullVenues = [NSDictionary]()
     var filteredVenues = [NSDictionary]()
     var Venuedelegation=Model()
+    var links=[String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate=self
@@ -56,8 +57,19 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         cell.Vimage.layer.borderWidth = 2.0
         cell.Vimage.layer.borderColor = UIColor.white.cgColor
         cell.Vimage.layer.cornerRadius = 7
-        cell.Vname.text=venue.value(forKey:"VenueName") as! String
+        cell.Vname.text="\(venue.value(forKey:"VenueName") as! String)"
         cell.Vcapacity.text="Capacity: \(venue.value(forKey:"Capacity") as! String)"
+        cell.Vemail.text="E-mail:\(venue.value(forKey:"Email") as! String)"
+        cell.Vcost.text="Cost:\(venue.value(forKey:"Cost") as! String)"
+        cell.Vphone.text="Phone:\(venue.value(forKey:"phoneNum") as! String)"
+        cell.link_btn.tag=indexPath.row
+        cell.view.layer.masksToBounds=true
+        cell.view.layer.cornerRadius=10
+        self.links.append((venue.value(forKey:"website") as? String)!)
+        let url=URL(string:(venue.value(forKey:"pic") as? String)!)
+        if (url != nil){
+            cell.Vimage.sd_setImage(with:url!, completed:nil)
+        }
         return cell
     }
     func recieveVenues(data: [String : NSDictionary]) {
@@ -86,6 +98,12 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
                 return(Title.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
             self.tableView.reloadData()}
+    }
+    
+    @IBAction func LinkedPressed(_ sender: UIButton) {
+        if self.links[sender.tag].contains("http://")||self.links[sender.tag].contains("https://"){
+            UIApplication.shared.open(URL(string :self.links[sender.tag])!)}
+        else{ UIApplication.shared.open(URL(string :"http://\(self.links[sender.tag])")!)}
     }
 }
 

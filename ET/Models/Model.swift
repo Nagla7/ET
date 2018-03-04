@@ -41,8 +41,8 @@ class Model{
         ref=Database.database().reference()
         dbHandle = ref?.child("Venues").observe(.value, with: { (snapshot) in
             if snapshot.exists(){
-            let v=snapshot.value as! [String:NSDictionary]
-                self.Venuedelegate?.recieveVenues(data:v)}
+            let v=snapshot.value as? [String:NSDictionary]
+                self.Venuedelegate?.recieveVenues(data:v!)}
             else{self.Venuedelegate?.recieveVenues(data:[String:NSDictionary]())}
         })
     }
@@ -77,7 +77,14 @@ class Model{
         })
     }
     ///////////////////////connection for storing/////////////
-    func StoreReview(id:String,data:NSDictionary){
-       // ref.child("Reviews").setValue([])
+    func StoreReview(EventID:String,id:String,data:NSDictionary){
+       ref.child("Reviews/\(EventID)/\(id)").childByAutoId().setValue(data)
+    }
+    func StoreRate(tag:Int,EventId:String,Uid:String){
+        ref=Database.database().reference()
+        print(tag,"%%%%%%%%%%%tag")
+        print(EventId,"%%%%%%%%%%%%%%%%%%%%")
+        print(Uid,"£$£$^^^^^^^")
+       ref?.child("Rate/\(EventId)/\(Uid)").setValue(["rate":tag])
     }
 }

@@ -18,12 +18,21 @@ class EventInfoController: UIViewController {
     @IBOutlet weak var RootView: UIView!
     @IBOutlet weak var Eview: UIView!
     @IBOutlet var stars: [UIButton]!
+    @IBOutlet weak var UserRating: UILabel!
     var Event=NSDictionary()
+    var Rate=Int()
+    var model=Model()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Rate,"^%^%^%^%^%^%^%^%^^%^%^%^^^%^%^%")
         if let uid=Auth.auth().currentUser?.uid as? String{
-            for str in stars{str.isHidden=false}
-        }else{for str in stars{str.isHidden=true}}
+            UserRating.isHidden=false
+            for str in stars{str.isHidden=false
+                for var i in 0..<Rate {
+                    stars[i] .setTitle("★", for: UIControlState.normal )}
+            }
+        }else{UserRating.isHidden=true
+            for str in stars{str.isHidden=true}}
         Eview.layer.masksToBounds=true
         Eview.layer.cornerRadius=8
         Eview.center.y = 353
@@ -50,7 +59,7 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
         
         if segue.identifier=="review"{
         let destination=segue.destination as! ReviewsViewController
-            destination.EventID=self.Event.value(forKey:"ID") as! String}
+            destination.EventID=self.Event["ID"] as! String}
     }
     ///////////rate event///////////
     
@@ -63,6 +72,8 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
             else{star .setTitle("☆", for: UIControlState.normal )}
             
         }
+        model.StoreRate(tag:rate, EventId:Event.value(forKey:"ID") as! String, Uid:(Auth.auth().currentUser?.uid)!)
+        
     }
 
     @IBAction func OpenMap(_ sender: Any) {

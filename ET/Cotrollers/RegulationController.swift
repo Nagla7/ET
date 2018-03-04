@@ -57,7 +57,8 @@ class RegulationController: UIViewController, UITableViewDelegate, UITableViewDa
             let Regulation : NSDictionary?
             
             Regulation = Regulations[indexPath.row]
-            
+            cell.RegulationText.layer.masksToBounds=true
+            cell.RegulationText.layer.cornerRadius=10
             cell.RegulationText.text = Regulation?["Description"] as! String
             
             return(cell)

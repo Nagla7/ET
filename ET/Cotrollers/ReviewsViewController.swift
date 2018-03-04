@@ -35,7 +35,6 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         subView.layer.masksToBounds=true
         subView.layer.cornerRadius=8
         subView.center.y=350
-        print(self.EventID!,"!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@!!!!!!!!!!!")
         reviews.review=self
     }
 
@@ -55,10 +54,11 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.Reviews.reverse()
         let cell:ReviewsCell=tableView.dequeueReusableCell(withIdentifier:"cell") as! ReviewsCell
         let review=self.Reviews[indexPath.row] as! NSDictionary
-        cell.review.text=review.value(forKey:"text") as! String
-        cell.Uname.text=review.value(forKey:"username") as! String
+        cell.review.text=review.value(forKey:"text") as? String
+        cell.Uname.text=review.value(forKey:"username") as? String
         return cell
     }
     
@@ -67,7 +67,8 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.Empty_Label.isHidden=true
             self.Reviewtable.isHidden=false
         for (_,value) in data{
-            self.Reviews.append(value)
+            for (_,v2) in value{
+                self.Reviews.append(v2 as! NSDictionary)}
         }
             self.Reviewtable.reloadData()}
         else{
@@ -86,9 +87,11 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBAction func add_review(_ sender: Any) {
         if let v=text2.text{
+            let uid=Auth.auth().currentUser?.uid
             let v2=NSDictionary.init(objects:[v,self.user.value(forKey:"username")], forKeys:["text" as NSCopying,"username" as NSCopying])
-//store in the data base
-        self.Reviews.insert(v2, at:0)
+        self.reviews.StoreReview(EventID:self.EventID!, id:uid!, data:v2)
+        self.Reviews.removeAll()
+       // self.Reviews.insert(v2, at:0)
        self.Reviewtable.reloadData()
             
         }

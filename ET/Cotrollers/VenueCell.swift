@@ -12,6 +12,11 @@ class VenueCell: UITableViewCell {
     @IBOutlet weak var Vimage: UIImageView!
     @IBOutlet weak var Vname: UILabel!
     @IBOutlet weak var Vcapacity: UILabel!
+    @IBOutlet weak var Vphone: UILabel!
+    @IBOutlet weak var Vcost: UILabel!
+    @IBOutlet weak var Vemail: UILabel!
+    @IBOutlet weak var link_btn: UIButton!
+    @IBOutlet weak var view: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,4 +28,5 @@ class VenueCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
 }

@@ -24,7 +24,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     var filtredEvents = [NSDictionary?]()
     var SendfiltredEvents = [NSDictionary?]()
     var fullEvents = [NSDictionary?]()
-    var Rating = [NSDictionary]()
+    var Rating = [String:NSDictionary]()
     var RatigNo=[Int]()
     var EventObj=Model()
     var Cellid = Int()
@@ -81,7 +81,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     
     func recieveRating(data:[String:NSDictionary]) {
         if data.count != 0{
-            for (_,value) in data{
+         /*   for (_,value) in data{
                 self.Rating.append(value)
             }
             for value in self.Rating{
@@ -90,7 +90,9 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                     num=num+(rate.value as! Int)
                 }
                 self.RatigNo.append((num/value.count))
-            }
+            }*/
+            self.Rating=data
+           
         }
     }
     
@@ -112,6 +114,21 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         else
         { event = self.fullEvents[indexPath.row]
         }
+        
+        var rate=NSDictionary()
+        
+        if let rate = self.Rating[event!["ID"]as! String]{
+            var avg=0;
+            for (_,value) in rate{
+                var v=value as! NSDictionary
+            avg=avg+((v.value(forKey:"rate")) as! Int)
+        }
+        avg=avg/(rate.count)
+            for var i in 0..<avg {
+                cell.Stars[i] .setTitle("★", for: UIControlState.normal )}
+        }
+        
+        
         cell.title.text = event!["title"] as? String
         cell.E_image.clipsToBounds = true
         cell.E_image.layer.borderWidth = 2.0
@@ -149,17 +166,30 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let _=sender as? EventCell{
             if searchController.isActive || searchController.searchBar.text != ""{
                 searchController.isActive = false
                 let event = self.SendfiltredEvents[self.Cellid]
                 let destination=segue.destination as! EventInfoController
                 destination.Event=event!
+                if let rate=self.Rating[event!["ID"] as! String]as?NSDictionary{
+                    print(rate,"***************Rate******************")
+                    if let myRate=rate[Auth.auth().currentUser?.uid] as? Int{
+                        print(myRate,"$$$$$$$$$$$myRate$$$$$$$$$$$")
+                        destination.Rate=myRate
+                    }
+                }
             }else{
                 let event = self.fullEvents[self.Cellid]
                 let destination=segue.destination as! EventInfoController
                 destination.Event=event!
+                if let rate=self.Rating[event!["ID"] as! String]as?NSDictionary{
+                    print(rate,"***************Rate******************")
+                    if let myRate=rate[Auth.auth().currentUser?.uid]as? NSDictionary{
+                        print(myRate,"$$$$$$$$$$$myRate$$$$$$$$$$$")
+                        destination.Rate=myRate.value(forKey:"rate") as! Int
+                    }
+                }
             }
         }
     }
