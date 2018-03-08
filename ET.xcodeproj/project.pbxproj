@@ -10,6 +10,7 @@
 		0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F10E89120225E7C00404A6A /* CustomControl.swift */; };
 		0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F893F49202168F900B76FA9 /* LoginViewController.swift */; };
 		1DF725432023D1E900900254 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF725422023D1E900900254 /* RegisterViewController.swift */; };
+		29B55BD3204DC20A00378F83 /* IssueReqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B55BD2204DC20A00378F83 /* IssueReqViewController.swift */; };
 		2AD04E1574DAAC2BBAA72FD6 /* Pods_ET.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */; };
 		610B91AC2031F15400CD45AE /* LicenseRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610B91AB2031F15400CD45AE /* LicenseRequestController.swift */; };
 		610EB5B120288A9C003F86F2 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610EB5B220288A9C003F86F2 /* DLRadioButton.framework */; };
@@ -83,6 +84,7 @@
 		0F893F49202168F900B76FA9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		138E96B7278E08458988D2F4 /* Pods-ET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ET.release.xcconfig"; path = "Pods/Target Support Files/Pods-ET/Pods-ET.release.xcconfig"; sourceTree = "<group>"; };
 		1DF725422023D1E900900254 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		29B55BD2204DC20A00378F83 /* IssueReqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueReqViewController.swift; sourceTree = "<group>"; };
 		2C75EB195EF1211A28CB0F8E /* Pods-ETUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETUITests/Pods-ETUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		610B91AB2031F15400CD45AE /* LicenseRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseRequestController.swift; sourceTree = "<group>"; };
 		610EB5B220288A9C003F86F2 /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +276,7 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				29B55BD2204DC20A00378F83 /* IssueReqViewController.swift */,
 				E3C2E4B1204B33A200C899B0 /* RequestCell.swift */,
 				E3C2E4AB204AEC4B00C899B0 /* IssueRequestController.swift */,
 				E3F5790A203A9C950077A5A5 /* VenueCell.swift */,
@@ -659,6 +662,7 @@
 				E37631742025A35500CFE07B /* IsaoTextField.swift in Sources */,
 				E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */,
 				61AF5BCA2039667600C1806C /* Location.swift in Sources */,
+				29B55BD3204DC20A00378F83 /* IssueReqViewController.swift in Sources */,
 				611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */,
 				0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */,
 				61F321282038B3620098B141 /* RegulationControllerTableViewCell.swift in Sources */,
