@@ -14,13 +14,6 @@ class ServiceSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            try Auth.auth().signOut()
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomersHome")
-            present(vc, animated: true, completion: nil)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
         // Do any additional setup after loading the view.
     }
 

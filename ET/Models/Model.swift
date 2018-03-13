@@ -32,7 +32,7 @@ class Model{
         ref=Database.database().reference()
         dbHandle = ref?.child("Events").observe(.value, with: { (snapshot) in
             if snapshot.exists(){
-            let v=snapshot.value as! [String:NSDictionary]
+                let v=snapshot.value as! [String:NSDictionary]
                 self.delegate?.recieveEvents(data:v)}
             else{self.delegate?.recieveEvents(data:[String:NSDictionary]())}
         })}
