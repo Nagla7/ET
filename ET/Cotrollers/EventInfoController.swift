@@ -11,6 +11,7 @@ import FirebaseAuth
 class EventInfoController: UIViewController {
 
 
+    @IBOutlet weak var Category_label: UILabel!
     @IBOutlet weak var purchase: UIButton!
     @IBOutlet var Time_date: UILabel!
     @IBOutlet var location: UILabel!
@@ -41,6 +42,8 @@ class EventInfoController: UIViewController {
         self.location.text=self.Event["City"] as! String
         self.Time_date.text=self.Event["Date"] as! String
         self.Time_date.text?.append(" \(self.Event["Time"]!)")
+        self.Category_label.text?=self.Event["Category"]as!String
+        self.Category_label.text?.append(" - \(self.Event["Target Audience"]as! String)")
         
     }
 ///////////////touching for dismiss//////////////////////////////////////

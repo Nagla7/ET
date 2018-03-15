@@ -308,4 +308,7 @@ class ServiceAccountViewController: UIViewController , UITextFieldDelegate {
         
     }
 
+    @IBAction func cancel(_ sender: UIButton) {
+        self.dismiss(animated:true, completion:nil)
+    }
 }

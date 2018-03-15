@@ -24,6 +24,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var user=NSDictionary()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(EventID,"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         if let uid = Auth.auth().currentUser?.uid{
             self.addReview_btn.isHidden=false
             self.text2.isHidden=false
@@ -68,7 +69,9 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.Reviewtable.isHidden=false
         for (_,value) in data{
             for (_,v2) in value{
-                self.Reviews.append(v2 as! NSDictionary)}
+                self.Reviews.append(v2 as! NSDictionary)
+                
+            }
         }
             self.Reviewtable.reloadData()}
         else{
@@ -95,6 +98,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
        self.Reviewtable.reloadData()
             
         }
+        text2.text=""
     }
     }
 

@@ -115,6 +115,7 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
                     }
                 }
             }
+            self.dismiss(animated:true, completion:nil)
             
         } else {
             popUpMessage(title: "Can't Save Changes!", message: "Make sure all fields are in correct format and not empty.")
@@ -297,6 +298,10 @@ class CustomerAccountViewController: UIViewController , UITextFieldDelegate {
             }
         }
         
+    }
+    
+    @IBAction func Cancel(_ sender: UIButton) {
+        self.dismiss(animated:true, completion:nil)
     }
 }
 

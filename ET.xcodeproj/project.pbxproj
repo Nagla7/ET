@@ -40,6 +40,7 @@
 		875A0FF62035A0240095B353 /* ServiceAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875A0FF52035A0240095B353 /* ServiceAccountViewController.swift */; };
 		908121B78C6B4D5CEDFF5C8B /* Pods_ETTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */; };
 		E3044A1420370E110099738D /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3044A1320370E110099738D /* ReviewsCell.swift */; };
+		E307E9C6205789B500ACA61E /* MyEvnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307E9C5205789B500ACA61E /* MyEvnt.swift */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
 		E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37631602025A35400CFE07B /* MinoruTextField.swift */; };
 		E376316D2025A35500CFE07B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E37631612025A35400CFE07B /* Info.plist */; };
@@ -125,6 +126,7 @@
 		C5866B852EE8F01A68AFB1A1 /* Pods-ET.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ET.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ET/Pods-ET.debug.xcconfig"; sourceTree = "<group>"; };
 		D53FE9472F91CC0C83C79968 /* Pods-ETTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.release.xcconfig"; sourceTree = "<group>"; };
 		E3044A1320370E110099738D /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
+		E307E9C5205789B500ACA61E /* MyEvnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEvnt.swift; sourceTree = "<group>"; };
 		E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
 		E376315F2025A35400CFE07B /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		E37631602025A35400CFE07B /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				2911DBFA2056E56100D7FCC3 /* MyEventCollectionViewCell.swift */,
 				E3C2E4B1204B33A200C899B0 /* RequestCell.swift */,
 				2911DBFC2056E6E200D7FCC3 /* MyEventViewController.swift */,
+				E307E9C5205789B500ACA61E /* MyEvnt.swift */,
 				E3C2E4AB204AEC4B00C899B0 /* IssueRequestController.swift */,
 				E3F5790A203A9C950077A5A5 /* VenueCell.swift */,
 				61AF5BC92039667600C1806C /* Location.swift */,
@@ -646,6 +649,7 @@
 				875A0FF62035A0240095B353 /* ServiceAccountViewController.swift in Sources */,
 				610B91AC2031F15400CD45AE /* LicenseRequestController.swift in Sources */,
 				0F893F4A202168F900B76FA9 /* LoginViewController.swift in Sources */,
+				E307E9C6205789B500ACA61E /* MyEvnt.swift in Sources */,
 				E37631732025A35500CFE07B /* HoshiTextField.swift in Sources */,
 				E376316E2025A35500CFE07B /* TextFieldEffects.swift in Sources */,
 				E37631752025A35500CFE07B /* AkiraTextField.swift in Sources */,

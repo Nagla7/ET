@@ -10,55 +10,54 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SDWebImage
-class MyEventViewController: UIViewController , UICollectionViewDelegate,UICollectionViewDataSource {
+class MyEventViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,EventDelegate {
+
     
-    @IBOutlet weak var MyEventCollv: UICollectionView!
+    
+
     var Events = [NSDictionary]()
     var dbHandle:DatabaseHandle?
     var ref : DatabaseReference!
-    
-
+    var model=Model()
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var NoEvent: UILabel!
+    var  uid = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyEventCollv.delegate = self
-        MyEventCollv.dataSource = self
-        let uid = Auth.auth().currentUser?.uid
-        print(uid,"USERRRRR")
-        ref = Database.database().reference()
-        dbHandle = ref?.child("Events").observe(.value, with: { (snapshot) in
-            if (snapshot.value as? [String:Any]) != nil {
-                
-                if let data=snapshot.value as? [String:Any] {
-                    
-                    for(_,value) in data{
-                        let Event = value as! NSDictionary
-                        if Event["SPID"] as? String == uid {
-                            self.Events.append(Event) }
-                    }
-                    self.MyEventCollv.reloadData()}
-                 else {print("No events")}
-            }})
-        print(Events.count,"76867898987")
+        tableView.delegate = self
+        tableView.dataSource = self
+        model.delegate=self
+        model.getEvents()
+        uid=(Auth.auth().currentUser?.uid)!
         }
     
         
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if Events.count != 0{
+            self.NoEvent.isHidden=true
+            self.tableView.isHidden=false
+            return Events.count}
+        else{
+            self.NoEvent.isHidden=false
+            self.tableView.isHidden=true
             return Events.count
         }
+    }
         
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyEventCollectionViewCell
-            var pic: String
-            print("e££(@)")
-            let Event : NSDictionary?
-            Event = Events[indexPath.row]
-            pic = (Event!["pic"] as? String)!
-            let url=URL(string:pic)
-            cell.eventImg.sd_setImage(with:url, completed:nil)
-            print("e££(dcd@)")
-            return(cell)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:MyEvnt = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyEvnt
+        var pic: String
+        let Event : NSDictionary?
+        Event = Events[indexPath.row]
+        if let pic = Event!["pic"] as? String{
+        let url=URL(string:pic)
+        cell.E_image.sd_setImage(with:url, completed:nil)}
+        cell.title.text=Event!["title"] as! String
+        return(cell)
+    }
+
             
-        }
+    
         // Do any additional setup after loading the view.
   
     
@@ -68,14 +67,19 @@ class MyEventViewController: UIViewController , UICollectionViewDelegate,UIColle
     }
     
 
-    /*
-    // MARK: - Navigation
+    func recieveEvents(data: [String : NSDictionary]) {
+        print(data,"$$$$$$$$$$$$$$$$$my$$$$$$$$$$$$$$$$")
+        if data.count != 0{
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            for (_,value) in data{
+                var event=value as! NSDictionary
+                if event["SPID"] as? String == uid {
+                    self.Events.append(event) }
+                
+            }
+           self.tableView.reloadData()
+        }
+
     }
-    */
 
 }

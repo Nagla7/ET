@@ -66,9 +66,9 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         cell.view.layer.masksToBounds=true
         cell.view.layer.cornerRadius=10
         self.links.append((venue.value(forKey:"website") as? String)!)
-        let url=URL(string:(venue.value(forKey:"pic") as? String)!)
-        if (url != nil){
-            cell.Vimage.sd_setImage(with:url!, completed:nil)
+        if let url=venue.value(forKey:"pic") as?String{
+        let url1=URL(string:url)
+        cell.Vimage.sd_setImage(with:url1!, completed:nil)
         }
         return cell
     }

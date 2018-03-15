@@ -81,18 +81,15 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     
     func recieveRating(data:[String:NSDictionary]) {
         if data.count != 0{
-         /*   for (_,value) in data{
-                self.Rating.append(value)
-            }
-            for value in self.Rating{
-                var num:Int=0
-                for rate in value{
-                    num=num+(rate.value as! Int)
-                }
-                self.RatigNo.append((num/value.count))
-            }*/
             self.Rating=data
-           
+              /*  var avg=0;
+                for (_,ev)in self.Events{
+                    var event=ev as! NSDictionary
+                    if let rate = data[event["ID"]as! String]{
+                        
+                    }
+                }*/
+        
         }
     }
     
@@ -121,12 +118,15 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
             var avg=0;
             for (_,value) in rate{
                 var v=value as! NSDictionary
-            avg=avg+((v.value(forKey:"rate")) as! Int)
-        }
+            avg=avg+((v.value(forKey:"rate")) as! Int)}
         avg=avg/(rate.count)
             for var i in 0..<avg {
-                cell.Stars[i] .setTitle("★", for: UIControlState.normal )}
-        }
+                cell.Stars[i] .setTitle("★", for: UIControlState.normal )}}
+            else{
+                for var i in 0..<cell.Stars.count {
+                    cell.Stars[i] .setTitle("☆", for: UIControlState.normal )
+                }}
+        
         
         
         cell.title.text = event!["title"] as? String
@@ -135,9 +135,11 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         cell.E_image.layer.borderColor = UIColor.white.cgColor
         cell.E_image.layer.cornerRadius = 7
         var pic: String
-        pic = event!["pic"] as! String
+        if let pic = event!["pic"] as? String{
         var url=URL(string:pic)
-        cell.E_image.sd_setImage(with:url, completed:nil)
+        cell.E_image.sd_setImage(with:url, completed:nil)}
+        
+        
         return(cell)
     }
     
@@ -173,9 +175,9 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                 let destination=segue.destination as! EventInfoController
                 destination.Event=event!
                 if let rate=self.Rating[event!["ID"] as! String]as?NSDictionary{
-                    print(rate,"***************Rate******************")
+                   // print(rate,"***************Rate******************")
                     if let myRate=rate[Auth.auth().currentUser?.uid] as? Int{
-                        print(myRate,"$$$$$$$$$$$myRate$$$$$$$$$$$")
+                      //print(myRate,"$$$$$$$$$$$myRate$$$$$$$$$$$")
                         destination.Rate=myRate
                     }
                 }
@@ -184,9 +186,9 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                 let destination=segue.destination as! EventInfoController
                 destination.Event=event!
                 if let rate=self.Rating[event!["ID"] as! String]as?NSDictionary{
-                    print(rate,"***************Rate******************")
+                   // print(rate,"***************Rate******************")
                     if let myRate=rate[Auth.auth().currentUser?.uid]as? NSDictionary{
-                        print(myRate,"$$$$$$$$$$$myRate$$$$$$$$$$$")
+                      //  print(myRate,"$$$$$$$$$$$myRate$$$$$$$$$$$")
                         destination.Rate=myRate.value(forKey:"rate") as! Int
                     }
                 }
