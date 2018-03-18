@@ -41,6 +41,7 @@
 		908121B78C6B4D5CEDFF5C8B /* Pods_ETTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */; };
 		E3044A1420370E110099738D /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3044A1320370E110099738D /* ReviewsCell.swift */; };
 		E307E9C6205789B500ACA61E /* MyEvnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307E9C5205789B500ACA61E /* MyEvnt.swift */; };
+		E35B4CCA205E5563007D95E6 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35B4CC9205E5563007D95E6 /* PassKit.framework */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
 		E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37631602025A35400CFE07B /* MinoruTextField.swift */; };
 		E376316D2025A35500CFE07B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E37631612025A35400CFE07B /* Info.plist */; };
@@ -127,7 +128,9 @@
 		D53FE9472F91CC0C83C79968 /* Pods-ETTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.release.xcconfig"; sourceTree = "<group>"; };
 		E3044A1320370E110099738D /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		E307E9C5205789B500ACA61E /* MyEvnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEvnt.swift; sourceTree = "<group>"; };
+		E3316A54205E40BB00BEF6FF /* ET.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ET.entitlements; sourceTree = "<group>"; };
 		E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
+		E35B4CC9205E5563007D95E6 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		E376315F2025A35400CFE07B /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		E37631602025A35400CFE07B /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
 		E37631612025A35400CFE07B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35B4CCA205E5563007D95E6 /* PassKit.framework in Frameworks */,
 				610EB5B120288A9C003F86F2 /* DLRadioButton.framework in Frameworks */,
 				2AD04E1574DAAC2BBAA72FD6 /* Pods_ET.framework in Frameworks */,
 			);
@@ -218,6 +222,7 @@
 		6112EA72201F361F008B4066 /* ET */ = {
 			isa = PBXGroup;
 			children = (
+				E3316A54205E40BB00BEF6FF /* ET.entitlements */,
 				E3763178202601B800CFE07B /* Views */,
 				E37631772026018F00CFE07B /* Models */,
 				E37631762026016000CFE07B /* Cotrollers */,
@@ -252,6 +257,7 @@
 		7AEC63A9A1C57DBF52F8C9DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E35B4CC9205E5563007D95E6 /* PassKit.framework */,
 				610EB5B220288A9C003F86F2 /* DLRadioButton.framework */,
 				06D7F8381F3139ADCA54D4B2 /* Pods_ET.framework */,
 				AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */,
@@ -412,6 +418,14 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					6112EA86201F361F008B4066 = {
 						CreatedOnToolsVersion = 9.2;
@@ -850,11 +864,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ET/ET.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4HPCAWM8R7;
+				DEVELOPMENT_TEAM = 8845V2P47V;
 				INFOPLIST_FILE = ET/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GP.ET;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GP.ET1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ET/Cotrollers/ET-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -869,11 +884,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ET/ET.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4HPCAWM8R7;
+				DEVELOPMENT_TEAM = 8845V2P47V;
 				INFOPLIST_FILE = ET/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GP.ET;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GP.ET1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ET/Cotrollers/ET-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
