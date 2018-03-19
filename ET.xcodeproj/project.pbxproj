@@ -128,7 +128,7 @@
 		D53FE9472F91CC0C83C79968 /* Pods-ETTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.release.xcconfig"; sourceTree = "<group>"; };
 		E3044A1320370E110099738D /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		E307E9C5205789B500ACA61E /* MyEvnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEvnt.swift; sourceTree = "<group>"; };
-		E3316A54205E40BB00BEF6FF /* ET.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ET.entitlements; sourceTree = "<group>"; };
+		E32BC835206028A1002269D3 /* ET.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ET.entitlements; sourceTree = "<group>"; };
 		E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
 		E35B4CC9205E5563007D95E6 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		E376315F2025A35400CFE07B /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		6112EA72201F361F008B4066 /* ET */ = {
 			isa = PBXGroup;
 			children = (
-				E3316A54205E40BB00BEF6FF /* ET.entitlements */,
+				E32BC835206028A1002269D3 /* ET.entitlements */,
 				E3763178202601B800CFE07B /* Views */,
 				E37631772026018F00CFE07B /* Models */,
 				E37631762026016000CFE07B /* Cotrollers */,
