@@ -13,7 +13,7 @@ class ReviewsCell: UITableViewCell {
     
     @IBOutlet weak var Uname: UILabel!
     @IBOutlet weak var review: UITextView!
-
+    @IBOutlet weak var ReportBtn: UIButton!
     
     
     override func awakeFromNib() {
