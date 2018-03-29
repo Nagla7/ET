@@ -140,11 +140,12 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
             ref.child("Complaint").child(self.randomID).setValue(["EventName": ComplaintEvent.text! , "CID": randomID , "Discription" : ComplaintDescription.text! , "CustomerId" : user["UID"] as! String , "CustomerEmail" : user["email"] as! String , "CustomerPhoneNum" : user["phonenumber"] as! String , "EventId" : Event["ID"]as! String , "status" : "In progress"])
           //----------- ERROR --------------
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-            self.present(vc!, animated: true, completion: nil)
             let alert = UIAlertController(title: "Thank you", message: "We received your complaint and we will take it into consideration", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .cancel , handler: nil)
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
+            self.present(vc!, animated: true, completion: nil)
+    
         
         }
     }

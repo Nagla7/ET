@@ -7,12 +7,67 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
-class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFieldDelegate{
-    @IBOutlet weak var PhoneNumber: HoshiTextField!
+
+class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource , UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+      return cities.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return cities[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        City.text = cities[row]
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == Audience{return audience.count}
+        else{return Categories.count}
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:CollectionViewCell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        
+        if collectionView==Audience{
+            cell.image.image = UIImage(named: String(format: "image%i",indexPath.row))
+            cell.image.highlightedImage = UIImage(named: String(format: "image%i-",indexPath.row))
+            cell.filterName.text=self.audience[indexPath.row]
+            audience_ = self.audience[indexPath.row]
+            return cell
+        }
+        else{
+            cell.image.image = UIImage(named: String(format: "image_%i",indexPath.row))
+            cell.image.highlightedImage = UIImage(named: String(format: "image_%i-",indexPath.row))
+            cell.filterName.text=Categories[indexPath.row]
+            category = Categories[indexPath.row]
+            return cell
+        }
+        
+    }
+
+ 
+    
+    //@IBOutlet weak var EventCollection: UICollectionView!
+   //
+    var cities = ["All","Abha", "Abqaiq", "Al Bukaireya", "Al Ghat", "Al Wejh", "Alahsa", "Albaha", "Aldiriya", "Aljof", "All regoins", "Almadina", "Almethneb", "Alras", "Aqla", "Arar", "Ashegr", "Asir", "Bani-Malik (Aldayer)", "Bdaya", "Beshaa", "Buraidah", "Dammam", "Dareen", "delm", "Dhahran", "Dhurma", "Eidabi", "Hafof", "Hafr Albatn", "Hail", "Hota", "Hotat Bani Tamim", "Huraymila", "Industrial Yanbu", "Jazan", "Jeddah", "Jobail", "Khafji", "Khamees Mesheet", "Kharj", "Khobar", "King Abdullah Economic City", "Makkah","Nairyah", "Najran", "Qatif", "Qunfudhah", "Quraiat", "Rabigh", "Rafha", "Riyadh", "Riyadh Al Khabra", "Sabia", "Shagraa", "Sihat", "Skaka", "Tabouk", "Taif", "Tayma", "Umluj", "Unizah", "Wadi Aldawaser", "Yanbu"]
+    @IBOutlet weak var NumOfTickets: HoshiTextField!
+    @IBOutlet weak var TicketPrice: HoshiTextField!
+    @IBOutlet weak var LocationField: HoshiTextField!
+    var storageRef = Storage.storage().reference()
     @IBOutlet weak var ERules: UITextView!
-    @IBOutlet weak var Email: HoshiTextField!
-    @IBOutlet weak var Name: HoshiTextField!
+    var ref : DatabaseReference!
+    
     var PI = Int()
     @IBOutlet weak var Pages: UIPageControl!
     @IBOutlet weak var Cost: HoshiTextField!
@@ -29,23 +84,38 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     @IBOutlet weak var OTime: HoshiTextField!
     @IBOutlet weak var EDate: HoshiTextField!
     @IBOutlet weak var EventName: HoshiTextField!
+        var randomID : String = ""
+    @IBOutlet weak var Attend: HoshiTextField!
+    @IBOutlet weak var cstegory: UICollectionView!
+    @IBOutlet weak var Audience: UICollectionView!
+    let audience=["Family","Male","Female","Children"]
+    let Categories = ["Art & Culture","Canival","Education","Exhibition","Festival","Gaming","Music","Showa & Preformance","Sports","Free"]
     var Dpicker = UIDatePicker()
     var Dpicker2 = UIDatePicker()
     var Tpicker = UIDatePicker()
     var Tpicker2 = UIDatePicker()
     var xOffset = CGFloat()
     var yOffset = CGFloat()
+    var citiesPicker = UIPickerView()
+    var category: String!
+    var audience_:String!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         createdatepicker()
-       /* NotificationCenter.default.addObserver(self, selector: #selector(iewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)*/
-
-   //     let notificationCenter = NotificationCenter.default
-     //   notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
-     //   notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-        
-        
+        Audience.delegate=self
+        Audience.dataSource=self
+        cstegory.delegate=self
+        cstegory.dataSource=self
+        cstegory.showsVerticalScrollIndicator = true
+        Audience.showsVerticalScrollIndicator=true
+        Audience.flashScrollIndicators()
+        citiesPicker.delegate = self
+        City.inputView = citiesPicker
+       
+    
+        ref = Database.database().reference()
+        randomID = ref.childByAutoId().key
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -57,6 +127,12 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
 
         self.ScrollVIew.delegate = self
        
+        let pickerView = UIPickerView()
+        
+        pickerView.delegate = self
+        
+        City.inputView = pickerView
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -167,6 +243,8 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         self.view.endEditing(true)
     }
     
+    
+    
     @objc func done4() {
         let calendar = Calendar.current
         var hour = calendar.component(.hour, from: Tpicker2.date)
@@ -188,60 +266,76 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         self.view.endEditing(true)
     }
 //--------------------------------------------------------------
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-            moveTextField(textField, moveDistance: -250, up: true)
-    }
-    
-    // Finish Editing The Text Field
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -250, up: false)
-    }
-    
-    // Hide the keyboard when the return key pressed
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    // Move the text field in a pretty animation!
-    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
-        let moveDuration = 0.3
-        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+
+    @IBAction func AddPic(_ sender: UIButton) {
+        let image = UIImagePickerController()
+        image.delegate = self 
         
-        UIView.beginAnimations("animateTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(moveDuration)
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
+        let imgSource = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        
+        imgSource.addAction(UIAlertAction(title: "Camera", style: .default, handler: { ( ACTION: UIAlertAction) in image.sourceType = .camera
+            self.present(image, animated: true , completion: nil)
+        }))
+        
+        
+        imgSource.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { ( ACTION: UIAlertAction) in image.sourceType = .photoLibrary
+            self.present(image, animated: true , completion: nil)
+        }))
+        
+        
+        imgSource.addAction(UIAlertAction(title: "Cancel", style: .default, handler:nil ))
+        self.present(imgSource , animated: true , completion: nil)
+        
     }
     
-  /*  @objc func adjustForKeyboard(notification: Notification) {
-        let userInfo = notification.userInfo!
-        
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == Notification.Name.UIKeyboardWillHide {
-           
-        .contentInset = UIEdgeInsets.zero
-        } else {
-            yourTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+    
+            EventImg.image = image
         }
         
-        yourTextView.scrollIndicatorInsets = yourTextView.contentInset
-        
-        let selectedRange = yourTextView.selectedRange
-        yourTextView.scrollRangeToVisible(selectedRange)
-    }*/
-    
-   /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func IssueRequestAction(_ sender: UIButton) {
+        if(TicketPrice.text! == "" || NumOfTickets.text! == ""){
+            TicketPrice.text = "0"
+            NumOfTickets.text = "0"
+        }
+        var flag = Bool()
+        flag = self.EventName.text! == "" ||  self.Attend.text! == "" || self.Cost.text! == "" || self.Earnings.text! == "" || self.EventDiscription.text! == "" || self.SDate.text! == "" || self.LocationCapacity.text! == "" || self.City.text! == "" || self.CTime.text! == "" || self.OTime.text! == "" || self.EDate.text! == "" || self.ERules.text == "" || self.audience_ == "" || self.category == "" //|| self.LocationField.text! == ""
+        if(flag){
+            let alert = UIAlertController(title: "Error", message: "Feilds with * is required please fill all the required fields", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        else{
+            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending" , "Location" : self.LocationField.text! , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!])
+            
+            if let imageData: Data = UIImagePNGRepresentation(self.EventImg.image!)!
+            {
+                let VPicStorageRef = self.storageRef.child("ReqEvent/\(self.EventName.text)/Pic")
+                let uploadTask = VPicStorageRef.putData(imageData, metadata: nil)
+                {metadata,error in
+                    if(error == nil)
+                    {
+                        let downloadUrl = metadata!.downloadURL()
+                        self.ref.child("IssuedEventsRequests").child(self.randomID).child("pic").setValue(String(describing:downloadUrl!))
+                        _ = self.navigationController?.popViewController(animated: true)
+                        
+                    }
+                    else {print(error!.localizedDescription)}
+                }
+            }
+        }
+        
+    }
 }

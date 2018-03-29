@@ -12,6 +12,8 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'SDWebImage', '~> 4.0'
+pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Storage'
   target 'ETTests' do
     inherit! :search_paths
     # Pods for testing

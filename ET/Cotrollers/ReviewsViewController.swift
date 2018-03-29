@@ -36,6 +36,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var ReviewAtIndex : NSDictionary!
     var randomID : String = ""
     var reason : String?
+    //var countValue : NSDictionary!
     
     
     
@@ -130,7 +131,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
        self.Reviewtable.reloadData()
             
         }
-        text2.text=""
+        text2.text = ""
     }
     //------------ Report Review ----------------------
     @IBAction func ShowReportV(_ sender: UIButton) {
@@ -188,43 +189,53 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
        
         default:
             print("default")}
+
             
         }
     
+    
    
     @IBAction func ReportAction(_ sender: UIButton) {
+        
+       
+        //________________________________________________________
+        var count = "0";
         var flag =  Bool()
         flag = Check[0] || Check[1] || Check[2]
         if !flag {
-            let alertController = UIAlertController(title: "Error", message: "The report reason is required. Please choose one of the reasons", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: "The reason is required. Please choose one of the available reasons", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             
         }
         else{
-
-            //get the
-           // ref.child("Customers").queryOrdered(byChild: "username" ).queryEqual(toValue: ReviewAtIndex["username"] as! String).observeSingleEvent(of: .value, with: { snapshot in
-             //   if snapshot.exists(){
-                //    self.ReportedUser = snapshot.value as! NSDictionary
-                //    print("the user")
-              //  }
-              //  else {
-                    print("no match user")
-             //   }
-          //  })
-          //  print(ReportedUser,"434343434")
-            ref.child("ReportedReviews").child(self.randomID).setValue(["Review" : (ReviewAtIndex["text"] as! String) , "EventID" : EventID /*, "ReportedUser" : ReportedUser["UID"] as? String*/,"RID" : self.randomID  , "Reason" : reason] )
+    
+        
+           
+         
+                                    //------- ADD REPOET TO DATABASE---------
+            self.ref.child("ReportedReviews").child(self.randomID).setValue(["Review" : (self.ReviewAtIndex["text"] as! String) , "EventID" : self.EventID ,"ReportID" : self.randomID  , "Reason" : self.reason , "ReportedUser" : self.ReviewAtIndex["username"] ])
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Main")
+            
+                                        //----------------------------------
+                                }
+        
+        
+    
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomersHome")
             self.present(vc!, animated: true, completion: nil)
-            let alert = UIAlertController(title: "Thank you", message: "We received your report and we will take it into consideration", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .cancel , handler: nil)
-            alert.addAction(ok)
-            self.present(alert, animated: true, completion: nil)
+            self.popUpMessage(title: "Thank you", message: "We received your report and we will take it into consideration")
         }
         
+    
+    
+    func popUpMessage(title:String, message:String){
+        print("pop")
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func ReportButton(_ sender: UIButton ) {
