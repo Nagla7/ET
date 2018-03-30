@@ -14,6 +14,7 @@ import FirebaseStorage
 
 
 class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource , UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -67,7 +68,9 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     var storageRef = Storage.storage().reference()
     @IBOutlet weak var ERules: UITextView!
     var ref : DatabaseReference!
-    
+    var locTitle = ""
+    var secondcoordinate = 0.0
+    var Firstcoordinate = 0.0
     var PI = Int()
     @IBOutlet weak var Pages: UIPageControl!
     @IBOutlet weak var Cost: HoshiTextField!
@@ -318,7 +321,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         }
         
         else{
-            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending" , "Location" : self.LocationField.text! , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!])
+            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending" , "Location" : self.LocationField.text! , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate])
             
             if let imageData: Data = UIImagePNGRepresentation(self.EventImg.image!)!
             {
