@@ -77,9 +77,7 @@ class Model{
         })
     }
     ///////////////////////connection for storing/////////////
-    func StoreReview(EventID:String,id:String,data:NSDictionary){
-       ref.child("Reviews/\(EventID)/\(id)").childByAutoId().setValue(data)
-    }
+   
     func StoreRate(tag:Int,EventId:String,Uid:String){
         ref=Database.database().reference()
         print(tag,"%%%%%%%%%%%tag")

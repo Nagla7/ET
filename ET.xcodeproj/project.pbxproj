@@ -42,6 +42,8 @@
 		908121B78C6B4D5CEDFF5C8B /* Pods_ETTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE9A8CFFB284AEA41F93C29 /* Pods_ETTests.framework */; };
 		E3044A1420370E110099738D /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3044A1320370E110099738D /* ReviewsCell.swift */; };
 		E307E9C6205789B500ACA61E /* MyEvnt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E307E9C5205789B500ACA61E /* MyEvnt.swift */; };
+		E31644C0206E52FE004BD9D4 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31644BF206E52FE004BD9D4 /* TicketViewController.swift */; };
+		E31644C2206ED239004BD9D4 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31644C1206ED239004BD9D4 /* DateCell.swift */; };
 		E35B4CCA205E5563007D95E6 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35B4CC9205E5563007D95E6 /* PassKit.framework */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
 		E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37631602025A35400CFE07B /* MinoruTextField.swift */; };
@@ -60,6 +62,8 @@
 		E37631822026027F00CFE07B /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376317D2026027F00CFE07B /* ReviewsViewController.swift */; };
 		E3C2E4A8204AE78000C899B0 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C2E4A7204AE78000C899B0 /* View.xib */; };
 		E3C2E4B2204B33A200C899B0 /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C2E4B1204B33A200C899B0 /* RequestCell.swift */; };
+		E3E2950E20717EB600E80A1F /* TicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2950D20717EB600E80A1F /* TicketCell.swift */; };
+		E3E2951220718D2500E80A1F /* UserTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2951120718D2500E80A1F /* UserTicketsViewController.swift */; };
 		E3F5790B203A9C950077A5A5 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F5790A203A9C950077A5A5 /* VenueCell.swift */; };
 		E3F93B5B202F3BBB005F8972 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F93B5A202F3BBB005F8972 /* Model.swift */; };
 		F0A9DACC61F75EB2F6F4CBF2 /* Pods_ETUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ED2861E685F6180CCA3F4F /* Pods_ETUITests.framework */; };
@@ -129,6 +133,8 @@
 		D53FE9472F91CC0C83C79968 /* Pods-ETTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETTests/Pods-ETTests.release.xcconfig"; sourceTree = "<group>"; };
 		E3044A1320370E110099738D /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		E307E9C5205789B500ACA61E /* MyEvnt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEvnt.swift; sourceTree = "<group>"; };
+		E31644BF206E52FE004BD9D4 /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		E31644C1206ED239004BD9D4 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		E32BC835206028A1002269D3 /* ET.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ET.entitlements; sourceTree = "<group>"; };
 		E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
 		E35B4CC9205E5563007D95E6 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
@@ -150,6 +156,8 @@
 		E376317D2026027F00CFE07B /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		E3C2E4A7204AE78000C899B0 /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		E3C2E4B1204B33A200C899B0 /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		E3E2950D20717EB600E80A1F /* TicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCell.swift; sourceTree = "<group>"; };
+		E3E2951120718D2500E80A1F /* UserTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTicketsViewController.swift; sourceTree = "<group>"; };
 		E3F5790A203A9C950077A5A5 /* VenueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
 		E3F93B5A202F3BBB005F8972 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,6 +296,10 @@
 		E37631762026016000CFE07B /* Cotrollers */ = {
 			isa = PBXGroup;
 			children = (
+				E3E2951120718D2500E80A1F /* UserTicketsViewController.swift */,
+				E3E2950D20717EB600E80A1F /* TicketCell.swift */,
+				E31644C1206ED239004BD9D4 /* DateCell.swift */,
+				E31644BF206E52FE004BD9D4 /* TicketViewController.swift */,
 				29B55BD2204DC20A00378F83 /* IssueReqViewController.swift */,
 				E3C2E4B1204B33A200C899B0 /* RequestCell.swift */,
 				61419413206E3C5F006CD70A /* MapLoc.swift */,
@@ -420,7 +432,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -674,6 +686,7 @@
 				E376316F2025A35500CFE07B /* YokoTextField.swift in Sources */,
 				E37631702025A35500CFE07B /* KaedeTextField.swift in Sources */,
 				6112EA76201F361F008B4066 /* ViewController.swift in Sources */,
+				E3E2951220718D2500E80A1F /* UserTicketsViewController.swift in Sources */,
 				E3F93B5B202F3BBB005F8972 /* Model.swift in Sources */,
 				E3044A1420370E110099738D /* ReviewsCell.swift in Sources */,
 				E37631802026027F00CFE07B /* EventCell.swift in Sources */,
@@ -690,7 +703,10 @@
 				875A0FF420359AFB0095B353 /* ServiceSettingsViewController.swift in Sources */,
 				E37631742025A35500CFE07B /* IsaoTextField.swift in Sources */,
 				E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */,
+				E31644C0206E52FE004BD9D4 /* TicketViewController.swift in Sources */,
 				61AF5BCA2039667600C1806C /* Location.swift in Sources */,
+				E31644C2206ED239004BD9D4 /* DateCell.swift in Sources */,
+				E3E2950E20717EB600E80A1F /* TicketCell.swift in Sources */,
 				29B55BD3204DC20A00378F83 /* IssueReqViewController.swift in Sources */,
 				611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */,
 				0F10E89220225E7C00404A6A /* CustomControl.swift in Sources */,

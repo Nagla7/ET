@@ -49,7 +49,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         RV.layer.shadowRadius = 5
         RV.layer.cornerRadius = 20
         ref = Database.database().reference()
-        randomID = ref.childByAutoId().key
+       
         print(EventID,"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         if let uid = Auth.auth().currentUser?.uid{
             self.addReview_btn.isHidden=false
@@ -87,8 +87,11 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let review=self.Reviews[indexPath.row] as! NSDictionary
         cell.review.text=review.value(forKey:"text") as? String
         cell.Uname.text=review.value(forKey:"username") as? String
+        if let uid = Auth.auth().currentUser?.uid{
         cell.ReportBtn.tag = indexPath.row
-        cell.ReportBtn.addTarget(self, action: #selector(ReportButton), for: .touchUpInside)
+            cell.ReportBtn.addTarget(self, action: #selector(ReportButton), for: .touchUpInside)
+            cell.ReportBtn.isHidden=false
+        }else{cell.ReportBtn.isHidden=true}
         return cell
     }
     
@@ -99,10 +102,10 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.Empty_Label.isHidden=true
             self.Reviewtable.isHidden=false
         for (_,value) in data{
-            for (_,v2) in value{
-                self.Reviews.append(v2 as! NSDictionary)
+            
+                self.Reviews.append(value as! NSDictionary)
                 
-            }
+            
         }
             self.Reviewtable.reloadData()}
         else{
@@ -124,10 +127,12 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func add_review(_ sender: Any) {
         if let v=text2.text{
             let uid=Auth.auth().currentUser?.uid
-            let v2=NSDictionary.init(objects:[v,self.user.value(forKey:"username")], forKeys:["text" as NSCopying,"username" as NSCopying])
-        self.reviews.StoreReview(EventID:self.EventID!, id:uid!, data:v2)
+             let autoid = ref.childByAutoId().key
+            let v2=NSDictionary.init(objects:[v,self.user.value(forKey:"username"),autoid],forKeys:["text" as NSCopying,"username" as NSCopying,"AutoID" as NSCopying])
+            
+            ref.child("Reviews/\(EventID!)").child(autoid).setValue(v2)
+            
         self.Reviews.removeAll()
-       // self.Reviews.insert(v2, at:0)
        self.Reviewtable.reloadData()
             
         }
@@ -155,6 +160,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             sender.setTitleColor(UIColor.white, for: .normal)
             RV1.setTitleColor(UIColor(displayP3Red: 31/255, green: 189/255, blue: 188/255, alpha: 1.0) , for: .normal)
             RV2.setTitleColor(UIColor(displayP3Red: 31/255, green: 189/255, blue: 188/255, alpha: 1.0) , for: .normal)
+         
             
         case 1:
             Check[Btag] = true
@@ -165,6 +171,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             sender.backgroundColor = UIColor(displayP3Red: 75/255, green: 160/255, blue: 158/255, alpha: 1.0)
             RV0.backgroundColor = UIColor(displayP3Red: 251/255, green: 251/255, blue: 251/255, alpha: 1.0)
             RV2.backgroundColor = UIColor(displayP3Red: 251/255, green: 251/255, blue: 251/255, alpha: 1.0)
+          
            
             //title color
             sender.setTitleColor(UIColor.white, for: .normal)
@@ -180,6 +187,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             sender.backgroundColor = UIColor(displayP3Red: 75/255, green: 160/255, blue: 158/255, alpha: 1.0)
             RV1.backgroundColor = UIColor(displayP3Red: 251/255, green: 251/255, blue: 251/255, alpha: 1.0)
             RV0.backgroundColor = UIColor(displayP3Red: 251/255, green: 251/255, blue: 251/255, alpha: 1.0)
+    
            
             //title color
             sender.setTitleColor(UIColor.white, for: .normal)
@@ -197,7 +205,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
    
     @IBAction func ReportAction(_ sender: UIButton) {
         
-       
+           randomID = ref.childByAutoId().key
         //________________________________________________________
         var count = "0";
         var flag =  Bool()
@@ -215,17 +223,13 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
            
          
                                     //------- ADD REPOET TO DATABASE---------
-            self.ref.child("ReportedReviews").child(self.randomID).setValue(["Review" : (self.ReviewAtIndex["text"] as! String) , "EventID" : self.EventID ,"ReportID" : self.randomID  , "Reason" : self.reason , "ReportedUser" : self.ReviewAtIndex["username"] ])
+            self.ref.child("ReportedReviews").child(self.randomID).setValue(["Review" : (self.ReviewAtIndex["text"] as! String) , "EventID" : self.EventID ,"ReportID" : self.randomID  , "Reason" : self.reason , "ReportedUser" : self.ReviewAtIndex["username"] , "ReviewId" :(self.ReviewAtIndex["AutoID"] as! String) ])
             
             
                                         //----------------------------------
                                 }
-        
-        
-    
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CustomersHome")
-            self.present(vc!, animated: true, completion: nil)
             self.popUpMessage(title: "Thank you", message: "We received your report and we will take it into consideration")
+        ReportReviewView.removeFromSuperview()
         }
         
     

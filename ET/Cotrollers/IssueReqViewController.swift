@@ -208,14 +208,14 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
   
     @objc func done1() {
         let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .short
+        dateformatter.dateFormat="dd/mm/yyyy"
         let date = dateformatter.string(from: Dpicker.date)
         SDate.text = date
         self.view.endEditing(true)
     }
      @objc func done2() {
         let dateformatter = DateFormatter()
-        dateformatter.dateStyle = .short
+        dateformatter.dateFormat="dd/mm/yyyy"
         let date2 = dateformatter.string(from: Dpicker2.date)
         EDate.text = date2
         self.view.endEditing(true)

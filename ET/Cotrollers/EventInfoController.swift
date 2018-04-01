@@ -24,6 +24,8 @@ class EventInfoController: UIViewController {
     @IBOutlet var stars: [UIButton]!
     @IBOutlet weak var UserRating: UILabel!
     @IBOutlet weak var ComplaintEvent: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var BuyLabel: UILabel!
     var user : NSDictionary!
      var randomID : String = ""
     
@@ -43,7 +45,7 @@ ref = Database.database().reference()
         CV.layer.shadowOffset = CGSize(width: -2, height: 2)
         CV.layer.shadowRadius = 5
         CV.layer.cornerRadius = 20
-        
+        print(Event["ID"],"$$%$%$%$%$%$")
         ComplaintDescription.layer.cornerRadius = 20
         
         //_______ Get current user info_______________
@@ -73,14 +75,24 @@ ref = Database.database().reference()
         Eview.layer.masksToBounds=true
         Eview.layer.cornerRadius=8
         Eview.center.y = 353
-       // Eview.center=view.center
-        self.information.text=self.Event["Description"] as! String
-        self.location.text=self.Event["City"] as! String
-        self.Time_date.text=self.Event["Date"] as! String
-        self.Time_date.text?.append(" \(self.Event["Time"]!)")
-        self.Category_label.text?=self.Event["Category"]as!String
-        self.Category_label.text?.append(" - \(self.Event["Target Audience"]as! String)")
-      self.ComplaintEvent.text? = self.Event["title"]as! String
+        information.text=self.Event["Description"] as! String
+        location.text=self.Event["City"] as! String
+        Time_date.text=Event["SDate"] as! String
+        if Event["SDate"] as! String != Event["EDate"] as! String{
+            Time_date.text?.append(" - \(Event["EDate"]!)")}
+        Time_date.text?.append("\n\(Event["Time"]!)")
+        Category_label.text?=self.Event["Category"]as!String
+        Category_label.text?.append(" - \(self.Event["Target Audience"]as! String)")
+        ComplaintEvent.text? = self.Event["title"]as! String
+        if (Event["TicketPrice"] as? String) == nil || Int((Event["TicketPrice"] as! String)) == 0{
+           price.text?="FREE"
+           BuyLabel.isHidden=true
+           purchase.isHidden=true
+            }
+        else {self.price.text?="\(Event["TicketPrice"] as! String) SAR"
+            purchase.isHidden=false
+            BuyLabel.isHidden=false
+        }
         
     }
 ///////////////touching for dismiss//////////////////////////////////////
@@ -100,6 +112,9 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
         if segue.identifier=="review"{
         let destination=segue.destination as! ReviewsViewController
             destination.EventID=self.Event["ID"] as! String}
+        if segue.identifier=="Ticket"{
+            let destination=segue.destination as! TicketViewController
+            destination.Event=self.Event}
     }
     ///////////rate event///////////
     
@@ -139,15 +154,34 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
         else{
             ref.child("Complaint").child(self.randomID).setValue(["EventName": ComplaintEvent.text! , "CID": randomID , "Discription" : ComplaintDescription.text! , "CustomerId" : user["UID"] as! String , "CustomerEmail" : user["email"] as! String , "CustomerPhoneNum" : user["phonenumber"] as! String , "EventId" : Event["ID"]as! String , "status" : "In progress"])
           //----------- ERROR --------------
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-            let alert = UIAlertController(title: "Thank you", message: "We received your complaint and we will take it into consideration", preferredStyle: .alert)
+            self.popUpMessage(title: "Thank you", message: "We received your complaint and we will take it into consideration")
+            ComplaintView.removeFromSuperview()
+
+            
+        }
+        }
+    
+    func popUpMessage(title:String, message:String){
+        print("pop")
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+       
+        if identifier=="Ticket"{
+        if let uid = Auth.auth().currentUser?.uid{return true}else{
+            let alert = UIAlertController(title: "Log in", message: "You need to Login/Register to purchase a ticket.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .cancel , handler: nil)
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
-            self.present(vc!, animated: true, completion: nil)
-    
-        
-        }
+            return false}
+            
+        } else{return true}
     }
+    
+
     
 }
