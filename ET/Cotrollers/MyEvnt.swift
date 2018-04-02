@@ -11,5 +11,7 @@ import UIKit
 class MyEvnt: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var E_image: UIImageView!
+    @IBOutlet weak var Ticketsold: UILabel!
     
+    @IBOutlet weak var ScanBtn: UIButton!
 }

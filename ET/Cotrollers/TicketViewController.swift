@@ -164,12 +164,10 @@ btnColor=BuyButn.backgroundColor!
                 let cell = DateTable.cellForRow(at:i) as! DateCell
                 for x in 1...Int(cell.stepperLabel.text!)!{
                     let id=self.ref.childByAutoId().key
-                    let data="Event Name: \(Event["title"]as!String)\nDate:\(cell.date.text!)\nUser Name: \(self.user.value(forKey:"firstname")!)\nTicket Number: \(x)\n\(id)"
+                    let data="\(cell.date.text!)\nEvent Name: \(Event["title"]as!String)\nUser Name: \(self.user.value(forKey:"firstname")!)\nTicket Number: \(x)\n\(id)"
                   self.TicketStrings.append(data)
                   self.TicketID.append(id)
-                   /* var d = data.split(separator:"\n")
-                     var completeString="Ticket ID: \(d[4])"
-                    print(completeString,"£££££££££££££££££££££££££££££££££££££££££")*/
+
                     
                 }
                 self.num=num+Int(cell.stepperLabel.text!)!
@@ -221,7 +219,7 @@ btnColor=BuyButn.backgroundColor!
             let attrs = [NSAttributedStringKey.font: UIFont(name: "Kohinoor Devanagari", size: 25)!, NSAttributedStringKey.paragraphStyle: paragraphStyle]
             
             // 4
-            let string = str
+            let string = "Date:\(str)"
             string.draw(with: CGRect(x: 80, y: 377, width: 448, height: 448), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
             
             // 5

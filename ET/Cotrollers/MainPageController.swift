@@ -12,6 +12,7 @@ import FirebaseAuth
 import SDWebImage
 class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating,UISearchBarDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    @IBOutlet weak var NoLabel: UILabel!
     @IBOutlet var collection: UICollectionView!
     @IBOutlet var category: UICollectionView!
    // @IBOutlet weak var NoEventLabel: UILabel!
@@ -69,13 +70,15 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     
     func recieveEvents(data: [String : NSDictionary]) {
         if data.count != 0{
-         //   self.NoEventLabel.isHidden=true
+         
+            self.NoLabel.isHidden=true
             self.tableView.isHidden=false
             for (_,value) in data{
                 self.fullEvents.append(value)
             }
             DispatchQueue.main.async { self.tableView.reloadData()}}
-        else{//self.NoEventLabel.isHidden=false
+        else{self.NoLabel.text="There are No Events"
+            self.NoLabel.isHidden=false
             self.tableView.isHidden=true}
     }
     
@@ -98,7 +101,10 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
             return filtredEvents.count
         }
         else{
-            return self.fullEvents.count}
+            if(self.fullEvents.count != 0){
+                self.NoLabel.isHidden=true}
+            return self.fullEvents.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -157,6 +163,15 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                 i = 1+i
                 return(Title.lowercased().contains(searchController.searchBar.text!.lowercased()))
             }
+            if self.filtredEvents.count == 0{
+                self.NoLabel.text="Can not find what you are searching for."
+                self.NoLabel.isHidden=false
+               // self.tableView.isHidden=true
+            }
+            else
+            {self.NoLabel.isHidden=true
+                self.tableView.isHidden=false}
+            
             self.tableView.reloadData()
         }
     }
@@ -305,6 +320,12 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
            return(selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt) )
                 
         }
+        if self.filtredEvents.count == 0{
+            self.NoLabel.text="Can not find what you are searching for."
+            self.NoLabel.isHidden=false
+            self.tableView.isHidden=true
+        }else{self.NoLabel.isHidden=true
+            self.tableView.isHidden=false}
         self.tableView.reloadData()
         
         if (emptyAudience)

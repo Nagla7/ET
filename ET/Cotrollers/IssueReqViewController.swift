@@ -39,7 +39,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:CollectionViewCell=collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        
+     
         if collectionView==Audience{
             cell.image.image = UIImage(named: String(format: "image%i",indexPath.row))
             cell.image.highlightedImage = UIImage(named: String(format: "image%i-",indexPath.row))
@@ -71,6 +71,9 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     var locTitle = ""
     var secondcoordinate = 0.0
     var Firstcoordinate = 0.0
+    var locTitle2 = ""
+    var secondcoordinate2 = 0.0
+    var Firstcoordinate2 = 0.0
     var PI = Int()
     @IBOutlet weak var Pages: UIPageControl!
     @IBOutlet weak var Cost: HoshiTextField!
@@ -104,6 +107,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     var audience_:String!
    
     override func viewDidLoad() {
+
         super.viewDidLoad()
         createdatepicker()
         Audience.delegate=self
@@ -115,7 +119,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         Audience.flashScrollIndicators()
         citiesPicker.delegate = self
         City.inputView = citiesPicker
-       
+       LocationField.text="\(locTitle2)\(Firstcoordinate2)\(secondcoordinate2)"
     
         ref = Database.database().reference()
         randomID = ref.childByAutoId().key
@@ -321,7 +325,9 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         }
         
         else{
-            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending" , "Location" : self.LocationField.text! , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate])
+           
+            var uid=Auth.auth().currentUser?.uid
+            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending" , "Location" : self.LocationField.text! , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate,"ID":randomID,"SPID":"\(uid!)"])
             
             if let imageData: Data = UIImagePNGRepresentation(self.EventImg.image!)!
             {
@@ -340,5 +346,9 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
             }
         }
         
+    }
+    
+    @IBAction func backPressed(_ sender: UIButton) {
+        self.dismiss(animated:true, completion:nil)
     }
 }

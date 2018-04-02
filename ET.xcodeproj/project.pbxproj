@@ -45,6 +45,7 @@
 		E31644C0206E52FE004BD9D4 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31644BF206E52FE004BD9D4 /* TicketViewController.swift */; };
 		E31644C2206ED239004BD9D4 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31644C1206ED239004BD9D4 /* DateCell.swift */; };
 		E35B4CCA205E5563007D95E6 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35B4CC9205E5563007D95E6 /* PassKit.framework */; };
+		E367A6B920721746006C174B /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E367A6B820721746006C174B /* QRScannerViewController.swift */; };
 		E376316B2025A35500CFE07B /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376315F2025A35400CFE07B /* MadokaTextField.swift */; };
 		E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37631602025A35400CFE07B /* MinoruTextField.swift */; };
 		E376316D2025A35500CFE07B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E37631612025A35400CFE07B /* Info.plist */; };
@@ -138,6 +139,7 @@
 		E32BC835206028A1002269D3 /* ET.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ET.entitlements; sourceTree = "<group>"; };
 		E35114EC20357D4E00E56DC8 /* ET-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ET-Bridging-Header.h"; sourceTree = "<group>"; };
 		E35B4CC9205E5563007D95E6 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		E367A6B820721746006C174B /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		E376315F2025A35400CFE07B /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		E37631602025A35400CFE07B /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
 		E37631612025A35400CFE07B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				E3E2951120718D2500E80A1F /* UserTicketsViewController.swift */,
 				E3E2950D20717EB600E80A1F /* TicketCell.swift */,
 				E31644C1206ED239004BD9D4 /* DateCell.swift */,
+				E367A6B820721746006C174B /* QRScannerViewController.swift */,
 				E31644BF206E52FE004BD9D4 /* TicketViewController.swift */,
 				29B55BD2204DC20A00378F83 /* IssueReqViewController.swift */,
 				E3C2E4B1204B33A200C899B0 /* RequestCell.swift */,
@@ -700,6 +703,7 @@
 				8701B57A202B4BB500DBFF44 /* CustomerAccountViewController.swift in Sources */,
 				61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */,
 				E3C2E4B2204B33A200C899B0 /* RequestCell.swift in Sources */,
+				E367A6B920721746006C174B /* QRScannerViewController.swift in Sources */,
 				875A0FF420359AFB0095B353 /* ServiceSettingsViewController.swift in Sources */,
 				E37631742025A35500CFE07B /* IsaoTextField.swift in Sources */,
 				E376316C2025A35500CFE07B /* MinoruTextField.swift in Sources */,
@@ -886,6 +890,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8845V2P47V;
 				INFOPLIST_FILE = ET/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GP.ET1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -906,6 +911,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8845V2P47V;
 				INFOPLIST_FILE = ET/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GP.ET1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

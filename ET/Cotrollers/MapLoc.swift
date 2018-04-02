@@ -106,11 +106,13 @@ class MapLoc: UIViewController, UISearchBarDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "chooseLoc"){
-            self.dismiss(animated: true, completion:nil)
             let destination=segue.destination as! IssueReqViewController
             destination.Firstcoordinate=self.Firstcoordinate
             destination.secondcoordinate=self.secondcoordinate
-            destination.locTitle=self.locTitle}
+            destination.locTitle=self.locTitle
+            self.dismiss(animated: true, completion:nil)
+         }
+        print("££££££££££££",locTitle,Firstcoordinate,secondcoordinate,"£££££££££££££")
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,7 +19,7 @@ class UserTicketsViewController: UIViewController,UITableViewDelegate,UITableVie
         var cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as! TicketCell
         var str=self.Tickets[indexPath.row]
         cell.QR.image=generateQRCode(from:str)
-        cell.details.text=str
+        cell.details.text="Date:\(str)"
         return cell
     }
     

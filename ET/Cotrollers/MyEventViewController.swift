@@ -16,6 +16,7 @@ class MyEventViewController: UIViewController,UITableViewDataSource,UITableViewD
     
 
     var Events = [NSDictionary]()
+    var EventAtIndex=NSDictionary()
     var dbHandle:DatabaseHandle?
     var ref : DatabaseReference!
     var model=Model()
@@ -52,7 +53,12 @@ class MyEventViewController: UIViewController,UITableViewDataSource,UITableViewD
         if let pic = Event!["pic"] as? String{
         let url=URL(string:pic)
         cell.E_image.sd_setImage(with:url, completed:nil)}
+        cell.ScanBtn.tag = indexPath.row
+         cell.ScanBtn.addTarget(self, action: #selector(ScanTicket), for: .touchUpInside)
         cell.title.text=Event!["title"] as! String
+        if Int(Event!["NumOfTickets"] as! String)! != 0{
+            cell.Ticketsold.text?=" Ticket Sold:\(Event!["RemainingTickets"]!)/\(Event!["NumOfTickets"] as! String)"}
+        else{cell.Ticketsold.text?="Free Event"}
         return(cell)
     }
 
@@ -68,7 +74,7 @@ class MyEventViewController: UIViewController,UITableViewDataSource,UITableViewD
     
 
     func recieveEvents(data: [String : NSDictionary]) {
-        print(data,"$$$$$$$$$$$$$$$$$my$$$$$$$$$$$$$$$$")
+        
         if data.count != 0{
 
             for (_,value) in data{
@@ -81,5 +87,21 @@ class MyEventViewController: UIViewController,UITableViewDataSource,UITableViewD
         }
 
     }
+    
+    @objc func ScanTicket(_ sender: UIButton ) {
+        print(sender.tag)
+        self.EventAtIndex = Events[sender.tag]
+        print(EventAtIndex)
+  
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "qr"{
+            let destination=segue.destination as! QRScannerViewController
+            
+            destination.Event = EventAtIndex
+        }
+    }
+    
 
 }
