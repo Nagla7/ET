@@ -36,8 +36,10 @@ class UserTicketsViewController: UIViewController,UITableViewDelegate,UITableVie
         var uid = Auth.auth().currentUser?.uid
   
         if uid != nil{
+            
             ref.child("Tickets").queryOrdered(byChild: "UID").queryEqual(toValue:uid!).observe(.value,with:{ (snapshot) in
                 if snapshot.exists(){
+                    self.Tickets.removeAll()
                     self.TicketTable.isHidden=false
                     self.NoTickets.isHidden=true
                     var data=snapshot.value! as! NSDictionary
@@ -45,6 +47,7 @@ class UserTicketsViewController: UIViewController,UITableViewDelegate,UITableVie
                     for d in all{
                         self.Tickets.append(d.value(forKey:"Data") as! String)
                     }
+                    
                     self.TicketTable.reloadData()
                 }else{
                     self.TicketTable.isHidden=true

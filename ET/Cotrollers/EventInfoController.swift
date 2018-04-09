@@ -27,16 +27,16 @@ class EventInfoController: UIViewController {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var BuyLabel: UILabel!
     var user : NSDictionary!
-     var randomID : String = ""
-    
+    var randomID : String = ""
     var ref : DatabaseReference!
     var dbHandle:DatabaseHandle?
     var Event=NSDictionary()
-    
     var Rate=Int()
+    var flag=false
     var model=Model()
     override func viewDidLoad() {
         super.viewDidLoad()
+        flag=false
        fileComplaint.isHidden = true
 ref = Database.database().reference()
  randomID = ref.childByAutoId().key
@@ -45,7 +45,6 @@ ref = Database.database().reference()
         CV.layer.shadowOffset = CGSize(width: -2, height: 2)
         CV.layer.shadowRadius = 5
         CV.layer.cornerRadius = 20
-        print(Event["ID"],"$$%$%$%$%$%$")
         ComplaintDescription.layer.cornerRadius = 20
         
         //_______ Get current user info_______________
@@ -61,8 +60,7 @@ ref = Database.database().reference()
             })}
         
         //______________________________________________
-        
-        print(Rate,"^%^%^%^%^%^%^%^%^^%^%^%^^^%^%^%")
+
         if let uid=Auth.auth().currentUser?.uid as? String{
             UserRating.isHidden=false
             fileComplaint.isHidden = false
@@ -70,7 +68,20 @@ ref = Database.database().reference()
                 for var i in 0..<Rate {
                     stars[i] .setTitle("★", for: UIControlState.normal )}
             }
-        }else{UserRating.isHidden=true
+            if Event["TicketPrice"]as!String != "0"{
+            ref.child("Tickets").queryOrdered(byChild:"EID").queryEqual(toValue:Event["ID"]as!String).observe(.value, with: { (snapshot) in
+                if snapshot.exists(){
+                    var array = snapshot.value as! NSDictionary
+                    var all = array.allValues as! [NSDictionary]
+                    for d in all{
+                        if d["UID"]as! String == uid{
+                            self.flag=true
+                        }
+                    }
+                }else{self.flag=false}
+            })}else{self.flag=true}
+        }
+        else{UserRating.isHidden=true
             for str in stars{str.isHidden=true}}
         Eview.layer.masksToBounds=true
         Eview.layer.cornerRadius=8
@@ -120,14 +131,18 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
     
     @IBAction func RateEvent(_ sender: UIButton) {
         var rate=sender.tag
-        
+        if flag{
         for star in self.stars {
             if star.tag<=rate{
                 star .setTitle("★", for: UIControlState.normal )}
-            else{star .setTitle("☆", for: UIControlState.normal )}
-            
+            else{star .setTitle("☆", for: UIControlState.normal )}}
+            model.StoreRate(tag:rate, EventId:Event.value(forKey:"ID") as! String, Uid:(Auth.auth().currentUser?.uid)!)}
+        else{
+            let alert = UIAlertController(title: "NO ticekts", message: "You need to purchase a ticket to Rate.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel , handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
         }
-        model.StoreRate(tag:rate, EventId:Event.value(forKey:"ID") as! String, Uid:(Auth.auth().currentUser?.uid)!)
         
     }
 
@@ -136,8 +151,14 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
     }
 
     @IBAction func ShowComplaintView(_ sender: Any) {
+        if flag{
         self.view.addSubview(ComplaintView)
-       ComplaintView.center = self.view.center
+            ComplaintView.center = self.view.center}else{
+            let alert = UIAlertController(title: "NO ticekts", message: "Only event attendees can write acomplaint .", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel , handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
@@ -162,7 +183,7 @@ performSegue(withIdentifier:"review", sender:AnyClass.self)
         }
     
     func popUpMessage(title:String, message:String){
-        print("pop")
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)

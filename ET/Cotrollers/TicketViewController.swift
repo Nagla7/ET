@@ -8,11 +8,12 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 class TicketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
 var Event=NSDictionary()
-var index:[IndexPath]?
+    var index:[IndexPath]?
 var dates=[String]()
 var ref : DatabaseReference!
 var dbHandle:DatabaseHandle?
@@ -24,8 +25,10 @@ var dbHandle:DatabaseHandle?
     @IBOutlet weak var BuyButn: UIButton!
     @IBOutlet weak var reminder_btn: UIButton!
     @IBOutlet weak var Save_btn: UIButton!
-    
+
+    @IBOutlet var SummaryView: UIView!
     var formatter=DateFormatter()
+     var formatter2=DateFormatter()
     var sdate:Date!
     var edate:Date!
     var max:Double!
@@ -34,6 +37,8 @@ var dbHandle:DatabaseHandle?
     var TicketID=[String]()
     var user=NSDictionary()
     var num=0
+    var data=[String]()
+    let calendar=Calendar.current
     override func viewDidLoad() {
         super.viewDidLoad()
         ref=Database.database().reference()
@@ -46,28 +51,35 @@ var dbHandle:DatabaseHandle?
         Eview.layer.cornerRadius=8
         Eview.center=view.center
         Eview.center.y = 353
-DateTable.allowsMultipleSelection=true
+        SummaryView.layer.masksToBounds=true
+        SummaryView.layer.cornerRadius=8
+        SummaryView.center=view.center
+        SummaryView.center.y = 353
 DateTable.delegate=self
 DateTable.dataSource=self
 DateTable.layer.masksToBounds=true
 DateTable.layer.cornerRadius=8
+DateTable.allowsMultipleSelection=true
 formatter.dateStyle = .full
-formatter.dateFormat="dd/mm/yyyy"
+formatter.dateFormat="dd/MM/yyyy"
 sdate=formatter.date(from:Event["SDate"] as! String)
 edate=formatter.date(from:Event["EDate"]as! String)
 Ename.text=Event["title"] as! String
 TotalPrice.text="0 SAR"
 btnColor=BuyButn.backgroundColor!
+formatter2.dateFormat = "EE"
         if sdate == edate{
             self.dates.append(formatter.string(from:sdate!))
         }else{
             var start=sdate
             var end=edate
-            let calendar=Calendar.current
+
             while  start! <= end! {
-                self.dates.append(formatter.string(from: start!))
+                self.dates.append("\(formatter2.string(from: start!)) \(formatter.string(from: start!))")
                 start = calendar.date(byAdding: .day, value: 1, to: start!)
+                
             }
+            
         }
         dbHandle = ref?.child("Events/\(Event["ID"]!)").observe(.value, with: { (snapshot) in
             if snapshot.exists(){
@@ -85,7 +97,14 @@ btnColor=BuyButn.backgroundColor!
                     self.BuyButn.titleLabel?.textColor=UIColor.white
                 }
             }})
-    
+        UNUserNotificationCenter.current().requestAuthorization(options:[.alert,.sound]) { (success, error) in
+            if error != nil {
+                print("no auth")
+              
+            }  else{
+                print("Auth")
+            }
+        }
 
     }
 
@@ -97,54 +116,53 @@ btnColor=BuyButn.backgroundColor!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as! DateCell
         cell.date.text=dates[indexPath.row]
-        cell.stepper.minimumValue=1
+
         cell.stepper.maximumValue=self.max
         cell.stepper.tag=indexPath.row
+        print(indexPath.row)
         return cell
         
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell=tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
-        self.TotalPrice.text=calculateTotalPrice()
-         self.TotalPrice.text?.append(" SAR")
-        
-    }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell=tableView.cellForRow(at:indexPath)
-        cell?.accessoryType = .none
-         self.TotalPrice.text=calculateTotalPrice()
-         self.TotalPrice.text?.append(" SAR")
-    }
+
     ////////////////preventing Wrong touches///////////////////////////
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if touches.first?.view != Eview {self.dismiss(animated:true, completion:nil)}
+        if touches.first?.view != Eview && touches.first?.view != SummaryView{self.dismiss(animated:true, completion:nil)}
     }
 
     /////////////////Stepper for number of tickets/////////////////////
     @IBAction func stepperPressed(_ sender: UIStepper) {
         let cell = DateTable.cellForRow(at: IndexPath.init(row:sender.tag, section:0)) as! DateCell
         cell.stepperLabel.text=String(Int(sender.value))
-        self.index=DateTable.indexPathsForSelectedRows
-        if  self.index?.contains(IndexPath.init(row:sender.tag, section:0)) == true{
-        //let num=cell.stepperLabel.text
+        
+        if cell.stepperLabel.text != "0"{
+            
+            DateTable.selectRow(at:IndexPath.init(row:sender.tag, section:0), animated:false, scrollPosition:UITableViewScrollPosition.init(rawValue:0)!)
+           
+            
+        }else{DateTable.deselectRow(at:IndexPath.init(row:sender.tag, section:0), animated:false)}
+       
+        
         self.TotalPrice.text = calculateTotalPrice()
-            self.TotalPrice.text?.append(" SAR")}
+        self.TotalPrice.text?.append(" SAR")
+        
     }
     //////////////Total price calculations//////////////////
     func calculateTotalPrice()-> String{
+        
         var num=0
-       self.index=DateTable.indexPathsForSelectedRows
-        if DateTable.indexPathsForSelectedRows == nil{
-            return "0"
-        }else{
+        if DateTable.indexPathsForSelectedRows?.count != nil{
+           self.index=DateTable.indexPathsForSelectedRows
+
         for ind in self.index!{
-            let cell=DateTable.cellForRow(at:ind) as! DateCell
-            num=num+Int(cell.stepperLabel.text!)!
+            if let cell=DateTable.cellForRow(at:ind) as? DateCell{
+                num=num+Int(cell.stepperLabel.text!)!}
             }
         let price=Int(Event["TicketPrice"] as! String)
         let total = price! * num
-            return String(total)}
+                return String(total)}
+            else{return "0"}
+        
+        
     }
     
     @IBAction func BuyPressed(_ sender: UIButton) {
@@ -157,43 +175,32 @@ btnColor=BuyButn.backgroundColor!
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
         }else{
-            var index=[IndexPath]()
-            index=DateTable.indexPathsForSelectedRows!
-            print(index.count,"$$$$$$$$$$$$$count")
-            for i in index {
-                let cell = DateTable.cellForRow(at:i) as! DateCell
+            if DateTable.indexPathsForSelectedRows?.count != nil{
+            self.index=DateTable.indexPathsForSelectedRows
+            self.TicketID.removeAll()
+            for ind in self.index!{
+                var cell=DateTable.cellForRow(at:ind) as! DateCell
+                if cell.stepperLabel.text != "0"{
                 for x in 1...Int(cell.stepperLabel.text!)!{
                     let id=self.ref.childByAutoId().key
                     let data="\(cell.date.text!)\nEvent Name: \(Event["title"]as!String)\nUser Name: \(self.user.value(forKey:"firstname")!)\nTicket Number: \(x)\n\(id)"
                   self.TicketStrings.append(data)
-                  self.TicketID.append(id)
-
-                    
-                }
+                    self.TicketID.append(id)}}
                 self.num=num+Int(cell.stepperLabel.text!)!
-            }
+                }
             let uid = Auth.auth().currentUser?.uid
             let spid=Event["SPID"] as! String
+            let eid=Event["ID"] as! String
             var i=0
-            print(self.TicketStrings.count,"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
             for data in self.TicketStrings{
-                ref.child("Tickets").child(self.TicketID[i]).setValue(["Data":data,"UID":uid!,"SPID":spid])
+                ref.child("Tickets").child(self.TicketID[i]).setValue(["Data":data,"UID":uid!,"SPID":spid,"EID":eid])
                 i=i+1}
-            if self.Save_btn.currentBackgroundImage == #imageLiteral(resourceName: "checked") {
-                for  str in self.TicketStrings{
-                    let img=drawImagesAndText(Qr:  generateQRCode(from: str)!, str:str)
-                    let compressed=UIImagePNGRepresentation(img)
-                    let im=UIImage(data:compressed!)
-                    UIImageWriteToSavedPhotosAlbum(im!, nil, nil, nil)
-                }
-            }
-            let remaining=Int(Event["NumOfTickets"]as! String)! - self.num
-            ref.child("Events/\(Event["ID"]!)").child("RemainingTickets").setValue("\(remaining)")
+
+            let remaining=Int(Event["RemainingTickets"]as! String)! - self.num
             self.AvailableTickets.text="\(remaining)"
-            let alert = UIAlertController(title: "Success", message: "You purchased the Tickets sucessfully !!", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .cancel , handler: nil)
-            alert.addAction(ok)
-            self.present(alert, animated: true, completion: nil)
+            ref.child("Events/\(Event["ID"]!)").child("RemainingTickets").setValue("\(remaining)")
+           
+                self.view.addSubview(SummaryView)}
            }
     }
     
@@ -249,4 +256,55 @@ btnColor=BuyButn.backgroundColor!
         
         return nil
     }
+    //////////////Save for camera////////////////
+
+    
+    @IBAction func DoneClicked(_ sender: UIButton) {
+        if self.Save_btn.currentBackgroundImage == #imageLiteral(resourceName: "checked") {
+            for  str in self.TicketStrings{
+                let img=drawImagesAndText(Qr:  generateQRCode(from: str)!, str:str)
+                let compressed=UIImagePNGRepresentation(img)
+                let im=UIImage(data:compressed!)
+                UIImageWriteToSavedPhotosAlbum(im!, nil, nil, nil)
+            }
+        }
+        if self.reminder_btn.currentBackgroundImage == #imageLiteral(resourceName: "checked") {
+            var date=DateComponents()
+            var calender = Calendar.init(identifier:self.calendar.identifier)
+            self.index=DateTable.indexPathsForSelectedRows
+            for ind in self.index!{
+                let cell=DateTable.cellForRow(at:ind) as! DateCell
+                if cell.stepperLabel.text != "0"{
+                    let string = cell.date.text?.trimmingCharacters(in: CharacterSet(charactersIn: "0123456789/").inverted)
+                    var d=self.formatter.date(from:string!)
+                    var final=calender.date(byAdding: .day, value:-1, to:d!)
+                    date.year=Calendar.current.component(.year, from: final!)
+                    date.month=Calendar.current.component(.month, from: final!)
+                    date.day=Calendar.current.component(.day, from: final!)
+                    date.hour=15
+                    date.minute=00
+                  scheduleNotification(dateComponents:date)
+
+                }
+            }
+        }
+        self.dismiss(animated:true, completion:nil)
+    }
+    
+    func scheduleNotification(dateComponents :DateComponents) {
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder for the Event"
+        content.body = "tomorrow is \(Event["title"]!) "
+        content.sound = UNNotificationSound.default()
+        content.badge = 1
+        let request = UNNotificationRequest(identifier: "Reminder", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) {(error) in
+            if let error = error {
+                print("error: \(error)")
+            }
+        }
+    }
+  
 }

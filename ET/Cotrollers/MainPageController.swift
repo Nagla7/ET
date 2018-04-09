@@ -70,7 +70,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     
     func recieveEvents(data: [String : NSDictionary]) {
         if data.count != 0{
-         
+         self.fullEvents.removeAll()
             self.NoLabel.isHidden=true
             self.tableView.isHidden=false
             for (_,value) in data{
