@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import MapKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
 
-class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource , UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource , UIPickerViewDataSource, UISearchBarDelegate, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -58,22 +59,16 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     }
 
  
+    var cities = ["Abha", "Abqaiq", "Al Bukaireya", "Al Ghat", "Al Wejh", "Alahsa", "Albaha", "Aldiriya", "Aljof", "All regoins", "Almadina", "Almethneb", "Alras", "Aqla", "Arar", "Ashegr", "Asir", "Bani-Malik (Aldayer)", "Bdaya", "Beshaa", "Buraidah", "Dammam", "Dareen", "delm", "Dhahran", "Dhurma", "Eidabi", "Hafof", "Hafr Albatn", "Hail", "Hota", "Hotat Bani Tamim", "Huraymila", "Industrial Yanbu", "Jazan", "Jeddah", "Jobail", "Khafji", "Khamees Mesheet", "Kharj", "Khobar", "King Abdullah Economic City", "Makkah","Nairyah", "Najran", "Qatif", "Qunfudhah", "Quraiat", "Rabigh", "Rafha", "Riyadh", "Riyadh Al Khabra", "Sabia", "Shagraa", "Sihat", "Skaka", "Tabouk", "Taif", "Tayma", "Umluj", "Unizah", "Wadi Aldawaser", "Yanbu"]
     
-    //@IBOutlet weak var EventCollection: UICollectionView!
-   //
-    var cities = ["All","Abha", "Abqaiq", "Al Bukaireya", "Al Ghat", "Al Wejh", "Alahsa", "Albaha", "Aldiriya", "Aljof", "All regoins", "Almadina", "Almethneb", "Alras", "Aqla", "Arar", "Ashegr", "Asir", "Bani-Malik (Aldayer)", "Bdaya", "Beshaa", "Buraidah", "Dammam", "Dareen", "delm", "Dhahran", "Dhurma", "Eidabi", "Hafof", "Hafr Albatn", "Hail", "Hota", "Hotat Bani Tamim", "Huraymila", "Industrial Yanbu", "Jazan", "Jeddah", "Jobail", "Khafji", "Khamees Mesheet", "Kharj", "Khobar", "King Abdullah Economic City", "Makkah","Nairyah", "Najran", "Qatif", "Qunfudhah", "Quraiat", "Rabigh", "Rafha", "Riyadh", "Riyadh Al Khabra", "Sabia", "Shagraa", "Sihat", "Skaka", "Tabouk", "Taif", "Tayma", "Umluj", "Unizah", "Wadi Aldawaser", "Yanbu"]
     @IBOutlet weak var NumOfTickets: HoshiTextField!
     @IBOutlet weak var TicketPrice: HoshiTextField!
-    @IBOutlet weak var LocationField: HoshiTextField!
     var storageRef = Storage.storage().reference()
     @IBOutlet weak var ERules: UITextView!
-    var ref : DatabaseReference!
+    var ref = Database.database().reference()
     var locTitle = ""
     var secondcoordinate = 0.0
     var Firstcoordinate = 0.0
-    var locTitle2 = ""
-    var secondcoordinate2 = 0.0
-    var Firstcoordinate2 = 0.0
     var PI = Int()
     @IBOutlet weak var Pages: UIPageControl!
     @IBOutlet weak var Cost: HoshiTextField!
@@ -83,14 +78,13 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     @IBOutlet weak var EventDiscription: UITextView!
     @IBOutlet weak var ScrollVIew: UIScrollView!
     @IBOutlet weak var SDate : UITextField!
-    
     @IBOutlet weak var LocationCapacity: HoshiTextField!
     @IBOutlet weak var City: HoshiTextField!
     @IBOutlet weak var CTime: HoshiTextField!
     @IBOutlet weak var OTime: HoshiTextField!
     @IBOutlet weak var EDate: HoshiTextField!
     @IBOutlet weak var EventName: HoshiTextField!
-        var randomID : String = ""
+    var randomID : String = ""
     @IBOutlet weak var Attend: HoshiTextField!
     @IBOutlet weak var cstegory: UICollectionView!
     @IBOutlet weak var Audience: UICollectionView!
@@ -105,9 +99,8 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     var citiesPicker = UIPickerView()
     var category: String!
     var audience_:String!
-   
-    override func viewDidLoad() {
 
+    override func viewDidLoad() {
         super.viewDidLoad()
         createdatepicker()
         Audience.delegate=self
@@ -119,9 +112,8 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         Audience.flashScrollIndicators()
         citiesPicker.delegate = self
         City.inputView = citiesPicker
-       LocationField.text="\(locTitle2)\(Firstcoordinate2)\(secondcoordinate2)"
     
-        ref = Database.database().reference()
+      //  ref = Database.database().reference()
         randomID = ref.childByAutoId().key
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -129,15 +121,11 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         // Do any additional setup after loading the view
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
 
         self.ScrollVIew.delegate = self
-       
         let pickerView = UIPickerView()
-        
         pickerView.delegate = self
-        
         City.inputView = pickerView
         
         // Dispose of any resources that can be recreated.
@@ -272,6 +260,106 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         }
         self.view.endEditing(true)
     }
+    
+// Map viwe ----------------------------------------------------
+    
+    @IBOutlet var MapView: UIView!
+    
+    @IBAction func openmap(_ sender: Any) {
+        self.view.addSubview(MapView)
+    }
+    
+    @IBOutlet weak var myMapView: MKMapView!
+    
+    @IBAction func searchButton(_ sender: Any)
+    {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = true
+        present(searchController, animated: true, completion: nil)
+    }
+    
+    func popUpMessage(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        //Ignoring user
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        //Activity Indicator
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        
+        //  self.view.addSubview(activityIndicator)
+        
+        //Hide search bar
+        searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+        
+        //Create the search request
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = searchBar.text!
+        let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(24.774265, 46.738586)
+        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let region = MKCoordinateRegionMake(coordinate, span)
+        searchRequest.region = region
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        
+        activeSearch.start { (response, error) in
+            
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
+            
+            if (response == nil || response?.mapItems[0].placemark.countryCode != "SA")
+            {
+                self.popUpMessage(title: "  Can't find place", message: "Sorry, can't find \(searchBar.text!) in Saudi Arabia, please write the complete name.")
+                self.locTitle = ""}
+            else
+            {
+                //Remove annotations
+                let annotations = self.myMapView.annotations
+                self.myMapView.removeAnnotations(annotations)
+                
+                //Getting data
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+                self.secondcoordinate = (longitude)!
+                self.Firstcoordinate = (latitude)!
+                self.locTitle = searchBar.text!
+                //Create annotation
+                let annotation = MKPointAnnotation()
+                annotation.title = searchBar.text
+                annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+                self.myMapView.addAnnotation(annotation)
+                //Zooming in on annotation
+                let coordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpanMake(0.1, 0.1)
+                let region = MKCoordinateRegionMake(coordinate, span)
+                self.myMapView.setRegion(region, animated: true)
+            }
+            
+        }
+    }
+    
+    @IBAction func Choose(_ sender: Any) {
+        if (locTitle == ""){
+            self.popUpMessage(title: "Choose a place", message: "Please you have to search for a place first.")
+        }
+        else{
+            MapView.removeFromSuperview()
+        }
+        
+    }
+    
 //--------------------------------------------------------------
 
     @IBAction func AddPic(_ sender: UIButton) {
@@ -316,7 +404,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
             NumOfTickets.text = "0"
         }
         var flag = Bool()
-        flag = self.EventName.text! == "" ||  self.Attend.text! == "" || self.Cost.text! == "" || self.Earnings.text! == "" || self.EventDiscription.text! == "" || self.SDate.text! == "" || self.LocationCapacity.text! == "" || self.City.text! == "" || self.CTime.text! == "" || self.OTime.text! == "" || self.EDate.text! == "" || self.ERules.text == "" || self.audience_ == "" || self.category == "" //|| self.LocationField.text! == ""
+        flag = self.EventName.text! == "" ||  self.Attend.text! == "" || self.Cost.text! == "" || self.Earnings.text! == "" || self.EventDiscription.text! == "" || self.SDate.text! == "" || self.LocationCapacity.text! == "" || self.City.text! == "" || self.CTime.text! == "" || self.OTime.text! == "" || self.EDate.text! == "" || self.ERules.text == "" || self.audience_ == "" || self.category == "" || self.locTitle == ""
         if(flag){
             let alert = UIAlertController(title: "Error", message: "Feilds with * is required please fill all the required fields", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -327,7 +415,8 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
         else{
            
             var uid=Auth.auth().currentUser?.uid
-            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending" , "Location" : self.LocationField.text! , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate,"ID":randomID,"SPID":"\(uid!)"])
+            
+            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending", "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"ID":randomID,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate,"SPID":"\(uid!)", "status" : "pending"])
             
             if let imageData: Data = UIImagePNGRepresentation(self.EventImg.image!)!
             {
@@ -344,11 +433,19 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
                     else {print(error!.localizedDescription)}
                 }
             }
-        }
+      performSegue(withIdentifier:"done", sender:AnyClass.self) }
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier=="done"{
+            let page=segue.destination as! UITabBarController
+            page.selectedIndex = 1
+        }
+    }
     @IBAction func backPressed(_ sender: UIButton) {
         self.dismiss(animated:true, completion:nil)
     }
+    
+    
 }

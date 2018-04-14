@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="etF-qI-vta">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="etF-qI-vta">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Kohinoor.ttc">
-            <string>KohinoorDevanagari-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="f3h-sI-bAv">
@@ -2089,7 +2084,7 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sqg-YW-Kl6">
                                             <color key="tintColor" red="0.10804475099999999" green="0.60514116289999997" blue="0.59876430030000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
-                                                <segue destination="yuR-SH-Rn0" kind="showDetail" action="showViewController:sender:" id="w9C-gH-ABF"/>
+                                                <segue destination="yuR-SH-Rn0" kind="showDetail" id="w9C-gH-ABF"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -2539,44 +2534,17 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXY-lF-Tnn">
-                                                <rect key="frame" x="51" y="353" width="115" height="35"/>
+                                                <rect key="frame" x="51" y="353" width="273" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.29243808980000002" green="0.6274636388" blue="0.61961448190000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Location">
+                                                <state key="normal" title="Location*">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="VbK-it-EJB" kind="show" action="showDetailViewController:sender:" id="MMI-Xa-gJc"/>
+                                                    <action selector="openmap:" destination="yuR-SH-Rn0" eventType="touchUpInside" id="mSY-r8-k0V"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FV7-ig-eFt" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
-                                                <rect key="frame" x="174" y="341" width="150" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
-                                                        <color key="value" red="0.76470588240000004" green="0.098039215690000001" blue="0.57647058819999997" alpha="0.45360659250000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
-                                                        <color key="value" red="0.84646267360000005" green="0.35694181940000003" blue="0.54488626799999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                        <color key="value" white="0.68630642360000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding2">
-                                                        <real key="value" value="298"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="yuR-SH-Rn0" id="Mqb-er-UUX"/>
-                                                </connections>
-                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ticket price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o2t-Kf-YgR" customClass="HoshiTextField" customModule="ET" customModuleProvider="target">
                                                 <rect key="frame" x="51" y="396" width="273" height="47"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2729,7 +2697,7 @@
                         <outlet property="EventName" destination="vkn-7J-AGo" id="H6h-ov-OsS"/>
                         <outlet property="FirstView" destination="U6U-ko-szs" id="y0Y-i6-cmm"/>
                         <outlet property="LocationCapacity" destination="63G-Ns-T69" id="pIX-MU-ejr"/>
-                        <outlet property="LocationField" destination="FV7-ig-eFt" id="Htj-ZL-GJ1"/>
+                        <outlet property="MapView" destination="04F-Qj-dk4" id="Pdf-hg-qdP"/>
                         <outlet property="NumOfTickets" destination="r0J-h3-00G" id="KBH-my-Axh"/>
                         <outlet property="OTime" destination="HrI-Ue-cov" id="gMj-3I-VMV"/>
                         <outlet property="Pages" destination="Xrq-os-GSX" id="BL7-xA-C9C"/>
@@ -2737,9 +2705,46 @@
                         <outlet property="ScrollVIew" destination="95A-YM-coe" id="c2M-cf-emh"/>
                         <outlet property="TicketPrice" destination="o2t-Kf-YgR" id="OBv-KG-81y"/>
                         <outlet property="cstegory" destination="2IX-pI-Vex" id="3L1-Fb-FrS"/>
+                        <outlet property="myMapView" destination="IBB-xt-2TE" id="PXw-I0-ajG"/>
+                        <segue destination="0np-8y-xMa" kind="show" identifier="done" id="ajh-gA-lwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsR-Nv-qFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="04F-Qj-dk4">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IBB-xt-2TE">
+                            <rect key="frame" x="0.0" y="78" width="375" height="589"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
+                        <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="542-t8-mtb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Search for a place" prompt=" " id="Src-Zh-TEA">
+                                    <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="pHz-iE-SxW">
+                                        <color key="tintColor" red="0.0078431372550000003" green="0.68235294120000001" blue="0.67450980390000004" alpha="0.99686964899999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="searchButton:" destination="yuR-SH-Rn0" id="tpj-9S-iHC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zt-qe-y3d">
+                            <rect key="frame" x="150" y="582" width="75" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="Choose"/>
+                            <connections>
+                                <action selector="Choose:" destination="yuR-SH-Rn0" eventType="touchUpInside" id="let-DY-I8s"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <viewLayoutGuide key="safeArea" id="r8w-0D-wHh"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-2142.4000000000001" y="-5238.5307346326845"/>
         </scene>
@@ -3698,7 +3703,7 @@
                         <viewLayoutGuide key="safeArea" id="Y3Y-fw-JDw"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home filled" selectedImage="certificate filled" id="j0R-57-zKN"/>
-                    <navigationItem key="navigationItem" id="yIr-vd-sdm">
+                    <navigationItem key="navigationItem" title="Events" id="yIr-vd-sdm">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="icons8-filter-100" id="8VZ-1D-NWg">
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-11"/>
                             <color key="tintColor" red="0.0" green="0.57254901960000004" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3915,7 +3920,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="272" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K9T-4J-qDW">
-                                <rect key="frame" x="11" y="51" width="353" height="567"/>
+                                <rect key="frame" x="11" y="86" width="353" height="532"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -3978,6 +3983,13 @@
                                     <outlet property="delegate" destination="F8e-hA-RF8" id="mld-FH-mVS"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztK-wf-jRs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="My Events" prompt=" " id="ZDf-ug-fCf"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hoh-l8-g6A"/>
@@ -4007,73 +4019,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9j-Dl-732" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1148" y="-4649.3253373313346"/>
-        </scene>
-        <!--Search for a place-->
-        <scene sceneID="pcC-im-B6S">
-            <objects>
-                <viewController id="VbK-it-EJB" customClass="MapLoc" customModule="ET" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PlI-bh-v0p"/>
-                        <viewControllerLayoutGuide type="bottom" id="mnE-FE-gDy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="04F-Qj-dk4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IBB-xt-2TE">
-                                <rect key="frame" x="0.0" y="78" width="375" height="589"/>
-                                <connections>
-                                    <outlet property="delegate" destination="VbK-it-EJB" id="f0Y-aB-G51"/>
-                                </connections>
-                            </mapView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="542-t8-mtb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Search for a place" prompt=" " id="Src-Zh-TEA">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="pHz-iE-SxW">
-                                            <color key="tintColor" red="0.0078431372550000003" green="0.68235294120000001" blue="0.67450980390000004" alpha="0.99686964899999997" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="searchButton:" destination="VbK-it-EJB" id="VZ8-6N-QmJ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zt-qe-y3d">
-                                <rect key="frame" x="150" y="582" width="75" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Choose"/>
-                                <connections>
-                                    <action selector="Choose:" destination="VbK-it-EJB" eventType="touchUpInside" id="g3Z-wG-J3R"/>
-                                    <segue destination="yuR-SH-Rn0" kind="presentation" identifier="chooseLoc" id="Eaa-53-XeB"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="mnE-FE-gDy" firstAttribute="top" secondItem="IBB-xt-2TE" secondAttribute="bottom" id="01v-E3-vec"/>
-                            <constraint firstItem="IBB-xt-2TE" firstAttribute="leading" secondItem="04F-Qj-dk4" secondAttribute="leading" id="2lW-2G-XDb"/>
-                            <constraint firstAttribute="trailing" secondItem="IBB-xt-2TE" secondAttribute="trailing" id="3Tl-V1-3Qj"/>
-                            <constraint firstItem="IBB-xt-2TE" firstAttribute="top" secondItem="PlI-bh-v0p" secondAttribute="bottom" id="vgM-dA-0ym"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="r8w-0D-wHh"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Search for a place" prompt=" " id="fbr-KL-1Z7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uEs-QF-BTH">
-                            <connections>
-                                <action selector="searchButton:" destination="VbK-it-EJB" id="RRe-Kc-fZW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="myMapView" destination="IBB-xt-2TE" id="vua-Wj-8cg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q1F-0E-R93" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1111.2" y="-5366.266866566717"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="QbE-Sg-UCd">
@@ -4365,7 +4310,7 @@
         <image name="user (1)" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Eaa-53-XeB"/>
+        <segue reference="ajh-gA-lwd"/>
         <segue reference="chA-1a-Glf"/>
     </inferredMetricsTieBreakers>
 </document>

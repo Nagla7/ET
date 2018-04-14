@@ -28,7 +28,6 @@
 		6112EAA6201F3C7B008B4066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */; };
 		6112EAA7201F3C7B008B4066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */; };
 		611FFD392028386C0089DD48 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FFD382028386C0089DD48 /* CollectionViewCell.swift */; };
-		61419414206E3C60006CD70A /* MapLoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61419413206E3C5F006CD70A /* MapLoc.swift */; };
 		61960D8F202B0EF50089CC74 /* ResetPassowrdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */; };
 		61AF5BCA2039667600C1806C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AF5BC92039667600C1806C /* Location.swift */; };
 		61DEAC37202C184E008616C8 /* ServiceProviderHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */; };
@@ -115,7 +114,6 @@
 		6112EA98201F361F008B4066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6112EAA4201F3C7B008B4066 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		611FFD382028386C0089DD48 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		61419413206E3C5F006CD70A /* MapLoc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLoc.swift; sourceTree = "<group>"; };
 		61960D8E202B0EF50089CC74 /* ResetPassowrdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassowrdController.swift; sourceTree = "<group>"; };
 		61AF5BC92039667600C1806C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		61DEAC36202C184E008616C8 /* ServiceProviderHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProviderHomeController.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 				E31644BF206E52FE004BD9D4 /* TicketViewController.swift */,
 				29B55BD2204DC20A00378F83 /* IssueReqViewController.swift */,
 				E3C2E4B1204B33A200C899B0 /* RequestCell.swift */,
-				61419413206E3C5F006CD70A /* MapLoc.swift */,
 				2911DBFC2056E6E200D7FCC3 /* MyEventViewController.swift */,
 				E307E9C5205789B500ACA61E /* MyEvnt.swift */,
 				E3F5790A203A9C950077A5A5 /* VenueCell.swift */,
@@ -696,7 +693,6 @@
 				6112EA74201F361F008B4066 /* AppDelegate.swift in Sources */,
 				61F321272038B3620098B141 /* RegulationController.swift in Sources */,
 				E37631812026027F00CFE07B /* MainPageController.swift in Sources */,
-				61419414206E3C60006CD70A /* MapLoc.swift in Sources */,
 				E3F5790B203A9C950077A5A5 /* VenueCell.swift in Sources */,
 				2911DBFD2056E6E200D7FCC3 /* MyEventViewController.swift in Sources */,
 				E37631722025A35500CFE07B /* JiroTextField.swift in Sources */,
