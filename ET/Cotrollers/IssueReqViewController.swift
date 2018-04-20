@@ -89,7 +89,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
     @IBOutlet weak var cstegory: UICollectionView!
     @IBOutlet weak var Audience: UICollectionView!
     let audience=["Family","Male","Female","Children"]
-    let Categories = ["Art & Culture","Canival","Education","Exhibition","Festival","Gaming","Music","Showa & Preformance","Sports","Free"]
+    let Categories = ["Art & Culture","Canival","Education","Exhibition","Festival","Gaming","Music","Showa & Preformance","Sports"]
     var Dpicker = UIDatePicker()
     var Dpicker2 = UIDatePicker()
     var Tpicker = UIDatePicker()
@@ -200,14 +200,14 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
   
     @objc func done1() {
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat="dd/mm/yyyy"
+        dateformatter.dateFormat = "dd/mm/yyyy"
         let date = dateformatter.string(from: Dpicker.date)
         SDate.text = date
         self.view.endEditing(true)
     }
      @objc func done2() {
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat="dd/mm/yyyy"
+        dateformatter.dateFormat = "dd/mm/yyyy"
         let date2 = dateformatter.string(from: Dpicker2.date)
         EDate.text = date2
         self.view.endEditing(true)
@@ -416,7 +416,7 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
            
             var uid=Auth.auth().currentUser?.uid
             
-            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "Status" : "Pending", "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"ID":randomID,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate,"SPID":"\(uid!)", "status" : "pending"])
+            ref.child("IssuedEventsRequests").child(randomID).setValue(["EventName":self.EventName.text! , "EventDiscription" : self.EventDiscription.text! , "SDate":self.SDate.text! , "EDate":self.EDate.text! , "OpenTime": self.OTime.text! , "CloseTime" : self.CTime.text! , "ExpectedAttendees" : self.Attend.text! , "Cost" : self.Cost.text!, "Earnings":self.Earnings.text! , "LocationCapacity" : self.LocationCapacity.text! ,"City" : self.City.text! , "EventRules": self.ERules.text! , "audience" : self.audience_! , "category":self.category , "TicketPrice" : self.TicketPrice.text! , "NumOfTickets": self.NumOfTickets.text!,"ID":randomID,"locTitle" : locTitle, "secondcoordinate" : secondcoordinate, "Firstcoordinate" : Firstcoordinate,"SPID":"\(uid!)", "status" : "Pending"])
             
             if let imageData: Data = UIImagePNGRepresentation(self.EventImg.image!)!
             {
@@ -433,7 +433,18 @@ class IssueReqViewController: UIViewController , UIScrollViewDelegate , UITextFi
                     else {print(error!.localizedDescription)}
                 }
             }
-      performSegue(withIdentifier:"done", sender:AnyClass.self) }
+            let alertController = UIAlertController(title: "Success", message: "Your request has been issued successfully", preferredStyle: .alert)
+            
+            // Create OK button
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                
+                // Code in this block will trigger when OK button tapped.
+                print("Ok button tapped");
+                  self.performSegue(withIdentifier:"done", sender:AnyClass.self)
+            }
+            alertController.addAction(OKAction)
+             self.present(alertController, animated: true, completion:nil)
+    }
         
     }
     

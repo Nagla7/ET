@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         IQKeyboardManager.sharedManager().enable = true
         UNUserNotificationCenter.current().delegate=self
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         return true
     }
 

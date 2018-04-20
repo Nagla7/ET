@@ -293,7 +293,6 @@ formatter2.dateFormat = "EE"
     
     func scheduleNotification(dateComponents :DateComponents) {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        
         let content = UNMutableNotificationContent()
         content.title = "Reminder for the Event"
         content.body = "tomorrow is \(Event["title"]!) "

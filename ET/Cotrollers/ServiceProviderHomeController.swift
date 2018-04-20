@@ -62,6 +62,7 @@ class ServiceProviderHomeController: UIViewController,UITableViewDelegate,UITabl
         cell.Vemail.text="E-mail:\(venue.value(forKey:"Email") as! String)"
         cell.Vcost.text="Cost:\(venue.value(forKey:"Cost") as! String)"
         cell.Vphone.text="Phone:\(venue.value(forKey:"phoneNum") as! String)"
+        cell.city.text="City:\(venue.value(forKey:"Location") as! String)"
         cell.link_btn.tag=indexPath.row
         cell.view.layer.masksToBounds=true
         cell.view.layer.cornerRadius=10

@@ -17,6 +17,7 @@ class VenueCell: UITableViewCell {
     @IBOutlet weak var Vemail: UILabel!
     @IBOutlet weak var link_btn: UIButton!
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var city: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
