@@ -270,14 +270,14 @@ formatter2.dateFormat = "EE"
         }
         if self.reminder_btn.currentBackgroundImage == #imageLiteral(resourceName: "checked") {
             var date=DateComponents()
-            var calender = Calendar.init(identifier:self.calendar.identifier)
-            self.index=DateTable.indexPathsForSelectedRows
+            let calender = Calendar.init(identifier:self.calendar.identifier)
+            if DateTable.indexPathsForSelectedRows?.count != nil{
             for ind in self.index!{
                 let cell=DateTable.cellForRow(at:ind) as! DateCell
                 if cell.stepperLabel.text != "0"{
                     let string = cell.date.text?.trimmingCharacters(in: CharacterSet(charactersIn: "0123456789/").inverted)
-                    var d=self.formatter.date(from:string!)
-                    var final=calender.date(byAdding: .day, value:-1, to:d!)
+                    let d=self.formatter.date(from:string!)
+                    let final=calender.date(byAdding: .day, value:-1, to:d!)
                     date.year=Calendar.current.component(.year, from: final!)
                     date.month=Calendar.current.component(.month, from: final!)
                     date.day=Calendar.current.component(.day, from: final!)
@@ -286,7 +286,7 @@ formatter2.dateFormat = "EE"
                   scheduleNotification(dateComponents:date)
 
                 }
-            }
+                }}
         }
         self.dismiss(animated:true, completion:nil)
     }

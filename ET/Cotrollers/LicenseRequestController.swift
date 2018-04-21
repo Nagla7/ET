@@ -52,11 +52,11 @@ var ref : DatabaseReference?
         switch status{
         case "Approved":
             cell.status.text="Approved"
-            cell.status.backgroundColor = UIColor(red: 0.1255, green: 0.7373, blue: 0.349, alpha: 1.0)//init(red:19, green:196, blue:96, alpha:1)
+            cell.status.backgroundColor = UIColor(red: 0.1255, green: 0.7373, blue: 0.349, alpha: 1.0)
             break;
         case "Declined":
              cell.status.text="Declined"
-             cell.status.backgroundColor = UIColor(red: 0.9373, green: 0.0745, blue: 0, alpha: 1.0)  //init(red: 19, green:196, blue:96, alpha:1)
+             cell.status.backgroundColor = UIColor(red: 0.9373, green: 0.0745, blue: 0, alpha: 1.0)
              break;
         default:
             cell.status.text="Pending"
