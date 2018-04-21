@@ -14,6 +14,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
 
     
+    @IBOutlet weak var block: UILabel!
     @IBOutlet weak var RV0: UIButton!
     @IBOutlet weak var RV2: UIButton!
     @IBOutlet weak var RV1: UIButton!
@@ -49,7 +50,19 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         RV.layer.shadowRadius = 5
         RV.layer.cornerRadius = 20
         ref = Database.database().reference()
-       
+        self.block.isHidden = true
+        ref.child("BlockedUsers").child((Auth.auth().currentUser?.uid)!).observe(.value, with: { (snapshot) in
+            if snapshot.exists(){
+                self.text2.isHidden = true;
+                self.addReview_btn.isEnabled = false
+                 self.block.isHidden = false
+            }
+            else{
+                self.block.isHidden = true
+            }
+        })
+        
+    
         print(EventID,"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         if let uid = Auth.auth().currentUser?.uid{
             self.addReview_btn.isHidden=false
