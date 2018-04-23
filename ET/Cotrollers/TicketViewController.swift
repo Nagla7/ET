@@ -97,14 +97,7 @@ formatter2.dateFormat = "EE"
                     self.BuyButn.titleLabel?.textColor=UIColor.white
                 }
             }})
-        UNUserNotificationCenter.current().requestAuthorization(options:[.alert,.sound]) { (success, error) in
-            if error != nil {
-                print("no auth")
-              
-            }  else{
-                print("Auth")
-            }
-        }
+
 
     }
 
@@ -183,7 +176,7 @@ formatter2.dateFormat = "EE"
                 if cell.stepperLabel.text != "0"{
                 for x in 1...Int(cell.stepperLabel.text!)!{
                     let id=self.ref.childByAutoId().key
-                    let data="\(cell.date.text!)\nEvent Name: \(Event["title"]as!String)\nUser Name: \(self.user.value(forKey:"firstname")!)\nTicket Number: \(x)\n\(id)"
+                    let data="\(cell.date.text!)\nEvent Name: \(Event["title"]as!String)\nUser Name: \(self.user.value(forKey:"firstname")!)\nTicket ID:\n\(id)"
                   self.TicketStrings.append(data)
                     self.TicketID.append(id)}}
                 self.num=num+Int(cell.stepperLabel.text!)!

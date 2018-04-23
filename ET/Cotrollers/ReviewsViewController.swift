@@ -9,12 +9,12 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import Alamofire
 class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ReviewsDelegate {
 
     
 
     
-    @IBOutlet weak var block: UILabel!
     @IBOutlet weak var RV0: UIButton!
     @IBOutlet weak var RV2: UIButton!
     @IBOutlet weak var RV1: UIButton!
@@ -37,7 +37,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var ReviewAtIndex : NSDictionary!
     var randomID : String = ""
     var reason : String?
-    //var countValue : NSDictionary!
+    var adminToken:String?
     
     
     
@@ -50,20 +50,18 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         RV.layer.shadowRadius = 5
         RV.layer.cornerRadius = 20
         ref = Database.database().reference()
-        self.block.isHidden = true
-        ref.child("BlockedUsers").child((Auth.auth().currentUser?.uid)!).observe(.value, with: { (snapshot) in
+        ref.child("Users").queryOrdered(byChild:"type").queryEqual(toValue:"admin").observe(.value, with:{(snapshot) in
             if snapshot.exists(){
-                self.text2.isHidden = true;
-                self.addReview_btn.isEnabled = false
-                 self.block.isHidden = false
-            }
-            else{
-                self.block.isHidden = true
+                var value=snapshot.value as! NSDictionary
+                for (_,v) in value{
+                    var data=v as! NSDictionary
+                    self.adminToken=data.value(forKey:"token") as? String
+                }
             }
         })
         
-    
-        print(EventID,"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        
+
         if let uid = Auth.auth().currentUser?.uid{
             self.addReview_btn.isHidden=false
             self.text2.isHidden=false
@@ -130,6 +128,8 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.first?.view != self.subView{
+            self.dismiss(animated:true, completion:nil)
+        }else if touches.first?.view != self.ReportReviewView{
             self.dismiss(animated:true, completion:nil)
         }
     }
@@ -238,7 +238,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                                     //------- ADD REPOET TO DATABASE---------
             self.ref.child("ReportedReviews").child(self.randomID).setValue(["Review" : (self.ReviewAtIndex["text"] as! String) , "EventID" : self.EventID ,"ReportID" : self.randomID  , "Reason" : self.reason , "ReportedUser" : self.ReviewAtIndex["username"] , "ReviewId" :(self.ReviewAtIndex["AutoID"] as! String) ])
             
-            
+            self.sendNotification()
                                         //----------------------------------
                                 }
             self.popUpMessage(title: "Thank you", message: "We received your report and we will take it into consideration")
@@ -256,8 +256,24 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     @objc func ReportButton(_ sender: UIButton ) {
-       print(sender.tag)
         ReviewAtIndex = Reviews[sender.tag]
+    }
+    
+    
+    func sendNotification(){
+        let title = "Reported Comment"
+        let body = "a customer reported a comment "
+        
+        var headers:HTTPHeaders = HTTPHeaders()
+        
+        headers = ["Content-Type":"application/json","Authorization":"key=\(AppDelegate.SERVERKEY)"
+            
+        ]
+        let notification = ["to":"\(self.adminToken!)","notification":["body":body,"title":title,"badge":0,"sound":"default"]] as [String:Any]
+        
+        Alamofire.request(AppDelegate.NOTIFICATION_URL as URLConvertible, method: .post as HTTPMethod, parameters: notification, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            print(response)
+        }
     }
 }
 

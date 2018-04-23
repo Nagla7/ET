@@ -161,7 +161,7 @@ class RegisterViewController: UIViewController , UITextFieldDelegate {
             } else { // customer
                 Auth.auth().createUser(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
                     if error == nil {
-                        self.ref.child("Customers").child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!.lowercased(),"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid])
+                        self.ref.child("Customers").child(user!.uid).setValue(["firstname":self.fname.text!,"lastname":self.lname.text!,"email": self.email.text!.lowercased(),"phonenumber":self.phone.text!,"username": self.username.text!.lowercased(),"UID": user!.uid,"token":""])
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "C_SP_Login")
                         self.present(vc!, animated: true, completion: nil)
                     } else {

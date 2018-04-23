@@ -16,15 +16,26 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    static let NOTIFICATION_URL = "https://gcm-http.googleapis.com/gcm/send"
+    static var DEVICEID = String()
+    static let SERVERKEY = "AAAA2GVWX4g:APA91bFwFrWxKWEpRRY9S-Zd4ZQH_SUzWuzoGTcSyPREyzeI7i7mSYljTIi2-1xlfqjONq0b4dZQEqwLLBOaxO9B4T06D7Mk-9oaEotNYc9tWNUPhq-q_uv9Zu4VpnotffYuAZU-o_am"
+    var ref:DatabaseReference?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        IQKeyboardManager.sharedManager().enable = true
+        self.ref=Database.database().reference()
+        IQKeyboardManager.shared.enable = true
         UNUserNotificationCenter.current().delegate=self
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        
+        UNUserNotificationCenter.current().requestAuthorization(options:[.alert,.sound]) { (success, error) in
+            if error != nil {
+                print("no auth")
+                
+            }  else{
+                print("Auth")
+            }
+        }
+        application.registerForRemoteNotifications()
         return true
     }
 
@@ -96,12 +107,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        guard  let newToken = InstanceID.instanceID().token() else {return}
+        AppDelegate.DEVICEID = newToken
+        if let user=Auth.auth().currentUser?.uid{
+           // ref.child("Users/\(user)").child("token").setValue(token)
+            ref?.child("Customers/\(user)").observe(.value, with: { (snapshot) in
+                if snapshot.exists(){
+                    self.ref?.child("Customers/\(user)").child("token").setValue(newToken)
+                }else{
+                    self.ref?.child("ServiceProviders/\(user)").child("token").setValue(newToken)
+                }
+            })
+        }
+        connectToFCM()
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        guard let token = InstanceID.instanceID().token() else {return}        
+        AppDelegate.DEVICEID = token
+        if let user=Auth.auth().currentUser?.uid{
+            ref?.child("Customers/\(user)").observe(.value, with: { (snapshot) in
+                if snapshot.exists(){
+                    self.ref?.child("Customers/\(user)").child("token").setValue(token)
+                }else{
+                    self.ref?.child("ServiceProviders/\(user)").child("token").setValue(token)
+                }
+            })
+        }
+        print("token!!!!!",token)
+        connectToFCM()
+    }
+    func connectToFCM(){Messaging.messaging().shouldEstablishDirectChannel = true}
 }
 extension AppDelegate:UNUserNotificationCenterDelegate{
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(.alert)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
     }
 }
 

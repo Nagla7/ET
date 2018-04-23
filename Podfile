@@ -14,6 +14,8 @@ pod 'Firebase/Auth'
 pod 'SDWebImage', '~> 4.0'
 pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Storage'
+pod 'Alamofire', '~> 4.7'
+pod 'Firebase/Messaging'
   target 'ETTests' do
     inherit! :search_paths
     # Pods for testing
