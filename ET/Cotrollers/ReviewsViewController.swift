@@ -18,7 +18,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var RV0: UIButton!
     @IBOutlet weak var RV2: UIButton!
     @IBOutlet weak var RV1: UIButton!
-    
+    @IBOutlet weak var block: UILabel!
     @IBOutlet var ReportReviewView: UIView!
     @IBOutlet weak var addReview_btn: UIButton!
     @IBOutlet weak var text2: HoshiTextField!
@@ -60,7 +60,18 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
         })
         
-        
+        self.block.isHidden = true
+        ref.child("BlockedUsers").child((Auth.auth().currentUser?.uid)!).observe(.value, with: { (snapshot) in
+            if snapshot.exists(){
+                self.text2.isHidden = true;
+                self.addReview_btn.isEnabled = false
+                self.block.isHidden = false
+            }
+            else{
+                self.block.isHidden = true
+            }
+        })
+
 
         if let uid = Auth.auth().currentUser?.uid{
             self.addReview_btn.isHidden=false

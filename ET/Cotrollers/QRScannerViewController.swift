@@ -14,6 +14,7 @@ import FirebaseAuth
 
 class QRScannerViewController: UIViewController,  AVCaptureMetadataOutputObjectsDelegate {
     
+    @IBOutlet weak var Cv: UIView!
     // @IBOutlet weak var square: UIImageView!
     var video = AVCaptureVideoPreviewLayer()
     var ref = Database.database().reference()
@@ -47,8 +48,8 @@ class QRScannerViewController: UIViewController,  AVCaptureMetadataOutputObjects
         output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
         
         video = AVCaptureVideoPreviewLayer(session: session)
-        video.frame = view.layer.bounds
-        view.layer.addSublayer(video)
+        video.frame = Cv.layer.bounds
+        Cv.layer.addSublayer(video)
         
         // self.view.bringSubview(toFront: square)
         
