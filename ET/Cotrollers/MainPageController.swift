@@ -132,9 +132,6 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
                 for var i in 0..<cell.Stars.count {
                     cell.Stars[i] .setTitle("☆", for: UIControlState.normal )
                 }}
-        
-        
-        
         cell.title.text = event!["title"] as? String
         cell.E_image.clipsToBounds = true
         cell.E_image.layer.borderWidth = 2.0
@@ -250,7 +247,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
     ///////////////////////pickerView//////////////////////
     @IBOutlet weak var pickerView: UIPickerView!
     
-    let cities = ["All","Abha", "Abqaiq", "Al Bukaireya", "Al Ghat", "Al Wejh", "Alahsa", "Albaha", "Aldiriya", "Aljof", "All regoins", "Almadina", "Almethneb", "Alras", "Aqla", "Arar", "Ashegr", "Asir", "Bani-Malik (Aldayer)", "Bdaya", "Beshaa", "Buraidah", "Dammam", "Dareen", "delm", "Dhahran", "Dhurma", "Eidabi", "Hafof", "Hafr Albatn", "Hail", "Hota", "Hotat Bani Tamim", "Huraymila", "Industrial Yanbu", "Jazan", "Jeddah", "Jobail", "Khafji", "Khamees Mesheet", "Kharj", "Khobar", "King Abdullah Economic City", "Makkah","Nairyah", "Najran", "Qatif", "Qunfudhah", "Quraiat", "Rabigh", "Rafha", "Riyadh", "Riyadh Al Khabra", "Sabia", "Shagraa", "Sihat", "Skaka", "Tabouk", "Taif", "Tayma", "Umluj", "Unizah", "Wadi Aldawaser", "Yanbu"]
+    let cities = ["All","Abha", "Abqaiq", "Al Bukaireya", "Al Ghat", "Al Wejh", "Alahsa", "Albaha", "Aldiriya", "Aljof", "Almadina", "Almethneb", "Alras", "Aqla", "Arar", "Ashegr", "Asir", "Bani-Malik (Aldayer)", "Bdaya", "Beshaa", "Buraidah", "Dammam", "Dareen", "delm", "Dhahran", "Dhurma", "Eidabi", "Hafof", "Hafr Albatn", "Hail", "Hota", "Hotat Bani Tamim", "Huraymila", "Industrial Yanbu", "Jazan", "Jeddah", "Jobail", "Khafji", "Khamees Mesheet", "Kharj", "Khobar", "King Abdullah Economic City", "Makkah","Nairyah", "Najran", "Qatif", "Qunfudhah", "Quraiat", "Rabigh", "Rafha", "Riyadh", "Riyadh Al Khabra", "Sabia", "Shagraa", "Sihat", "Skaka", "Tabouk", "Taif", "Tayma", "Umluj", "Unizah", "Wadi Aldawaser", "Yanbu"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -306,27 +303,26 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
             emptyCategories = true
         }
         
-            var i:Int=0
-            filtredEvents=[NSDictionary]()
+        var i:Int = 0
             self.fullEvents = self.fullEvents.filter{ event in
                 let Cityelement = fullEvents[i]!["City"] as! String
                 let Categoryelemnt = fullEvents[i]!["Category"] as! String
                 let Audienceelemnt = fullEvents[i]!["Target Audience"] as! String
                 i = 1+i
-                print(Audienceelemnt,"!!!!!!!!!!!!!!!",selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt))
-                        if (city != "All"){
-                            return(Cityelement.lowercased().contains(city.lowercased()) && selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt) )}
-                
+
+                        if (city != "All"){                            
+                            return(Cityelement.lowercased().contains(city.lowercased()) && selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt))}
            return(selectedAudience.contains(Audienceelemnt) && selectedCategories.contains(Categoryelemnt) )
-                
         }
-        if self.filtredEvents.count == 0{
+        if self.fullEvents.count == 0{
             self.NoLabel.text="Can not find what you are searching for."
             self.NoLabel.isHidden=false
             self.tableView.isHidden=true
-        }else{self.NoLabel.isHidden=true
-            self.tableView.isHidden=false}
-        self.tableView.reloadData()
+        }else
+        
+        {self.NoLabel.isHidden=true
+            self.tableView.isHidden=false
+            self.tableView.reloadData()}
         
         if (emptyAudience)
         {selectedAudience = [String] ()}
@@ -334,7 +330,6 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         if (emptyCategories)
         {selectedCategories = [String] ()}
         FilterView.removeFromSuperview()
-        fullEvents = fulleventsfilter
     }
     
     
