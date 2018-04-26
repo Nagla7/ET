@@ -2106,6 +2106,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GdL-u1-HiG" id="FqS-mr-hIm"/>
+                                    <outlet property="delegate" destination="GdL-u1-HiG" id="JrP-kX-dth"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XEf-ZE-a1I">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
@@ -4478,7 +4482,8 @@
         <image name="user (1)" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eh0-wR-S7h"/>
+        <segue reference="w9C-gH-ABF"/>
+        <segue reference="ajh-gA-lwd"/>
         <segue reference="chA-1a-Glf"/>
         <segue reference="2RA-CH-5UY"/>
     </inferredMetricsTieBreakers>

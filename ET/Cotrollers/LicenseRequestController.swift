@@ -20,21 +20,25 @@ var ref : DatabaseReference?
         super.viewDidLoad()
         requestsTable.delegate=self
         requestsTable.dataSource=self
+        
         requestsTable.tableFooterView = UIView()
         ref=Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
         ref?.child("IssuedEventsRequests").queryOrdered(byChild: "SPID").queryEqual(toValue:uid!).observe(.value) { (snapshot) in
             if snapshot.exists(){
-                self.requestsTable.isHidden=false
-                self.noRequestsLabel.isHidden=true
+                print("im here")
+                self.requestsTable.isHidden = false
+                self.noRequestsLabel.isHidden = true
                 self.requesta.removeAll()
                 let data=snapshot.value! as! NSDictionary
                 let all=data.allValues as! [NSDictionary]
                 for d in all{
                     self.requesta.append(d)
+                    self.requestsTable.reloadData()
                 }
                 
             }else{
+                print("hi")
                 self.requestsTable.isHidden=true
                 self.noRequestsLabel.isHidden=false
             }
@@ -42,7 +46,8 @@ var ref : DatabaseReference?
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return requesta.count
+        print(requesta.count,"ccoouunntt")
+       return requesta.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
              let cell = tableView.dequeueReusableCell(withIdentifier:"cell", for: indexPath) as! RequestStatusCell
@@ -58,9 +63,12 @@ var ref : DatabaseReference?
              cell.status.text="Declined"
              cell.status.backgroundColor = UIColor(red: 0.9373, green: 0.0745, blue: 0, alpha: 1.0)
              break;
-        default:
+        case "Pending":
             cell.status.text="Pending"
             cell.status.backgroundColor=UIColor.lightGray
+            break;
+        default:
+            print("default")
         }
         cell.SetStatus()
         return cell
