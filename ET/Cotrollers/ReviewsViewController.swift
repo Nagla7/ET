@@ -52,7 +52,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         ref = Database.database().reference()
         ref.child("Users").queryOrdered(byChild:"type").queryEqual(toValue:"admin").observe(.value, with:{(snapshot) in
             if snapshot.exists(){
-                var value=snapshot.value as! NSDictionary
+                var value = snapshot.value as! NSDictionary
                 for (_,v) in value{
                     var data=v as! NSDictionary
                     self.adminToken=data.value(forKey:"token") as? String
@@ -61,21 +61,30 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
         })
         
         self.block.isHidden = true
-        ref.child("BlockedUsers").child((Auth.auth().currentUser?.uid)!).observe(.value, with: { (snapshot) in
-            if snapshot.exists(){
-                self.text2.isHidden = true;
-                self.addReview_btn.isEnabled = false
-                self.block.isHidden = false
-            }
-            else{
-                self.block.isHidden = true
-            }
-        })
+     
 
 
         if let uid = Auth.auth().currentUser?.uid{
+             var blocked = String()
             self.addReview_btn.isHidden=false
             self.text2.isHidden=false
+            ref.child("Customers").child(uid).observe(.value, with: { (snapshot) in
+                if snapshot.exists(){
+                   
+                    let data = snapshot.value as! [String: Any]
+                    blocked = data["blocked"] as! String
+                    
+                    if(blocked == "true"){
+                    self.text2.isHidden = true;
+                    self.addReview_btn.isEnabled = false
+                        self.block.isHidden = false}
+                
+                else{
+                    self.block.isHidden = true
+                         self.addReview_btn.isEnabled = true
+                    }}
+                
+            })
             self.reviews.getReviews(id:self.EventID!, uid:uid)
         }else{self.addReview_btn.isHidden=true
             self.text2.isHidden=true
@@ -149,6 +158,7 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
   
     
     @IBAction func add_review(_ sender: Any) {
+        if(text2.text != ""){
         if let v=text2.text{
             let uid=Auth.auth().currentUser?.uid
              let autoid = ref.childByAutoId().key
@@ -160,7 +170,10 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
        self.Reviewtable.reloadData()
             
         }
-        text2.text = ""
+            text2.text = ""}
+        else{
+             self.popUpMessage(title: "Error", message: "Please enter a comment first")
+        }
     }
     //------------ Report Review ----------------------
     @IBAction func ShowReportV(_ sender: UIButton) {

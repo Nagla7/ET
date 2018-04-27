@@ -137,6 +137,7 @@ class MainPageController: UIViewController,EventDelegate,RatingDelegate,UITableV
         cell.E_image.layer.borderWidth = 2.0
         cell.E_image.layer.borderColor = UIColor.white.cgColor
         cell.E_image.layer.cornerRadius = 7
+        cell.E_image.backgroundColor = UIColor.clear
         var pic: String
         if let pic = event!["pic"] as? String{
         var url=URL(string:pic)
