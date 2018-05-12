@@ -77,17 +77,19 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     if(blocked == "true"){
                     self.text2.isHidden = true;
                     self.addReview_btn.isEnabled = false
-                        self.block.isHidden = false}
+                    self.block.isHidden = false}
                 
                 else{
                     self.block.isHidden = true
-                         self.addReview_btn.isEnabled = true
+                    self.addReview_btn.isEnabled = true
                     }}
-                
+                self.Reviewtable.frame=CGRect.init(x:0, y:144, width:325, height:346)
             })
             self.reviews.getReviews(id:self.EventID!, uid:uid)
-        }else{self.addReview_btn.isHidden=true
+        }else{
+            self.addReview_btn.isHidden=true
             self.text2.isHidden=true
+            self.Reviewtable.frame=CGRect.init(x:0, y:59, width:325, height:429)
             self.reviews.getReviews(id:self.EventID!, uid:"")
         }
         subView.layer.masksToBounds=true
@@ -113,7 +115,6 @@ class ReviewsViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        self.Reviews.reverse()
         let cell:ReviewsCell=tableView.dequeueReusableCell(withIdentifier:"cell") as! ReviewsCell
         let review=self.Reviews[indexPath.row] as! NSDictionary
         cell.review.text=review.value(forKey:"text") as? String

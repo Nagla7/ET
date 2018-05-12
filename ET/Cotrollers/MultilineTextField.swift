@@ -215,8 +215,7 @@ public class MultilineTextField: UITextView {
                     x: leftViewOrigin.x - textContainerInset.left,
                     y: leftViewOrigin.y - textContainerInset.top
                 ),
-                size: size
-            )
+                size: size)
             
             let exclusionPath = UIBezierPath(rect: exclusionRect)
             add(exclusionPath: exclusionPath)
